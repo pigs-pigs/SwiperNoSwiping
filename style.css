@@ -90,6 +90,8 @@ body {
 }
 
 .tinder--card img {
+  background-color: cyan;
+  width: 100%;
   max-width: 100%;
   pointer-events: none;
 }
