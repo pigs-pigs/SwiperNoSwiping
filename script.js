@@ -1,24 +1,22 @@
 //CREATE CARDS W/ JQUERY
 
 var db = new restdb("60ce0b22e2c96c46a246371f");
-var obj = new db.cards({Image: "https://placeimg.com/600/300/tech",
-  Heading: "Why...",
-  Description: "Test Card 123"
-  });
 
-var query = {}; // get all records
-var cardsDB = {};
-var hints = {"$max": 10, "$orderby": {"_id": -1}}; // top ten, sort by creation id in descending order
-db.cards.find(query, hints, function(err, res){
-  if (!err){
-    // res is an array of cards instances
-    cardsDB = res;
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": "60ce0b22e2c96c46a246371f",
+    "cache-control": "no-cache"
   }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
 });
-
-console.log(cardsDB);
-
-console.log(obj);
 
 var CardsList = [
   {Image: "https://placeimg.com/600/300/tech",
