@@ -3,7 +3,7 @@
 var db = new restdb("60ce0b22e2c96c46a246371f");
 
 var settings = {
-  "async": true,
+  "async": false,
   "crossDomain": true,
   "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
   "method": "GET",
@@ -22,10 +22,8 @@ var CardsList = [
 ];
 
 $.ajax(settings).done(function (response) {
-CardsList = response;
+  CardsList = response;
 });
-
-
 
 CardsList.forEach(function(Card,Index){
   $(".tinder--cards").append(`<div class="tinder--card">
