@@ -6,6 +6,16 @@ var obj = new db.cards({Image: "https://placeimg.com/600/300/tech",
   Description: "Test Card 123"
   });
 
+var query = {}; // get all records
+var hints = {"$max": 10, "$orderby": {"_id": -1}}; // top ten, sort by creation id in descending order
+db.cards.find(query, hints, function(err, res){
+  if (!err){
+    // res is an array of cards instances
+  }
+});
+
+console.log(query);
+
 console.log(obj);
 
 var CardsList = [
@@ -16,7 +26,6 @@ var CardsList = [
 ];
 
 CardsList.forEach(function(Card,Index){
-  console.log(Card)
   $(".tinder--cards").append(`<div class="tinder--card">
       <img src="` + Card.Image + `">
       <h3>`+ Card.Heading +`</h3>
