@@ -14,16 +14,18 @@ var settings = {
   }
 }
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-
 var CardsList = [
   {Image: "https://placeimg.com/600/300/tech",
-  Heading: "Why...",
-  Description: "Test Card 123"
+  Heading: "LOADING",
+  Description: "PLEASE WAIT"
   },
 ];
+
+$.ajax(settings).done(function (response) {
+CardsList = response;
+});
+
+
 
 CardsList.forEach(function(Card,Index){
   $(".tinder--cards").append(`<div class="tinder--card">
