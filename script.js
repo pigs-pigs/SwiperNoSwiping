@@ -1,7 +1,3 @@
-//CREATE CARDS W/ JQUERY
-
-var db = new restdb("60ce0b22e2c96c46a246371f");
-
 var settings = {
   "async": false,
   "crossDomain": true,
