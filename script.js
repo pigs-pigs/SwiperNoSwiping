@@ -7,14 +7,16 @@ var obj = new db.cards({Image: "https://placeimg.com/600/300/tech",
   });
 
 var query = {}; // get all records
+var cardsDB = {};
 var hints = {"$max": 10, "$orderby": {"_id": -1}}; // top ten, sort by creation id in descending order
 db.cards.find(query, hints, function(err, res){
   if (!err){
     // res is an array of cards instances
+    cardsDB = res;
   }
 });
 
-console.log(query);
+console.log(cardsDB);
 
 console.log(obj);
 
