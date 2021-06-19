@@ -1,5 +1,10 @@
 //CREATE CARDS W/ JQUERY
 
+var db = new restdb("60ce0b22e2c96c46a246371f");
+var obj = new db.cards();
+
+console.log(obj);
+
 var CardsList = [
   {Image: "https://placeimg.com/600/300/tech",
   Heading: "Why...",
