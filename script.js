@@ -125,7 +125,7 @@ function createButtonListener(love) {
     var card = cards[0];
 
     card.classList.add("removed");
-
+    
     if (love) {
       card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
@@ -133,6 +133,7 @@ function createButtonListener(love) {
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
+    $("removed").remove()
 
     initCards();
 
