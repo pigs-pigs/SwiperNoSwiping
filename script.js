@@ -27,9 +27,7 @@ $.ajax(settings).done(function (response) {
 
 CardsList.forEach(function(Card,Index){
   $(".tinder--cards").append(`<div class="tinder--card">
-      <div class="img-container">
       <img src="` + (Card.Image || "https://picsum.photos/600/300") + `">
-      </div>
       <h3>`+ Card.Heading +`</h3>
       <p>`+ Card.Description +`</p>
     </div>`)
