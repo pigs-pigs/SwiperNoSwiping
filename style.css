@@ -89,11 +89,17 @@ body {
   cursor: grabbing;
 }
 
-.tinder--card img {
+.tinder--card.img-container {
   background-color: cyan;
   width: 100%;
   height: 40%;
   max-width: 100%;
+  pointer-events: none;
+}
+
+.tinder--card img {
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
