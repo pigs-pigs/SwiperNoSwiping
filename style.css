@@ -141,12 +141,14 @@ body {
 }
 
 .tinder--buttons {
+  z-index: 1000;
   flex: 0 0 100px;
   text-align: center;
   padding-top: 20px;
 }
 
 .tinder--buttons button {
+    z-index: 1001;
     pointer-events: none;
   border-radius: 50%;
   line-height: 60px;
@@ -162,6 +164,7 @@ body {
 }
 
 .tinder--buttons i {
+    z-index: 1002;
   font-size: 32px;
   vertical-align: middle;
 }
