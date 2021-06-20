@@ -176,6 +176,7 @@ body {
   z-index: 300;
 }
 .tinder--counter p {
+  color: #fff;
   transition: 1s;
   text-align: center;
   font-weight: bold;
@@ -184,9 +185,7 @@ body {
 }
 .left {
   left: 25px;
-  color: #cdd6dd;
 }
 .right {
   right: 25px;
-  color: #fface4;
 }
