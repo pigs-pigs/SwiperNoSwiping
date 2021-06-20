@@ -39,6 +39,14 @@ body {
   }
 }
 
+#logo {
+  color: white;
+  text-align: center;
+}
+#summary {
+  color:white;
+  text-align:center;
+}
 .tinder {
   width: 100vw;
   height: 100vh;
