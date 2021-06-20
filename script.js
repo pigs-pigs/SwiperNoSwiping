@@ -1,5 +1,5 @@
 var settings = {
-  "async": false,
+  "async": true,
   "crossDomain": true,
   "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
   "method": "GET",
@@ -12,8 +12,8 @@ var settings = {
 
 var CardsList = [
   {Image: "https://picsum.photos/600/300",
-  Heading: "LOADING",
-  Description: "PLEASE WAIT"
+  Heading: "Loading...",
+  Description: "If this card does not change refresh the page."
   },
 ];
 
