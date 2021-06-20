@@ -40,10 +40,17 @@ body {
 }
 
 #logo {
+  position: fixed;
+  top: 10px;
+  left: 40%;
+  z-index: 10000;
   color: white;
   text-align: center;
 }
 #summary {
+  position: fixed;
+  top: 30px;
+  left: 40%;
   color:white;
   text-align:center;
 }
