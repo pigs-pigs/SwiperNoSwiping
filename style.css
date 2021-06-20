@@ -48,8 +48,9 @@ body {
   text-align: center;
 }
 #summary {
+  z-index: 100;
   position: fixed;
-  top: 30px;
+  top: 50px;
   left: 45%;
   color:white;
   text-align:center;
