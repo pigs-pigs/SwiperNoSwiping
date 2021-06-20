@@ -1,4 +1,6 @@
 #nav-container {
+  z-index: 9999;
+  padding: 16px;
   color: white;
   margin-left: auto;
   position: relative;
@@ -60,7 +62,6 @@
   position: absolute;
   top: 16px;
   left: 16px;
-  z-index: 9999;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
   transition: 1s;
