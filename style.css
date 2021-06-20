@@ -169,3 +169,24 @@ body {
 .fa-remove {
   color: #CDD6DD;
 }
+
+.tinder--counter {
+  position: absolute;
+  top: 40%;
+  z-index: 300;
+}
+.tinder--counter p {
+  transition: 1s;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  width: 60px;
+}
+.left {
+  left: 25px;
+  color: #cdd6dd;
+}
+.right {
+  right: 25px;
+  color: #fface4;
+}
