@@ -48,15 +48,18 @@ body {
   text-align: center;
 }
 #summary {
-  z-index: 100;
+  z-index: 1010;
+  font-size: 110%;
   position: fixed;
-  top: 50px;
-  left: 45%;
+  top: 52px;
+  left: 50%;
   color:white;
   text-align:center;
+  transition: 1s ease-in-out;
 }
 #summary:hover {
   color: hotpink;
+    transition: 1s ease-in-out;
 }
 .tinder {
   width: 100vw;
