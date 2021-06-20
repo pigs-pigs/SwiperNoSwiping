@@ -116,6 +116,10 @@
 }
 #nav-fullscreen li:hover {
   list-style: disc;
-  color: snow;
+  color: transparent;
+}
+#nav-fullscreen li:hover {
+  list-style: disc;
+  color: white;
   transition: 0.8s;
 }
