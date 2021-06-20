@@ -95,28 +95,8 @@
   transition-delay: 0.25s;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  background-color: black;
-  padding: 16px;
-  overflow: hidden;
-  color: white;
-}
-
 #nav-overlay {
-  background: linear-gradient(180deg, #FF512F 10%, #FF512F 50%, #DD2476 90%);
+  background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 #nav-toggle span {
