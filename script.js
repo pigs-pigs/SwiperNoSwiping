@@ -1,5 +1,5 @@
 var settings = {
-  "async": true,
+  "async": false,
   "crossDomain": true,
   "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
   "method": "GET",
