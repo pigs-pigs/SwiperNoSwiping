@@ -175,8 +175,6 @@ function resizeNav() {
     $("#nav-overlay").css({"margin-top": -radius, "margin-left": -radius});
 }
 
-// Set up click and window resize callbacks, then init the nav.
-$(document).ready(function() {
     $("#nav-toggle").click(function() {
         $("#nav-toggle, #nav-overlay, #nav-fullscreen").toggleClass("open");
     });
@@ -184,8 +182,4 @@ $(document).ready(function() {
     $(window).resize(resizeNav);
 
     resizeNav();
-	
-	window.setTimeout(function() {
-		 $("#nav-toggle").click();
-	}, 1000)
 });
