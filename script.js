@@ -26,6 +26,7 @@ $.ajax(settings).done(function (response) {
       <p>`+ Card.Description +`</p>
     </div>`)
 });
+  interactive();
   initCards();
 });
 
@@ -50,6 +51,7 @@ function initCards(card, index) {
 
 initCards();
 
+function interactive(){
 allCards.forEach(function (el) {
   var hammertime = new Hammer(el);
 
@@ -116,7 +118,7 @@ allCards.forEach(function (el) {
     }
   });
 });
-
+};
 function createButtonListener(love) {
   return function (event) {
     var cards = document.querySelectorAll(".tinder--card:not(.removed)");
