@@ -117,8 +117,8 @@
 #nav-fullscreen li {
   list-style: disc;
   color: black;
+  transition: 0.9;
 }
 #nav-fullscreen li:hover {
   color: white;
-  transition: 0.8s;
 }
