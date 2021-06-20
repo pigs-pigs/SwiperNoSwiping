@@ -1,5 +1,5 @@
 var settings = {
-  "async": false,
+  "async": true,
   "crossDomain": true,
   "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
   "method": "GET",
@@ -19,6 +19,14 @@ var CardsList = [
 
 $.ajax(settings).done(function (response) {
   CardsList = response;
+});
+
+CardsList.forEach(function(Card,Index){
+  $(".tinder--cards").append(`<div class="tinder--card">
+      <img src="` + (Card.Image || `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}`) + `">
+      <h3>`+ Card.Heading +`</h3>
+      <p>`+ Card.Description +`</p>
+    </div>`)
 });
 
 //MAKE CARDS INTERACTIVE
