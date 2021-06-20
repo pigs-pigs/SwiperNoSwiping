@@ -19,15 +19,6 @@ var CardsList = [
 
 $.ajax(settings).done(function (response) {
   CardsList = response;
-  CardsList.forEach(function(Card,Index){
-  $(".tinder--cards").append(`<div class="tinder--card">
-      <img src="` + (Card.Image || `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}`) + `">
-      <h3>`+ Card.Heading +`</h3>
-      <p>`+ Card.Description +`</p>
-    </div>`)
-});
-  interactive();
-  initCards();
 });
 
 //MAKE CARDS INTERACTIVE
@@ -51,7 +42,6 @@ function initCards(card, index) {
 
 initCards();
 
-function interactive(){
 allCards.forEach(function (el) {
   var hammertime = new Hammer(el);
 
@@ -118,7 +108,7 @@ allCards.forEach(function (el) {
     }
   });
 });
-};
+
 function createButtonListener(love) {
   return function (event) {
     var cards = document.querySelectorAll(".tinder--card:not(.removed)");
