@@ -110,6 +110,8 @@ allCards.forEach(function (el) {
         "px) rotate(" +
         rotate +
         "deg)";
+      
+      updateNum(toX > 0);
       initCards();
     }
   });
@@ -134,7 +136,7 @@ function createButtonListener(love) {
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
     $("removed").remove()
-
+    updateNum(love);
     initCards();
 
     event.preventDefault();
@@ -146,3 +148,16 @@ var loveListener = createButtonListener(true);
 
 nope.addEventListener("click", nopeListener);
 love.addEventListener("click", loveListener);
+
+var likedNum = 0;
+var dislikedNum = 0;
+function updateNum(liked) {
+  if (liked == true) {
+    likedNum += 1;
+    $(".right p span").text(likedNum);
+  } else {
+    dislikedNum += 1;
+    $(".left p span").text(dislikedNum);
+  }
+}
+
