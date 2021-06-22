@@ -1,0 +1,8 @@
+{
+  "name": "Swiper No Swiping",
+  "short_name": "Swiper",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000",
+  "description": "A game and creator platform for swiping cards!",
+}
