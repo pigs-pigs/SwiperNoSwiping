@@ -42,8 +42,9 @@ body {
 #logo {
   position: fixed;
   top: 10px;
-  width: 100%;
-  z-index: 10000;
+  left: 25%;
+  width: 50%;
+  z-index: 1000;
   color: white;
   text-align: center;
 }
@@ -59,7 +60,7 @@ body {
 }
 #summary:hover {
   color: hotpink;
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 .tinder {
   width: 100vw;

@@ -1,4 +1,10 @@
 var CardsList = [];
+var SetData = {
+  Title = "",
+  Description = "",
+  CreatorId = "",
+  Cover = ""
+};
 
 function getSetId() {
   var queryParams = new URLSearchParams(window.location.search);
@@ -18,7 +24,12 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  CardsList = response;
+  SetData.Title = response.Title
+  SetData.Description = response.Description
+  SetData.CreatorId = response.CreatorId
+  SetData.Cover = response.Cover
+
+  CardsList = JSON.parse(response.Cards);
 });
 
 CardsList.forEach(function (Card, Index) {
