@@ -220,23 +220,35 @@ DISCOVER
 */
 
 .discover-cards {
-  flex-grow: 1;
-  padding-top: 40px;
-  text-align: center;
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  right: 10%;
+  top: 10%;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-wrap: nowrap;
+  text-align: center;
   z-index: 1;
 }
 .fa-angle-right {
+  font-size: 30px;
   color: #fff;
   position: fixed;
   top: 45%;
   right: 10%;
 }
 .fa-angle-left {
+  font-size: 30px;
   color: #fff;
   position: fixed;
   top: 45%;
   left: 10%;
+}
+
+.discover--card {
+  margin: auto;
+  width: 30%;
+  height: 65%;
+  cursor: pointer;
+  user-select: none;
 }
