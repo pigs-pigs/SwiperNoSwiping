@@ -1,6 +1,6 @@
 function resizeNav() {
     // Set the nav height to fill the window
-    $("#nav-fullscreen").css({"height": window.innerHeight});
+    $("#nav-fullscreen").css({ "height": window.innerHeight });
 
     // Set the circle radius to the length of the window diagonal,
     // this way we're only making the circle as big as it needs to be.
@@ -8,13 +8,18 @@ function resizeNav() {
     var diameter = radius * 2;
     $("#nav-overlay").width(diameter);
     $("#nav-overlay").height(diameter);
-    $("#nav-overlay").css({"margin-top": -radius, "margin-left": -radius});
+    $("#nav-overlay").css({ "margin-top": -radius, "margin-left": -radius });
 }
 
-    $("#nav-toggle").click(function() {
-        $("#nav-toggle, #nav-overlay, #nav-fullscreen").toggleClass("open");
-    });
+$("#nav-toggle").click(function () {
+    $("#nav-toggle, #nav-overlay, #nav-fullscreen").toggleClass("open");
+});
+$("").click(function(){    
+      var url = "https://swipernoswiping.netlify.app/swipe?set=" + "1"
+      console.log(url);
+      
+      window.location.href = url;
+})
+$(window).resize(resizeNav);
 
-    $(window).resize(resizeNav);
-
-    resizeNav();
+resizeNav();

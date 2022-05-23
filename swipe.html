@@ -2,13 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Swiper No Swiping!</title>
+    <title>Swiper No Swiping!</title>
     <link rel="icon" type="image/png" href="https://www.freepngimg.com/thumb/rose/28563-5-pink-rose-transparent-background.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="Css/style.css" />
     <link rel="stylesheet" href="Css/menu.css" />
-
   </head>
   <body>
     <div id="nav-container">
@@ -18,6 +17,8 @@
 			<li><a href="home.html">Home</a></li>
 			<li><a href="discover.html">Discover</a></li>
 			<li><a href="create.html">Create</a></li>
+      <li><a href="">Testing Id</a></li>
+
 		</ul>
 	</nav>
 
@@ -27,10 +28,47 @@
 		<span></span>
 	</a>
 </div>
+    
+	  <h1 id="logo">Swiper No Swiping!</h1>
+	  <a href="#" id="summary">View Summary</a>
+	  
+ <div class="tinder">
+  <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
 
+  <div class="tinder--cards">
+    <div class="tinder--card">
+       <img src="https://picsum.photos/600/300">
+      <h3>Welcome to Swiper No Swiping</h3>
+      <p>Swipe This card to either side to see what happens!</p>
+    </div>
+  </div>
+
+  <div class="tinder--buttons">
+    <button id="nope"><i class="fa fa-remove"></i></button>
+    <button id="love"><i class="fa fa-heart"></i></button>
+  </div>
+   
+  <div class="tinder--counter right">
+    <p>
+      <span style="font-size:50px;">0</span><br>Liked Cards
+    </p>
+  </div>
+
+  <div class="tinder--counter left">
+    <p>
+      <span style="font-size:50px;">0</span><br>Disliked Cards
+    </p>
+  </div>
+   
+   
+</div>
   </body>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
         <script src="https://swipernoswiping-3b4f.restdb.io/rest/_jsapi.js"></script>
    	<script src="Js/menu.js"></script>
+	<script src="Js/cards.js"></script>
 </html>

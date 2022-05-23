@@ -1,3 +1,11 @@
+var CardsList = [];
+
+function getSetId() {
+  var queryParams = new URLSearchParams(window.location.search);
+  var setId = params.get("set");
+  return Number(setId)
+}
+console.log(getSetId())
 var settings = {
   "async": false,
   "crossDomain": true,
@@ -10,22 +18,15 @@ var settings = {
   }
 }
 
-var CardsList = [
-  {Image: "https://picsum.photos/600/300",
-  Heading: "Loading...",
-  Description: "If this card does not change refresh the page."
-  },
-];
-
 $.ajax(settings).done(function (response) {
   CardsList = response;
 });
 
-CardsList.forEach(function(Card,Index){
+CardsList.forEach(function (Card, Index) {
   $(".tinder--cards").append(`<div class="tinder--card">
       <img src="` + (Card.Image || `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}`) + `">
-      <h3>`+ Card.Heading +`</h3>
-      <p>`+ Card.Description +`</p>
+      <h3>`+ Card.Heading + `</h3>
+      <p>`+ Card.Description + `</p>
     </div>`)
 });
 
@@ -110,7 +111,7 @@ allCards.forEach(function (el) {
         "px) rotate(" +
         rotate +
         "deg)";
-      
+
       updateNum(toX > 0);
       initCards();
     }
@@ -127,7 +128,7 @@ function createButtonListener(love) {
     var card = cards[0];
 
     card.classList.add("removed");
-    
+
     if (love) {
       card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
