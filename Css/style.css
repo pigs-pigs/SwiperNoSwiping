@@ -42,7 +42,7 @@ body {
 #logo {
   position: fixed;
   top: 10px;
-  left: 41%;
+  width: 100%;
   z-index: 10000;
   color: white;
   text-align: center;
