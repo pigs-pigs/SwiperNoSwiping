@@ -1,9 +1,9 @@
 var CardsList = [];
 var SetData = {
-  Title = " ",
-  Description = " ",
-  CreatorId = " ",
-  Cover = " "
+  Title: " ",
+  Description: " ",
+  CreatorId: " ",
+  Cover: " "
 };
 
 function getSetId() {
