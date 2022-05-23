@@ -14,11 +14,11 @@ function resizeNav() {
 $("#nav-toggle").click(function () {
     $("#nav-toggle, #nav-overlay, #nav-fullscreen").toggleClass("open");
 });
-$("").click(function(){    
-      var url = "https://swipernoswiping.netlify.app/swipe?set=" + "1"
-      console.log(url);
-      
-      window.location.href = url;
+$("#testcards").click(function () {
+    var url = "https://swipernoswiping.netlify.app/swipe?set=" + "1"
+    console.log(url);
+
+    window.location.href = url;
 })
 $(window).resize(resizeNav);
 
