@@ -24,12 +24,13 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-     console.log(response)
+  var data = response[getSetId()]
+  console.log(response)
   SetData.Title = response.Title
   SetData.Description = response.Description
   SetData.CreatorId = response.CreatorId
   SetData.Cover = response.Cover
-       console.log(response.Cards)
+  console.log(response.Cards)
   CardsList = JSON.parse(response.Cards);
 });
 

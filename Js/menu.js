@@ -15,7 +15,7 @@ $("#nav-toggle").click(function () {
     $("#nav-toggle, #nav-overlay, #nav-fullscreen").toggleClass("open");
 });
 $("#testcards").click(function () {
-    var url = "https://swipernoswiping.netlify.app/swipe?set=" + "1"
+    var url = "https://swipernoswiping.netlify.app/swipe?set=" + "0"
     console.log(url);
 
     window.location.href = url;
