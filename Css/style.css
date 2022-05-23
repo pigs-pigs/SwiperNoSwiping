@@ -222,9 +222,9 @@ DISCOVER
 .discover-cards {
   position: fixed;
   width: 88%;
-  height: 80%;
+  height: 86%;
   right: 6%;
-  top: 10%;
+  top: 7%;
   display: flex;
   flex-wrap: nowrap;
   text-align: center;
