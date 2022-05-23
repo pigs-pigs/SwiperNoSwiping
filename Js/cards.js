@@ -25,13 +25,13 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   var data = response[getSetId()]
-  console.log(response)
-  SetData.Title = response.Title
-  SetData.Description = response.Description
-  SetData.CreatorId = response.CreatorId
-  SetData.Cover = response.Cover
-  console.log(response.Cards)
-  CardsList = JSON.parse(response.Cards);
+  console.log(data)
+  SetData.Title = data.Title
+  SetData.Description = data.Description
+  SetData.CreatorId = data.CreatorId
+  SetData.Cover = data.Cover
+  console.log(data.Cards)
+  CardsList = JSON.parse(data.Cards);
 });
 
 CardsList.forEach(function (Card, Index) {
