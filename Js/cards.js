@@ -2,7 +2,7 @@ var CardsList = [];
 
 function getSetId() {
   var queryParams = new URLSearchParams(window.location.search);
-  var setId = params.get("set");
+  var setId = queryParams.get("set");
   return Number(setId)
 }
 console.log(getSetId())
