@@ -31,7 +31,7 @@ $.ajax(settings).done(function (response) {
   SetData.CreatorId = data.CreatorId
   SetData.Cover = data.Cover
   console.log(data.Cards)
-  CardsList = JSON.parse(data.Cards);
+  CardsList = data.Cards;
 });
 
 CardsList.forEach(function (Card, Index) {
