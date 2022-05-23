@@ -9,6 +9,7 @@ function moveCards(direction) {
 }
 
 $(document).keydown(function (e) {
+    console.log(e.keyCode)
     if (e.keyCode == 37) { //Left
         moveCards("LEFT")
     } else if (e.keyCode == 39) { //Right
@@ -16,10 +17,10 @@ $(document).keydown(function (e) {
     }
 });
 
-$("fa-angle-right").click(function () {
+$(".fa-angle-right").click(function () {
     moveCards("RIGHT")
 })
 
-$("fa-angle-left").click(function () {
+$(".fa-angle-left").click(function () {
     moveCards("LEFT")
 })
