@@ -5,7 +5,6 @@ function getSetId() {
   var setId = queryParams.get("set");
   return Number(setId)
 }
-console.log(getSetId())
 var settings = {
   "async": false,
   "crossDomain": true,
