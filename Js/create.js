@@ -4,11 +4,11 @@ function createSet() {
         "Description": "long long long long longggg",
         "CreatorId": toString(1),
         "Cover": "https://picsum.photos/600/300",
-        "Cards": JSON.stringify({
-            Heading: "Lol",
-            Description: "yes",
-            Image: `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}`
-        })
+        "Cards": JSON.stringify([
+            { Heading: "Lol", Description: "yes", Image: `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}` },
+            { Heading: "The end", Description: "ty lol", Image: `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}` }
+
+        ])
     };
     var settings = {
         "async": false,
