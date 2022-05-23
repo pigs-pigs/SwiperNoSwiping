@@ -53,7 +53,8 @@ body {
   font-size: 110%;
   position: fixed;
   top: 52px;
-  left: 47%;
+  left: 25%;
+  width: 50%;
   color:white;
   text-align:center;
   transition: 1s ease-in-out;
@@ -212,4 +213,30 @@ body {
 }
 .right {
   right: 25px;
+}
+
+/*
+DISCOVER
+*/
+
+.discover-cards {
+  flex-grow: 1;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+}
+.fa-angle-right {
+  color: #fff;
+  position: fixed;
+  top: 45%;
+  right: 10%;
+}
+.fa-angle-left {
+  color: #fff;
+  position: fixed;
+  top: 45%;
+  left: 10%;
 }
