@@ -282,7 +282,9 @@ DISCOVER
 
 
 .error-page {
-  display: block;
+  position: fixed;
+  right: 0px;
+  top: 0px;
   background: white;
   user-select: none;
   display: flex;
