@@ -26,9 +26,11 @@ function createSet() {
 
     $.ajax(settings).done(function (response) {
         console.log(response);
+        return response._id
     });
 }
 
 $("#submitCards").click(function () {
-    createSet()
+    var setId = createSet()
+    console.log(setId)
 })

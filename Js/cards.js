@@ -9,12 +9,12 @@ var SetData = {
 function getSetId() {
   var queryParams = new URLSearchParams(window.location.search);
   var setId = queryParams.get("set");
-  return Number(setId)
+  return setId
 }
 var settings = {
   "async": false,
   "crossDomain": true,
-  "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards",
+  "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards/" + getSetId(),
   "method": "GET",
   "headers": {
     "content-type": "application/json",
@@ -23,9 +23,7 @@ var settings = {
   }
 }
 
-$.ajax(settings).done(function (response) {
-  var data = response[getSetId()]
-  console.log(data)
+$.ajax(settings).done(function(data) {
   SetData.Title = data.Title
   SetData.Description = data.Description
   SetData.CreatorId = data.CreatorId
@@ -45,10 +43,10 @@ CardsList.forEach(function (Card, Index) {
 //MAKE CARDS INTERACTIVE
 var tinderContainer = document.querySelector(".tinder");
 var allCards = document.querySelectorAll(".tinder--card");
-var nope = document.getElementById("nope");
-var love = document.getElementById("love");
+var nope = $("#nope");
+var love = $("#love");
 
-function initCards(card, index) {
+function initCards() {
   var newCards = document.querySelectorAll(".tinder--card:not(.removed)");
 
   newCards.forEach(function (card, index) {
@@ -125,6 +123,7 @@ allCards.forEach(function (el) {
         "deg)";
 
       updateNum(toX > 0);
+      $("removed").remove()
       initCards();
     }
   });
