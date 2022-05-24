@@ -16,13 +16,19 @@ function initCards() {
 
     $.ajax(settings).done(function (data) {
         data.forEach(function (Card, Index) {
-            $(".discover-cards").append(`<div class="tinder--card discover--card">
+            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
                 <img src="${Card.Cover}">
-                <a href="swipe?set=${Card._id}"><h3>${Card.Title}</h3></a>
+              <h3>${Card.Title}</h3>
                 <p>${Card.Description}</p>
               </div>`)
         });
     });
+    $(".discover--card").click(function (e) {
+        var wasClicked = $(e.target)
+        if (wasClicked && wasClicked.data("set")) {
+            window.location.href = "swipe?set=" + wasClicked.data("set")
+        }
+    })
 }
 
 initCards()
