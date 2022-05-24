@@ -13,10 +13,10 @@ body {
 
 body {
   display: flex;
-  background: #CCFBFE;
+  background: #1e1e1e;
   overflow: hidden;
   font-family: sans-serif;
-  animation: bg 30s infinite;
+  /*animation: bg 30s infinite; */
 }
 
 @keyframes bg {
@@ -270,15 +270,9 @@ DISCOVER
 
 .discover--card {
   margin: auto;
-  cursor: none;
+  cursor: pointer;
   width: 30%;
   height: 65%;
   user-select: none;
   position: relative;
-}
-
-.discover--card h3 {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
 }
