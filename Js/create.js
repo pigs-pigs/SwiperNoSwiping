@@ -23,11 +23,12 @@ function createSet() {
         "processData": false,
         "data": JSON.stringify(jsondata)
     }
-
+    var setId
     $.ajax(settings).done(function (response) {
         console.log(response);
-        return response._id
+        setId = response._id
     });
+    return setId
 }
 
 $("#submitCards").click(function () {
