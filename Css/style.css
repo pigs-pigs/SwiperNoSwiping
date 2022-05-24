@@ -282,6 +282,8 @@ DISCOVER
 
 
 .error-page {
+  display: block;
+  background: white;
   user-select: none;
   display: flex;
   align-items: center;
