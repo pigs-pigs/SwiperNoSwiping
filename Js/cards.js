@@ -23,7 +23,7 @@ var settings = {
   }
 }
 
-$.ajax(settings).done(function(data) {
+$.ajax(settings).done(function (data) {
   SetData.Title = data.Title
   SetData.Description = data.Description
   SetData.CreatorId = data.CreatorId
@@ -43,8 +43,7 @@ CardsList.forEach(function (Card, Index) {
 //MAKE CARDS INTERACTIVE
 var tinderContainer = document.querySelector(".tinder");
 var allCards = document.querySelectorAll(".tinder--card");
-var nope = $("#nope");
-var love = $("#love");
+
 
 function initCards() {
   var newCards = document.querySelectorAll(".tinder--card:not(.removed)");
@@ -155,11 +154,14 @@ function createButtonListener(love) {
   };
 }
 
+const nope = $("#nope");
+const love = $("#love");
+
 var nopeListener = createButtonListener(false);
 var loveListener = createButtonListener(true);
 
-nope.addEventListener("click", nopeListener);
-love.addEventListener("click", loveListener);
+nope.click(nopeListener);
+love.click(loveListener);
 
 var likedNum = 0;
 var dislikedNum = 0;
