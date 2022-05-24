@@ -18,7 +18,7 @@ function initCards() {
         data.forEach(function (Card, Index) {
             $(".discover-cards").append(`<div class="tinder--card discover--card">
                 <img src="${Card.Cover}">
-                 <h3><a href="swipe?set=${Card._id}">${Card.Title}</a></h3>
+                <a href="swipe?set=${Card._id}"><h3>${Card.Title}</h3></a>
                 <p>${Card.Description}</p>
               </div>`)
         });

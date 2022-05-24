@@ -174,7 +174,6 @@ body {
   margin-top: 32px;
   font-size: 32px;
   padding: 0 16px;
-  pointer-events: none;
 }
 
 .tinder--card p {
@@ -271,9 +270,15 @@ DISCOVER
 
 .discover--card {
   margin: auto;
+  cursor: none;
   width: 30%;
   height: 65%;
-  cursor: pointer;
   user-select: none;
   position: relative;
+}
+
+.discover--card h3 {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
