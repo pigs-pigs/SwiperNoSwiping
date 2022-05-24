@@ -25,6 +25,7 @@ function initCards() {
     });
 }
 
+initCards()
 
 
 function moveCards(direction) {
