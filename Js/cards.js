@@ -24,11 +24,14 @@ var settings = {
 }
 
 $.ajax(settings).done(function (data) {
+  console.log(data)
+  if (!data) {
+    window.location.href = "https://swipernoswiping.netlify.app/404"
+  }
   SetData.Title = data.Title
   SetData.Description = data.Description
   SetData.CreatorId = data.CreatorId
   SetData.Cover = data.Cover
-  console.log(data.Cards)
   CardsList = data.Cards;
 });
 
