@@ -30,7 +30,56 @@
       <span></span>
     </a>
   </div>
-  <button id="submitCards">Create</button>
+
+  <h1 style="left: 20%;   transform: translateX(-50%);
+">Set Info</h1>
+  <h1 style="right: 20%;   transform: translateX(50%);
+">Cards</h1>
+
+  <div id="create-container">
+    <div class="tinder--card">
+      <img>
+      <p class="imagebuttons">
+        <i style="left: 30%;" class="image-icons uploader-open fa fa-upload"></i>
+        <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
+      <p>
+        <input maxlength=24 class="h3-input" type="text" placeholder="Title"></input>
+        <textarea class="p-input" type="text" placeholder="Card Description" rows=4 cols="30"></textarea>
+        </img>
+    </div>
+  </div>
+  <div id="add-card"> <i style="padding-right: 2%;" class=" fa fa-plus"></i> Add Card</div>
+
+  <!--Set Info Part-->
+  <div id="set-info">
+    <div class="tinder--card">
+      <img>
+      <p class="imagebuttons">
+        <i style="left: 30%;" class="image-icons uploader-open fa fa-upload"></i>
+        <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
+      <p>
+        <input maxlength=24 class="h3-input" type="text" placeholder="Set Title"></input>
+        <textarea class="p-input" type="text" placeholder="Set Description" rows=4 cols="30"></textarea>
+        </img>
+    </div>
+  </div>
+  <div id="submit-btn"> <i style="padding-right: 2%;" class=" fa fa-check"></i> Submit Set</div>
+
+  <!--Color Picker-->
+  <div id="colorpicker"></div>
+  <!--Complete Popup-->
+  <div class="submitted-overlay">
+    <div id="submitted-popup">
+      <h2>Set Created!</h2>
+      <div id="link">
+        <a
+          href="https://swipernoswiping.netlify.app/swipe?set=628e7ddb96b90c52000079f6">https://swipernoswiping.netlify.app/swipe?set=628e7ddb96b90c52000079f6</a>
+        <i class="fa fa-copy" id="copy-link"></i>
+
+      </div>
+      <p>Coppied To Clipboard!</p>
+    </div>
+  </div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
