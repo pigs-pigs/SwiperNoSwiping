@@ -136,6 +136,16 @@ h1 {
   left: 0%;
 }
 
+.uploadcare--crop-sizes__item {
+  overflow: visible;
+}
+.uploadcare--crop-sizes__item:nth-child(1)::after {
+  content: "Half Image";
+}
+.uploadcare--crop-sizes__item:nth-child(2)::after {
+  content: "Full Image";
+}
+
 #add-card {
   position: absolute;
   right: 20%;

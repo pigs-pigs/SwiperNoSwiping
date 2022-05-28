@@ -52,7 +52,7 @@ $(document).on("click", ".uploader-open", function () {
     var dialog = uploadcare.openDialog(null, null, {
         publicKey: "1ca1277bb9380dcaf55f",
         imagesOnly: true,
-        crop: "16:9",
+        crop: "16:9,5:7",
         tabs: "file camera url gdrive gphotos"
     });
     dialog.done((res) => {
