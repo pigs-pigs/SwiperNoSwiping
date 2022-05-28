@@ -173,6 +173,7 @@ function imageOrColor(el) {
 }
 
 function checkCardEmpty(card) {
+    console.log(card,imageOrColor(card.find("img")))
     var somethingEmpty = false;
     if (!card.find(".h3-input").val()) {
         somethingEmpty = true;
