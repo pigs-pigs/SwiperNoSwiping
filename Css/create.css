@@ -68,8 +68,9 @@ h1 {
   transform: translateY(-50%);
 }
 
-.image-icons {
-    transition: 0.6s;
+.image-icons,
+.delete-card {
+  transition: 0.6s;
   cursor: pointer;
   opacity: 1;
   position: fixed;
