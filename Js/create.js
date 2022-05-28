@@ -210,15 +210,17 @@ $("#submit-btn").click(function () {
 
     // If continue
     if (!somethingEmpty) {
-        $(".spinner").addClass("active")
+        $(".spinner").addClass("spactive")
         var cardsData = [];
         cardSet.children().each(function () {
             var card = $(this);
-            cardsData.push({
-                Heading: card.find(".h3-input").val(),
-                Description: card.find(".p-input").val() || " ",
-                Image: imageOrColor(card.find("img"))
-            });
+            if (card.hasClass("tinder--card")) {
+                cardsData.push({
+                    Heading: card.find(".h3-input").val(),
+                    Description: card.find(".p-input").val() || " ",
+                    Image: imageOrColor(card.find("img"))
+                });
+            }
         });
 
         var data = {
@@ -231,8 +233,8 @@ $("#submit-btn").click(function () {
         //SEND INFO
         var setId = sendSetData(data);
         // Show Completed Page
-        $(".spinner").removeClass("active")
         $(".submitted-overlay").addClass("active");
+        $(".spinner").removeClass("spactive")
         var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
         $("#link a").attr("href", linkToSet).text(linkToSet);
         $("#link i").click(function () {

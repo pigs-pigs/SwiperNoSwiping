@@ -68,7 +68,8 @@ h1 {
   top: 20%;
 }
 
-.image-icons, .delete-card {
+.image-icons,
+.delete-card {
   cursor: pointer;
   opacity: 1;
   position: fixed;
@@ -84,6 +85,7 @@ h1 {
   font-size: 32px;
   padding: 0 16px;
 }
+
 .tinder--card .h3-input:focus {
   border: 1px solid gray;
 }
@@ -100,6 +102,7 @@ h1 {
   font-size: 20px;
   padding: 0 16px;
 }
+
 .tinder--card .p-input:focus {
   border: 1px solid gray;
 }
@@ -118,6 +121,7 @@ h1 {
   width: 40%;
   top: 10%;
 }
+
 .upload-image {
   outline: none;
   opacity: 0;
@@ -222,6 +226,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 #colorpicker.picker-open {
   visibility: visible;
   opacity: 1;
@@ -250,6 +255,7 @@ h1 {
   transform: scale(1);
   transition: all 0.5s ease;
 }
+
 /*Submitted Popup*/
 .submitted-overlay {
   opacity: 0;
@@ -284,6 +290,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 #submitted-popup h2 {
   user-select: none;
   font-size: 30px;
@@ -307,11 +314,13 @@ h1 {
   overflow-y: hidden;
   white-space: nowrap;
 }
+
 #link a {
   vertical-align: middle;
   color: blue;
   text-decoration: none;
 }
+
 #link .fa-copy {
   cursor: pointer;
   color: gray;
@@ -321,6 +330,7 @@ h1 {
   background: white;
   padding: 2%;
 }
+
 #submitted-popup p {
   transition: 0.3s;
   opacity: 0;
@@ -333,17 +343,17 @@ h1 {
 
 
 
-.spinner { 
+.spinner {
   visibility: hidden;
   z-index: 501;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
-.spinner.active {
-    visibility: visible;
+.spinner.spactive {
+  visibility: visible;
   stroke: white;
   animation: rotator 1.4s linear infinite;
 }
@@ -352,24 +362,29 @@ h1 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(270deg);
   }
 }
+
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
   transform-origin: center;
   animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
 }
+
 @keyframes dash {
   0% {
     stroke-dashoffset: 187;
   }
+
   50% {
     stroke-dashoffset: 46.75;
     transform: rotate(135deg);
   }
+
   100% {
     stroke-dashoffset: 187;
     transform: rotate(450deg);
