@@ -56,7 +56,7 @@ $(document).on("click", ".uploader-open", function () {
     });
     var cropSize = "16:9"
     $(".uploadcare--crop-sizes__icon").click(function () {
-        cropSize = $(this).data("caption")
+        cropSize = $(this).parent().data("caption")
     })
 
     dialog.done((res) => {
@@ -192,7 +192,7 @@ $("#add-card").click(function () {
 });
 
 $(document).on("click", ".delete-card", function () {
-    $(this).parent().slideToggle("fast");
+    $(this).parent().remove();
 });
 
 function imageOrColor(el) {
