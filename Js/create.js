@@ -60,7 +60,7 @@ $(document).on("click", ".uploader-open", function () {
     var dialog = uploadcare.openDialog(null, null, {
         publicKey: "1ca1277bb9380dcaf55f",
         imagesOnly: true,
-        crop: "16:9,5:7",
+        crop: "16:9" + $(this).parent().parent().parent().is("#create-container") && ",5:7",
         tabs: "file camera url gdrive gphotos"
     });
 
@@ -341,6 +341,4 @@ $(document).on("click", function (e) {
     }
 });
 
-// Check if image has the .full-image class and store that. 
-// Make titles opt when full image
-// Check crop size and auto size the image (full or half)
+// When selecting a color if image is alr uploaded, replace it
