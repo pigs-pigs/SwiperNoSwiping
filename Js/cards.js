@@ -24,8 +24,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (data) {
-  console.log(data)
-  if (!data) {
+  if (!data || data.length == 0) {
     window.location.href = "https://swipernoswiping.netlify.app/404"
   }
   SetData.Title = data.Title
