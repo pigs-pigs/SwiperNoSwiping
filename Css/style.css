@@ -144,7 +144,7 @@ body {
   max-width: 400px;
   height: 70vh;
   background: #FFFFFF;
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
   border-radius: 8px;
   overflow: hidden;
   position: absolute;

@@ -48,7 +48,7 @@ function hideUploadButtons(Card) {
     );
 }
 
-$(".uploader-open").click(function () {
+$(document).on("click", ".uploader-open", function () {
     var dialog = uploadcare.openDialog(null, null, {
         publicKey: "1ca1277bb9380dcaf55f",
         imagesOnly: true,
@@ -68,7 +68,19 @@ $(".uploader-open").click(function () {
         });
     });
 });
-//Dont forget to link script: https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js
+
+
+$(document).on("click", ".extend-img", function () {
+    if ($(this).hasClass("fa-angle-double-up")) {
+      $(this).parent().parent().find("img").removeClass("full-image").css("height", "50%");
+      $(this).parent().parent().find(".imagebuttons").css("top", "25%");
+      $(this).css("top", "280%").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+    } else {
+      $(this).parent().parent().find("img").addClass("full-image").css("height", "100%");
+      $(this).parent().parent().find(".imagebuttons").css("top", "50%");
+      $(this).css("top", "400%").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+    }
+  });  
 
 // Description Input
 function limitTextareaLine(e) {
@@ -141,11 +153,12 @@ document
 // Adding Cards
 
 const newCard = `<div class="tinder--card">
-    <i style=" right: 1%;" class="delete-card image-icons fa fa-close"></i>
+    <i style=" right: 1%;" class="delete-card fa fa-close"></i>
       <img>
       <p class="imagebuttons">
-        <i style="left: 30%;" class="image-icons uploader-open fa fa-upload"></i>
-        <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
+        <i style="left: 30%; transform: translateX(-50%);" class="image-icons uploader-open fa fa-upload"></i>
+        <i style="left: 70%; transform: translateX(-50%);" class="image-icons fa fa-paint-brush"></i>
+        <i style="top: 280%; left: 50%; transform: translateX(-50%);" class="image-icons extend-img fa fa-angle-double-down"></i>
       <p>
         <input maxlength=24 class="h3-input" type="text" placeholder="Title"></input>
         <textarea class="p-input" type="text" placeholder="Card Description" rows=4></textarea>
@@ -210,7 +223,6 @@ $("#submit-btn").click(function () {
 
     // If continue
     if (!somethingEmpty) {
-        $(".spinner").addClass("spactive")
         var cardsData = [];
         cardSet.children().each(function () {
             var card = $(this);
@@ -234,7 +246,6 @@ $("#submit-btn").click(function () {
         var setId = sendSetData(data);
         // Show Completed Page
         $(".submitted-overlay").addClass("active");
-        $(".spinner").removeClass("spactive")
         var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
         $("#link a").attr("href", linkToSet).text(linkToSet);
         $("#link i").click(function () {
@@ -303,3 +314,7 @@ $(document).on("click", function (e) {
         colorpicker.removeClass("picker-open");
     }
 });
+
+// Check if image has the .full-image class and store that. 
+// Make titles opt when full image
+// Add tall upload size, name them, check them and auto adjust the card style
