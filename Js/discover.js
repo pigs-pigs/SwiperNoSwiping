@@ -13,11 +13,19 @@ function initCards() {
             "cache-control": "no-cache"
         }
     }
+    function createImg(ImgData) {
+        var pattern = new RegExp('^http')
+        if (pattern.test(ImgData)) {
+          return `src="${ImgData}" `
+        } else {
+          return `style="background-color: ${ImgData};" `
+        }
+      }
 
     $.ajax(settings).done(function (data) {
         data.forEach(function (Card, Index) {
             $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
-                <img src="${Card.Cover}">
+                <img src="${createImg(Card.Cover)}">
               <h3>${Card.Title}</h3>
                 <p>${Card.Description}</p>
               </div>`)
