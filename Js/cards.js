@@ -32,9 +32,18 @@ $.ajax(settings).done(function (data) {
   CardsList = data.Cards;
 });
 
+function createImg(ImgData) {
+  var pattern = new RegExp('^http')
+  if (pattern.test(ImgData)) {
+    return `src="${ImgData}" `
+  } else {
+    return `style="background-color: ${ImgData};" `
+  }
+}
+
 CardsList.forEach(function (Card, Index) {
   $(".tinder--cards").append(`<div class="tinder--card">
-      <img src="` + (Card.Image || `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}`) + `">
+      <img ` + createImg(Card.Image) + `>
       <h3>`+ Card.Heading + `</h3>
       <p>`+ Card.Description + `</p>
     </div>`)
