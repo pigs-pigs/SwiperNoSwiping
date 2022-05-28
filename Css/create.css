@@ -68,7 +68,7 @@ h1 {
   top: 20%;
 }
 
-.image-icons {
+.image-icons, .delete-card {
   cursor: pointer;
   opacity: 1;
   position: fixed;

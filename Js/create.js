@@ -182,14 +182,6 @@ function checkCardEmpty(card) {
             card.find(".h3-input").unbind();
         });
     }
-    if (!card.find(".p-input").val()) {
-        somethingEmpty = true;
-        card.find(".p-input").css("border", "2px solid red");
-        card.find(".p-input").on("input", function () {
-            card.find(".p-input").css("border", "none");
-            card.find(".p-input").unbind();
-        });
-    }
     if (imageOrColor(card.find("img")) == "NONE") {
         somethingEmpty = true;
         card.find("img").css("border", "2px solid red");
@@ -220,14 +212,14 @@ $("#submit-btn").click(function () {
             var card = $(this);
             cardsData.push({
                 Heading: card.find(".h3-input").val(),
-                Description: card.find(".p-input").val(),
+                Description: card.find(".p-input").val() || " ",
                 Image: imageOrColor(card.find("img"))
             });
         });
 
         var data = {
             Title: setInfo.find(".h3-input").val(),
-            Description: setInfo.find(".p-input").val(),
+            Description: setInfo.find(".p-input").val() || " ",
             CreatorId: "1",
             Cover: imageOrColor(setInfo.find("img")),
             Cards: JSON.stringify(cardsData)
