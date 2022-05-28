@@ -202,8 +202,10 @@ $("#submit-btn").click(function () {
 
     cardSet.children().each(function () {
         var card = $(this);
-        var cardEmpty = checkCardEmpty(card);
-        somethingEmpty = somethingEmpty || cardEmpty;
+        if (card.hasClass("tinder--card")) {
+            var cardEmpty = checkCardEmpty(card);
+            somethingEmpty = somethingEmpty || cardEmpty;
+        }
     });
 
     // If continue
