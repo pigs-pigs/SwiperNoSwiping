@@ -54,6 +54,11 @@ $(document).on("click", ".uploader-open", function () {
         crop: "16:9,5:7",
         tabs: "file camera url gdrive gphotos"
     });
+    var cropSize = "16:9"
+    $(".uploadcare--crop-sizes__item").click(function () {
+        cropSize = $(this).data("caption")
+    })
+
     dialog.done((res) => {
         res.promise().done((info) => {
             console.log(info)
@@ -61,6 +66,19 @@ $(document).on("click", ".uploader-open", function () {
                 var URL = info.cdnUrl;
 
                 $(this).parent().parent().children("img").attr("src", URL);
+                if (cropSize == "16:9") {
+                    if ($(this).parent().find(".extend-img").hasClass("fa-angle-double-up")) {
+                        $(this).parent().parent().find("img").removeClass("full-image").css("height", "50%");
+                        $(this).parent().parent().find(".imagebuttons").css("top", "25%");
+                        $(this).parent().find(".extend-img").css("top", "280%").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+                    }
+                } else if (cropSize == "5:7") {
+                    if ($(this).parent().find(".extend-img").hasClass("fa-angle-double-down")) {
+                        $(this).parent().parent().find("img").addClass("full-image").css("height", "100%");
+                        $(this).parent().parent().find(".imagebuttons").css("top", "50%");
+                        $(this).parent().find(".extend-img").css("top", "400%").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+                    }
+                }
                 hideUploadButtons($(this).parent().parent());
             } else {
                 alert("Oops! Something went wrong!");
@@ -72,15 +90,15 @@ $(document).on("click", ".uploader-open", function () {
 
 $(document).on("click", ".extend-img", function () {
     if ($(this).hasClass("fa-angle-double-up")) {
-      $(this).parent().parent().find("img").removeClass("full-image").css("height", "50%");
-      $(this).parent().parent().find(".imagebuttons").css("top", "25%");
-      $(this).css("top", "280%").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+        $(this).parent().parent().find("img").removeClass("full-image").css("height", "50%");
+        $(this).parent().parent().find(".imagebuttons").css("top", "25%");
+        $(this).css("top", "280%").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
     } else {
-      $(this).parent().parent().find("img").addClass("full-image").css("height", "100%");
-      $(this).parent().parent().find(".imagebuttons").css("top", "50%");
-      $(this).css("top", "400%").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+        $(this).parent().parent().find("img").addClass("full-image").css("height", "100%");
+        $(this).parent().parent().find(".imagebuttons").css("top", "50%");
+        $(this).css("top", "400%").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
     }
-  });  
+});
 
 // Description Input
 function limitTextareaLine(e) {
