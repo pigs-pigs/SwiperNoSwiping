@@ -42,10 +42,15 @@ function createImg(ImgData) {
     return `style="background-color: ${ImgData};" `
   }
 }
+function isFullPage(Full) {
+  if (Card.FullPage) {
+    return ` style="height:100%" `
+  }
+}
 
 CardsList.forEach(function (Card, Index) {
   $(".tinder--cards").append(`<div class="tinder--card">
-      <img ` + createImg(Card.Image) + `>
+      <img ` + createImg(Card.Image) + isFullPage(Card.FullPage) + `>
       <h3>`+ Card.Heading + `</h3>
       <p>`+ Card.Description + `</p>
     </div>`)

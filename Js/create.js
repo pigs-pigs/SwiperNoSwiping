@@ -55,7 +55,7 @@ $(document).on("click", ".uploader-open", function () {
         tabs: "file camera url gdrive gphotos"
     });
     var cropSize = "16:9"
-    $(".uploadcare--crop-sizes__item").click(function () {
+    $(".uploadcare--crop-sizes__icon").click(function () {
         cropSize = $(this).data("caption")
     })
 
