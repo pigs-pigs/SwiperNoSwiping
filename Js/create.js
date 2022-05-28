@@ -1,15 +1,4 @@
-function createSet() {
-    var jsondata = {
-        "Title": "yes",
-        "Description": "long long long long longggg",
-        "CreatorId": toString(1),
-        "Cover": "https://picsum.photos/600/300",
-        "Cards": JSON.stringify([
-            { Heading: "Lol", Description: "yes", Image: `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}` },
-            { Heading: "The end", Description: "ty lol", Image: `https://picsum.photos/600/300?random=${Math.floor(Math.random() * 500)}` }
-
-        ])
-    };
+function sendSetData(data) {
     var settings = {
         "async": false,
         "crossDomain": true,
@@ -21,7 +10,7 @@ function createSet() {
             "cache-control": "no-cache"
         },
         "processData": false,
-        "data": JSON.stringify(jsondata)
+        "data": JSON.stringify(data)
     }
     var setId
     $.ajax(settings).done(function (response) {
@@ -205,6 +194,7 @@ function checkCardEmpty(card) {
         somethingEmpty = true;
         card.find("img").css("border", "2px solid red");
     }
+    console.log(somethingEmpty)
     return somethingEmpty;
 }
 
@@ -234,6 +224,7 @@ $("#submit-btn").click(function () {
                 Image: imageOrColor(card.find("img"))
             });
         });
+
         var data = {
             Title: setInfo.find(".h3-input").val(),
             Description: setInfo.find(".p-input").val(),
@@ -242,8 +233,7 @@ $("#submit-btn").click(function () {
             Cards: JSON.stringify(cardsData)
         };
         //SEND INFO
-        console.log(data);
-        var setId = "lolol";
+        var setId = sendSetData(data);
         // Show Completed Page
         $(".submitted-overlay").addClass("active");
         var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
@@ -251,7 +241,6 @@ $("#submit-btn").click(function () {
         $("#link i").click(function () {
             navigator.clipboard.writeText(linkToSet).then(function () {
                 $("#submitted-popup p").css("opacity", "1");
-                /* clipboard successfully set */
             });
         });
     }
@@ -260,43 +249,46 @@ $("#submit-btn").click(function () {
 // Color picker
 const colorpicker = $("#colorpicker");
 var currentlySelecting = null;
-let googleColors
+let googleColors = null;
+var data = null;
+var xhr = new XMLHttpRequest();
 
-$.ajax({
-    'async': false,
-    'global': false,
-    'url': "./Css/colorpicker.json",
-    'dataType': "json",
-    'success': function (data) {
-        console.log(data)
-        googleColors = JSON.parse(data);
-    }
-});
+xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+        googleColors = JSON.parse(this.responseText);
 
-//create preview swatches
-for (var color in googleColors) {
-    for (var subcolor in googleColors[color]) {
-        if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
-            let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
-            colorpicker.append(htmlString);
+        //create preview swatches
+        for (var color in googleColors) {
+            for (var subcolor in googleColors[color]) {
+                if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
+                    let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
+                    colorpicker.append(htmlString);
+                }
+            }
         }
-    }
-}
 
-$(document).on("click", ".lilcircle", function () {
-    if (currentlySelecting) {
-        $(".lilcircle").removeClass("active");
-        $(this).addClass("active");
+        $(document).on("click", ".lilcircle", function () {
+            if (currentlySelecting) {
+                $(".lilcircle").removeClass("active");
+                $(this).addClass("active");
 
-        currentlySelecting
-            .find("img")
-            .css("background-color", $(this).css("background-color"));
-        hideUploadButtons(currentlySelecting);
+                currentlySelecting
+                    .find("img")
+                    .css("background-color", $(this).css("background-color"));
+                hideUploadButtons(currentlySelecting);
+            }
+        });
+
+        //trigger click on an element
+        $(".lilcircle")[0].click();
     }
 });
 
-//trigger click on an element
-$(".lilcircle")[0].click();
+xhr.open(
+    "GET",
+    "https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/Css/colorpicker.json"
+);
+xhr.send(data);
 
 $(document).on("click", ".fa-paint-brush", function () {
     currentlySelecting = $(this).parent().parent();
