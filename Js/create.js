@@ -268,7 +268,7 @@ $.ajax({
     'url': "./Css/colorpicker.json",
     'dataType': "json",
     'success': function (data) {
-        console.log
+        console.log(data)
         googleColors = JSON.parse(data);
     }
 });
