@@ -173,7 +173,7 @@ function imageOrColor(el) {
 }
 
 function checkCardEmpty(card) {
-    console.log(card,imageOrColor(card.find("img")))
+    console.log(card, imageOrColor(card.find("img")))
     var somethingEmpty = false;
     if (!card.find(".h3-input").val()) {
         somethingEmpty = true;
@@ -208,6 +208,7 @@ $("#submit-btn").click(function () {
 
     // If continue
     if (!somethingEmpty) {
+        $(".spinner").addClass("active")
         var cardsData = [];
         cardSet.children().each(function () {
             var card = $(this);
@@ -228,6 +229,7 @@ $("#submit-btn").click(function () {
         //SEND INFO
         var setId = sendSetData(data);
         // Show Completed Page
+        $(".spinner").removeClass("active")
         $(".submitted-overlay").addClass("active");
         var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
         $("#link a").attr("href", linkToSet).text(linkToSet);
