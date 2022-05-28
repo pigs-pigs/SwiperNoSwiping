@@ -47,6 +47,15 @@ function hideUploadButtons(Card) {
     );
 }
 
+var cropSize = "16:9"
+$(document).on("click", ".uploadcare--crop-sizes__icon, .uploadcare--crop-sizes__item ", function () {
+    if ($(this).hasClass("uploadcare--crop-sizes__item")) {
+        cropSize = $(this).data("caption")
+    } else {
+        cropSize = $(this).parent().data("caption")
+    }
+})
+
 $(document).on("click", ".uploader-open", function () {
     var dialog = uploadcare.openDialog(null, null, {
         publicKey: "1ca1277bb9380dcaf55f",
@@ -54,10 +63,7 @@ $(document).on("click", ".uploader-open", function () {
         crop: "16:9,5:7",
         tabs: "file camera url gdrive gphotos"
     });
-    var cropSize = "16:9"
-    $(".uploadcare--crop-sizes__icon").click(function () {
-        cropSize = $(this).parent().data("caption")
-    })
+
 
     dialog.done((res) => {
         res.promise().done((info) => {
