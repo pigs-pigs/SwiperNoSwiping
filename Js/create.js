@@ -19,7 +19,6 @@ function sendSetData(data) {
     });
     return setId
 }
-
 // Image Uploading
 function hideUploadButtons(Card) {
     Card.find(".imagebuttons").css("opacity", "0");
@@ -57,6 +56,7 @@ $(document).on("click", ".uploader-open", function () {
     });
     dialog.done((res) => {
         res.promise().done((info) => {
+            console.log(info)
             if (info.cdnUrl) {
                 var URL = info.cdnUrl;
 
@@ -188,7 +188,8 @@ function imageOrColor(el) {
 function checkCardEmpty(card) {
     console.log(card, imageOrColor(card.find("img")))
     var somethingEmpty = false;
-    if (!card.find(".h3-input").val()) {
+    console.log(!card.find(".h3-input").val() && !card.find("img").hasClass("full-image"))
+    if (!card.find(".h3-input").val() && !card.find("img").hasClass("full-image")) {
         somethingEmpty = true;
         card.find(".h3-input").css("border", "2px solid red");
         card.find(".h3-input").on("input", function () {
@@ -230,7 +231,8 @@ $("#submit-btn").click(function () {
                 cardsData.push({
                     Heading: card.find(".h3-input").val(),
                     Description: card.find(".p-input").val() || " ",
-                    Image: imageOrColor(card.find("img"))
+                    Image: imageOrColor(card.find("img")),
+                    FullPage: card.find("img").hasClass("full-image"),
                 });
             }
         });
@@ -317,4 +319,4 @@ $(document).on("click", function (e) {
 
 // Check if image has the .full-image class and store that. 
 // Make titles opt when full image
-// Add tall upload size, name them, check them and auto adjust the card style
+// Check crop size and auto size the image (full or half)
