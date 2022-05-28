@@ -43,7 +43,7 @@ function createImg(ImgData) {
   }
 }
 function isFullPage(Full) {
-  if (Card.FullPage) {
+  if (Full) {
     return ` style="height:100%" `
   }
 }
