@@ -205,7 +205,6 @@ function checkCardEmpty(card) {
         somethingEmpty = true;
         card.find("img").css("border", "2px solid red");
     }
-    console.log(somethingEmpty)
     return somethingEmpty;
 }
 
@@ -262,12 +261,14 @@ $("#submit-btn").click(function () {
 const colorpicker = $("#colorpicker");
 var currentlySelecting = null;
 let googleColors
+
 $.ajax({
     'async': false,
     'global': false,
-    'url': "/Css/colorpicker.json",
+    'url': "./Css/colorpicker.json",
     'dataType': "json",
     'success': function (data) {
+        console.log
         googleColors = JSON.parse(data);
     }
 });
