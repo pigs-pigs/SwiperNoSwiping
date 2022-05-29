@@ -311,6 +311,9 @@ xhr.addEventListener("readystatechange", function () {
                 currentlySelecting
                     .find("img")
                     .css("background-color", $(this).css("background-color"));
+                if (currentlySelecting.find("img").attr("src")) {
+                    currentlySelecting.find("img").removeAttr("src")
+                }
                 hideUploadButtons(currentlySelecting);
             }
         });
@@ -340,5 +343,3 @@ $(document).on("click", function (e) {
         colorpicker.removeClass("picker-open");
     }
 });
-
-// When selecting a color if image is alr uploaded, replace it
