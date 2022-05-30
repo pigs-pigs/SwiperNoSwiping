@@ -190,3 +190,10 @@ function updateNum(liked) {
     $(".left p span").text(dislikedNum);
   }
 }
+
+// Swipe and create mobile compatability
+// Set Finished card
+// Set info page @/sets?id=123 with the cards and percentages and plays maybe?
+// Discover page and search
+// New cool home page
+// Loading & New menu
