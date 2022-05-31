@@ -14,9 +14,8 @@ body {
 
 body {
   display: flex;
-  background: #1e1e1e;
+  background: #111827;
   font-family: sans-serif;
-  /*animation: bg 30s infinite; */
 }
 
 h1 {

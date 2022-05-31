@@ -13,22 +13,62 @@
 </head>
 
 <body>
-  <div id="nav-container">
-    <div id="nav-overlay"></div>
-    <nav id="nav-fullscreen">
-      <ul>
-        <li><a href="index">Home</a></li>
-        <li><a href="discover">Discover</a></li>
-        <li><a href="create">Create</a></li>
-      </ul>
-    </nav>
-
-    <a id="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </a>
+   <!--Menu-->
+   <div class="app-header">
+    <div class="app-header-left">
+      <a href="https://swipernoswiping.netlify.app"><img class="app-icon" src="https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/logo.png"></img></a>
+      <p class="app-name">Home</p>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="Search">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+    <div class="app-header-right">
+      <button class="add-btn" title="Create Set">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button class="notification-btn">
+        <i class="fa fa-bell"></i>
+      </button>
+      <button class="profile-btn">
+        <img src="https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/logo.png" />
+        <span>SwiperOfficial</span>
+      </button>
+    </div>
   </div>
+  <div id="notifs-container" style="display:none;">
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">Swiper</div>
+          <i class="fa fa-star"></i>
+        </div>
+        <p class="message-line">
+          Person liked your set lolz!
+        </p>
+        <p class="message-line time">
+          1hr ago
+        </p>
+      </div>
+    </div>
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">Jessica</div>
+          <i class="fa fa-star"></i>
+        </div>
+        <p class="message-line">
+          Person liked your set lolz!
+        </p>
+        <p class="message-line time">
+          1hr ago
+        </p>
+      </div>
+    </div>
+  </div>
+  <!--End Of Menu-->
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -13,7 +13,7 @@ body {
 
 body {
   display: flex;
-  background: #1e1e1e;
+  background: #111827;
   overflow: hidden;
   font-family: sans-serif;
   /*animation: bg 30s infinite; */
@@ -53,33 +53,6 @@ body {
   87.5% {
     background-color: #ffc6ff;
   }
-}
-
-#logo {
-  position: fixed;
-  top: 10px;
-  left: 25%;
-  width: 50%;
-  z-index: 1000;
-  color: white;
-  text-align: center;
-}
-
-#summary {
-  z-index: 1010;
-  font-size: 110%;
-  position: fixed;
-  top: 52px;
-  left: 25%;
-  width: 50%;
-  color: white;
-  text-align: center;
-  transition: 1s ease-in-out;
-}
-
-#summary:hover {
-  color: hotpink;
-  transition: 0.5s ease-in-out;
 }
 
 .tinder {
