@@ -1,12 +1,12 @@
   //Searching
   $(".search-input").keydown(function (e) {
     if (e.keyCode == 13 && $(".search-input").val().trim()) {
-      console.log($(".search-input").val().trim());
+        window.location.href = "https://swipernoswiping.netlify.app/discover?q=" + $(".search-input").val().trim()
     }
   });
   $(".search-wrapper i").click(function () {
     if ($(".search-input").val().trim()) {
-      console.log($(".search-input").val().trim());
+        window.location.href = "https://swipernoswiping.netlify.app/discover?q=" + $(".search-input").val().trim()
     }
   });
   
@@ -43,7 +43,7 @@
   }
   
   $(".add-btn").click(function () {
-    //TODO: redirect to create page, no topbar on that page
+    window.location.href = "https://swipernoswiping.netlify.app/"
   });
 
 function loadPageContent(){ //maybe just refresh with a loading before and after?
