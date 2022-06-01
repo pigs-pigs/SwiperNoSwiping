@@ -21,28 +21,28 @@ function sendSetData(data) {
 }
 // Image Uploading
 function hideUploadButtons(Card) {
-    Card.find(".image-icons, .delete-card").css("opacity", "0");
+    Card.find(".image-icons").css("opacity", "0");
     if (Card.find("img").css("border") !== "none") {
         Card.find("img").css("border", "none");
     }
     Card.find("img").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
-            Card.find(".image-icons, .delete-card").css("opacity", "1");
+            Card.find(".image-icons").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
-            Card.find(".image-icons, .delete-card").css("opacity", "0");
+            Card.find(".image-icons").css("opacity", "0");
         }
     );
-    Card.find(".image-icons, .delete-card").hover(
+    Card.find(".image-icons,").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
-            Card.find(".image-icons, .delete-card").css("opacity", "1");
+            Card.find(".image-icons").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
-            Card.find(".image-icons, .delete-card").css("opacity", "0");
+            Card.find(".image-icons").css("opacity", "0");
         }
     );
 }
@@ -177,7 +177,7 @@ document
 // Adding Cards
 
 const newCard = `<div class="tinder--card">
-    <i style=" right: 1%;" class="delete-card fa fa-close"></i>
+    <i style=" right: 1%;" class="image-icons delete-card fa fa-close"></i>
       <img>
       <p class="imagebuttons">
         <i style="left: 30%; transform: translateX(-50%);" class="image-icons uploader-open fa fa-upload"></i>
