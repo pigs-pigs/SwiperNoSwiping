@@ -192,9 +192,7 @@ function updateNum(liked) {
 
 // Swipe and create mobile compatability
 // Set Finished card
-// On swipe page move tinder box down and resize cards
-
 // Set info page @/sets?id=123 with the cards and percentages and plays maybe?
 // Discover page and search
 // New cool home page
-// Loading & New menu
+// Loading

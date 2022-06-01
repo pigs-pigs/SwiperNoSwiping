@@ -254,6 +254,42 @@ DISCOVER
   position: relative;
 }
 
+
+/*Search Page*/
+
+.search-results {
+  text-align: center;
+  align-items: center;
+  width: 100vw;
+  height: 80%;
+  top: 20%;
+  overflow: scroll;
+  display: grid-container;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+.search-results .tinder--card {
+  margin: 1%;
+}
+
+.search-results .tinder--card:hover {
+  transform: scale(1.08);
+}
+.no-results {
+  color: #fff;
+  position: fixed;
+  text-align: center;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+}
+
 /* Mobile */
 @media screen and (max-width: 720px) {
   .discover-cards {
@@ -262,4 +298,8 @@ DISCOVER
     right: 10%;
     top: 30%;
   }
+  .search-results .tinder--card {
+    width: 47%;
+    height: 45%;
+    }
 }

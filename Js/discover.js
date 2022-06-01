@@ -1,11 +1,14 @@
-// Search/Discover/Recommended
+// Search
+var max = "9";
+if ($(window).width() < 720) {
+    max = "10";
+}
 
-
-function initCards() {
+function initCards(query) {
     var settings = {
         "async": false,
         "crossDomain": true,
-        "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards?max=3",
+        "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards?max=" + max + "&filter=" + query,
         "method": "GET",
         "headers": {
             "content-type": "application/json",
@@ -16,52 +19,44 @@ function initCards() {
     function createImg(ImgData) {
         var pattern = new RegExp('^http')
         if (pattern.test(ImgData)) {
-          return `src="${ImgData}" `
+            return `src="${ImgData}" `
         } else {
-          return `style="background-color: ${ImgData};" `
+            return `style="background-color: ${ImgData};" `
         }
-      }
+    }
 
     $.ajax(settings).done(function (data) {
-        data.forEach(function (Card, Index) {
-            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card" ${Index == 1 && `style="z-index: 3; box-shadow:0px 0px 7px #111827; transform: scale(1.25);"` } >
-                <img ${createImg(Card.Cover)}>
-              <h3>${Card.Title}</h3>
-                <p>${Card.Description}</p>
-              </div>`)
-        });
+        var max = 9;
+
+        if (data.length > 0) {
+
+            data.forEach(function (Card, Index) {
+                $(".search-results").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
+                    <img ${createImg(Card.Cover)}>
+                  <h3>${Card.Title}</h3>
+                    <p>${Card.Description}</p>
+                  </div>`)
+            });
+            $(".search-results").css("opacity", "1");
+        } else {
+            $(".no-results")
+                .html(
+                    'No results found for "' +
+                    query +
+                    '" <h5 style="font-weight:lighter;">Try another term!</h5>'
+                )
+                .css({ opacity: "1", display: "block" });
+        }
+
     });
     $(".discover--card").click(function (e) {
         var wasClicked = $(e.target)
         if (wasClicked && wasClicked.data("set")) {
-            window.location.href = "swipe?set=" + wasClicked.data("set")
+            window.location.href = "https://swipernoswiping.netlify.app/swipe?set=" + wasClicked.data("set")
         }
     })
 }
 
-initCards()
-
-
-function moveCards(direction) {
-    if (direction == "LEFT") {
-
-    } else if (direction == "RIGHT") {
-
-    }
-}
-
-$(document).keydown(function (e) {
-    if (e.keyCode == 37) { //Left
-        moveCards("LEFT")
-    } else if (e.keyCode == 39) { //Right
-        moveCards("RIGHT")
-    }
-});
-
-$(".fa-angle-right").click(function () {
-    moveCards("RIGHT")
-})
-
-$(".fa-angle-left").click(function () {
-    moveCards("LEFT")
-})
+var queryParams = new URLSearchParams(window.location.search);
+var query = queryParams.get("q");
+initCards(query)
