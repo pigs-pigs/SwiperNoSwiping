@@ -29,20 +29,24 @@ function hideUploadButtons(Card) {
         function () {
             Card.find("img").css("filter", "brightness(50%)");
             Card.find(".imagebuttons").css("opacity", "1");
+            Card.find(".delete-card").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
             Card.find(".imagebuttons").css("opacity", "0");
+            Card.find(".delete-card").css("opacity", "0");
         }
     );
     Card.find(".imagebuttons").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
             Card.find(".imagebuttons").css("opacity", "1");
+            Card.find(".delete-card").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
             Card.find(".imagebuttons").css("opacity", "0");
+            Card.find(".delete-card").css("opacity", "0");
         }
     );
 }
