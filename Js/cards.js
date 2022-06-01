@@ -23,16 +23,6 @@ var settings = {
   }
 }
 
-$.ajax(settings).done(function (data) {
-  if (!data || data.length == 0) {
-    window.location.href = "https://swipernoswiping.netlify.app/404"
-  }
-  SetData.Title = data.Title
-  SetData.Description = data.Description
-  SetData.CreatorId = data.CreatorId
-  SetData.Cover = data.Cover
-  CardsList = data.Cards;
-});
 
 function createImg(ImgData) {
   var pattern = new RegExp('^http')
@@ -48,6 +38,24 @@ function isFullPage(Full) {
   }
 }
 
+$.ajax(settings).done(function (data) {
+  if (!data || data.length == 0) {
+    window.location.href = "https://swipernoswiping.netlify.app/404"
+  }
+  SetData.Title = data.Title
+  SetData.Description = data.Description
+  SetData.CreatorId = data.CreatorId
+  SetData.Cover = data.Cover
+  CardsList = data.Cards;
+
+  // Create Cover Card
+  $(".tinder--cards").append(`<div class="tinder--card set-starter">
+      <img ` + createImg(SetData.Cover) + `>
+      <h3>`+ SetData.Title + `</h3>
+      <p>`+ SetData.Description + `<br><br><br>(Swipe this card to begin)</p>
+    </div>`)
+});
+
 CardsList.forEach(function (Card, Index) {
   $(".tinder--cards").append(`<div class="tinder--card">
       <img ` + createImg(Card.Image) + isFullPage(Card.FullPage) + `>
@@ -55,6 +63,7 @@ CardsList.forEach(function (Card, Index) {
       <p>`+ Card.Description + `</p>
     </div>`)
 });
+
 
 //MAKE CARDS INTERACTIVE
 var tinderContainer = document.querySelector(".tinder");
@@ -68,10 +77,11 @@ function initCards() {
     card.style.zIndex = allCards.length - index;
     card.style.transform =
       "scale(" + (20 - index) / 20 + ") translateY(-" + 30 * index + "px)";
-    card.style.opacity = (10 - index) / 10;
+    card.style.opacity = (5 - index) / 10;
   });
-
   tinderContainer.classList.add("loaded");
+  console.log(newCards.length)
+  return newCards.length
 }
 
 initCards();
@@ -137,9 +147,11 @@ allCards.forEach(function (el) {
         rotate +
         "deg)";
 
-      updateNum(toX > 0);
+      if (!el.classList.contains("set-starter")) {
+        updateNum(toX > 0);
+      }
       initCards();
-      setTimeout(function(){ el.remove() },2000);
+      setTimeout(function () { el.remove() }, 2000);
     }
   });
 });
@@ -162,9 +174,11 @@ function createButtonListener(love) {
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
-    updateNum(love);
+    if (!el.classList.contains("set-starter")) {
+      updateNum(love);
+    }
     initCards();
-    setTimeout(function(){ el.remove() },2000);
+    setTimeout(function () { el.remove() }, 2000);
     event.preventDefault();
   };
 }
@@ -180,6 +194,7 @@ love.click(loveListener);
 
 var likedNum = 0;
 var dislikedNum = 0;
+
 function updateNum(liked) {
   if (liked == true) {
     likedNum += 1;
