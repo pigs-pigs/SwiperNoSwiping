@@ -55,7 +55,7 @@ h1 {
 
 .tinder--card img:hover {
   transition: 0.3s;
-  background: hsl(0, 0%, 30%);
+  background: hsl(0, 28%, 91%);
 }
 
 .imagebuttons {
@@ -68,6 +68,7 @@ h1 {
 }
 
 .image-icons {
+  z-index:1;
   transition: 0.6s;
   cursor: pointer;
   opacity: 1;
