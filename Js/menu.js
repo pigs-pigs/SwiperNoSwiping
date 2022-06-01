@@ -45,25 +45,6 @@
   $(".add-btn").click(function () {
     //TODO: redirect to create page, no topbar on that page
   });
-  
-  // Search/Discover/Recommended
-  $(".discover-cards").append(`<div class="tinder--card discover--card">
-                  <img src="https://picsum.photos/id/605/600/300"}>
-                <h3>LOL</h3>
-                  <p>WOOooo</p>
-                </div>`);
-  $(".discover-cards")
-    .append(`<div class="tinder--card discover--card" style="z-index: 3; box-shadow:0px 0px 7px #111827; transform: scale(1.25);">
-                  <img src="https://picsum.photos/id/605/600/300"}>
-                <h3>LOL</h3>
-                  <p>WOOooo</p>
-                </div>`);
-  $(".discover-cards").append(`<div class="tinder--card discover--card">
-                  <img src="https://picsum.photos/id/605/600/300"}>
-                <h3>LOL</h3>
-                  <p>WOOooo</p>
-                </div>`);
-  
 
 function loadPageContent(){ //maybe just refresh with a loading before and after?
     //1. Apply Loading Screen

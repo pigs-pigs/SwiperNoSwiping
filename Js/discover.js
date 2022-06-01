@@ -24,7 +24,7 @@ function initCards() {
 
     $.ajax(settings).done(function (data) {
         data.forEach(function (Card, Index) {
-            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
+            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card" ${Index == 1 && `style="z-index: 3; box-shadow:0px 0px 7px #111827; transform: scale(1.25);"` } >
                 <img ${createImg(Card.Cover)}>
               <h3>${Card.Title}</h3>
                 <p>${Card.Description}</p>
