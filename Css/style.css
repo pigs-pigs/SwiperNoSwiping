@@ -216,10 +216,10 @@ DISCOVER
 
 .discover-cards {
   position: fixed;
-  width: 88%;
-  height: 86%;
-  right: 6%;
-  top: 7%;
+  width: 70%;
+  height: 80%;
+  right: 15%;
+  top: 10%;
   display: flex;
   flex-wrap: nowrap;
   text-align: center;
@@ -230,16 +230,18 @@ DISCOVER
   font-size: 60px;
   color: #fff;
   position: fixed;
-  top: 45%;
-  right: 3%;
+  top: 50%;
+  right: 9%;
+  transform: translateY(-50%);
 }
 
 .fa-angle-left {
   font-size: 60px;
   color: #fff;
   position: fixed;
-  top: 45%;
-  left: 3%;
+  top: 50%;
+  left: 9%;
+  transform: translateY(-50%);
 }
 
 .discover--card {
@@ -249,4 +251,14 @@ DISCOVER
   height: 65%;
   user-select: none;
   position: relative;
+}
+
+/* Mobile */
+@media screen and (max-width: 720px) {
+  .discover-cards {
+    width: 80%;
+    height: 40%;
+    right: 10%;
+    top: 30%;
+  }
 }

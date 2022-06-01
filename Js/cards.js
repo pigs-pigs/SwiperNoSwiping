@@ -138,7 +138,7 @@ allCards.forEach(function (el) {
         "deg)";
 
       updateNum(toX > 0);
-      $("removed").remove()
+      $(".removed").remove()
       initCards();
     }
   });
@@ -162,7 +162,7 @@ function createButtonListener(love) {
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
-    $("removed").remove()
+    $(".removed").remove()
     updateNum(love);
     initCards();
 
@@ -193,6 +193,8 @@ function updateNum(liked) {
 
 // Swipe and create mobile compatability
 // Set Finished card
+// On swipe page move tinder box down and resize cards
+
 // Set info page @/sets?id=123 with the cards and percentages and plays maybe?
 // Discover page and search
 // New cool home page
