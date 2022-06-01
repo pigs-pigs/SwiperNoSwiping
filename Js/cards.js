@@ -77,11 +77,12 @@ function initCards() {
     card.style.zIndex = allCards.length - index;
     card.style.transform =
       "scale(" + (20 - index) / 20 + ") translateY(-" + 30 * index + "px)";
-    card.style.opacity = (5 - index) / 10;
+    card.style.opacity = (10 - index) / 10;
   });
   tinderContainer.classList.add("loaded");
-  console.log(newCards.length)
-  return newCards.length
+  if (newCards.length == 0){
+    //Finished popup
+  }
 }
 
 initCards();
