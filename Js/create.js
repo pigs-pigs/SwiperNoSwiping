@@ -21,32 +21,28 @@ function sendSetData(data) {
 }
 // Image Uploading
 function hideUploadButtons(Card) {
-    Card.find(".imagebuttons").css("opacity", "0");
+    Card.find(".image-icons, .delete-card").css("opacity", "0");
     if (Card.find("img").css("border") !== "none") {
         Card.find("img").css("border", "none");
     }
     Card.find("img").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
-            Card.find(".imagebuttons").css("opacity", "1");
-            Card.find(".delete-card").css("opacity", "1");
+            Card.find(".image-icons, .delete-card").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
-            Card.find(".imagebuttons").css("opacity", "0");
-            Card.find(".delete-card").css("opacity", "0");
+            Card.find(".image-icons, .delete-card").css("opacity", "0");
         }
     );
-    Card.find(".imagebuttons").hover(
+    Card.find(".image-icons, .delete-card").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
-            Card.find(".imagebuttons").css("opacity", "1");
-            Card.find(".delete-card").css("opacity", "1");
+            Card.find(".image-icons, .delete-card").css("opacity", "1");
         },
         function () {
             Card.find("img").css("filter", "brightness(100%)");
-            Card.find(".imagebuttons").css("opacity", "0");
-            Card.find(".delete-card").css("opacity", "0");
+            Card.find(".image-icons, .delete-card").css("opacity", "0");
         }
     );
 }
