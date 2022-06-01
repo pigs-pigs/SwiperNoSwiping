@@ -35,7 +35,7 @@ function hideUploadButtons(Card) {
             Card.find(".image-icons").css("opacity", "0");
         }
     );
-    Card.find(".image-icons,").hover(
+    Card.find(".image-icons").hover(
         function () {
             Card.find("img").css("filter", "brightness(50%)");
             Card.find(".image-icons").css("opacity", "1");
