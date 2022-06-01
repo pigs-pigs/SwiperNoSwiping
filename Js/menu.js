@@ -43,14 +43,5 @@
   }
   
   $(".add-btn").click(function () {
-    window.location.href = "https://swipernoswiping.netlify.app/"
+    window.location.href = "https://swipernoswiping.netlify.app/create"
   });
-
-function loadPageContent(){ //maybe just refresh with a loading before and after?
-    //1. Apply Loading Screen
-    //2. destroy app container on this page and load it from another
-    //3. Change the CSS and JS linked to the page
-    //3. remove loading screen
-
-    //NOTE: make sure all pages have the exact same menu and sizing etc.
-}

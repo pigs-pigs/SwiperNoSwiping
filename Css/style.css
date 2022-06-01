@@ -57,7 +57,8 @@ body {
 
 .tinder {
   width: 100vw;
-  height: 100vh;
+  height: 90%;
+  top: 10%;
   overflow: hidden;
   display: flex;
   flex-direction: column;

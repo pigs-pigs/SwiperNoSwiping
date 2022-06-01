@@ -138,8 +138,8 @@ allCards.forEach(function (el) {
         "deg)";
 
       updateNum(toX > 0);
-      $(".removed").remove()
       initCards();
+      setTimeout(function(){ el.remove() },2000);
     }
   });
 });
@@ -162,10 +162,9 @@ function createButtonListener(love) {
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
-    $(".removed").remove()
     updateNum(love);
     initCards();
-
+    setTimeout(function(){ el.remove() },2000);
     event.preventDefault();
   };
 }

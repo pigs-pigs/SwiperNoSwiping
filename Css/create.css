@@ -22,7 +22,7 @@ h1 {
   user-select: none;
   color: white;
   position: fixed;
-  top: 2%;
+  top: 9%;
 }
 
 /*Cards*/
@@ -120,7 +120,7 @@ h1 {
 
   height: 80%;
   width: 40%;
-  top: 10%;
+  top: 15%;
 }
 
 .upload-image {
@@ -212,7 +212,7 @@ h1 {
   position: absolute;
   width: 40%;
   height: 60%;
-  top: 10%;
+  top: 15%;
   left: 20%;
   transform: translateX(-50%);
 }
