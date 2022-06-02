@@ -207,8 +207,9 @@ function updateNum(liked) {
 }
 
 // Swipe and create mobile compatability
-// Set Finished card
+// Set Finished popup
+// Arrows on home page
 // Set info page @/sets?id=123 with the cards and percentages and plays maybe?
-// Discover page and search
+// Discover page
 // New cool home page
 // Loading

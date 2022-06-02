@@ -215,6 +215,12 @@ body {
 DISCOVER
 */
 
+.center-card {
+  z-index: 3;
+  box-shadow: 0px 0px 7px #111827;
+  transform: scale(1.25);
+}
+
 .discover-cards {
   position: fixed;
   width: 70%;
@@ -269,6 +275,7 @@ DISCOVER
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
 }
+
 .search-results .tinder--card {
   margin: 1%;
 }
@@ -276,6 +283,7 @@ DISCOVER
 .search-results .tinder--card:hover {
   transform: scale(1.08);
 }
+
 .no-results {
   color: #fff;
   position: fixed;
@@ -298,8 +306,9 @@ DISCOVER
     right: 10%;
     top: 30%;
   }
+
   .search-results .tinder--card {
     width: 47%;
     height: 45%;
-    }
+  }
 }
