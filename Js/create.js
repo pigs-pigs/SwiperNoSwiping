@@ -343,3 +343,31 @@ $(document).on("click", function (e) {
         colorpicker.removeClass("picker-open");
     }
 });
+
+//FIXME:
+//1 when color replaces image the "invalid source" icon pops up
+//2 Cover can be tall
+//3 tall sizing may need to be 2:3 instead idk
+//4 Color picker overflow should be scroll
+//5 Mobile opt SUCKS
+//6 Auto pick crop mode based on image sizing if possible
+//7 Maybe drag and drop onto the card to upload too?
+//8 Pasting Images
+//9 Revamp the submitted popup with blue bg, semi-transparent & More options
+
+/* Image Search Stuff
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://bing-image-search1.p.rapidapi.com/images/search?q=men&count=25",
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
+		"X-RapidAPI-Key": "7e7cf41139msh4b82cc4bff6d616p18ba28jsn3bd9ff7a8a62"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
+*/

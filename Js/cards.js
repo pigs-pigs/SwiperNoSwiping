@@ -155,7 +155,7 @@ allCards.forEach(function (el) {
         updateNum(toX > 0);
       }
       initCards();
-      setTimeout(function () { el.remove() }, 2000);
+      setTimeout(function () { el.remove() }, 900);
     }
   });
 });
@@ -178,11 +178,11 @@ function createButtonListener(love) {
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
-    if (!el.classList.contains("set-starter")) {
+    if (!card.classList.contains("set-starter")) {
       updateNum(love);
     }
     initCards();
-    setTimeout(function () { el.remove() }, 2000);
+    setTimeout(function () { card.remove() }, 2000);
     event.preventDefault();
   };
 }

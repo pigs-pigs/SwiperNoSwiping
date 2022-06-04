@@ -316,7 +316,7 @@ DISCOVER
   z-index: 100;
   overflow: scroll;
   position: fixed;
-  width: 35%;
+  width: 40%;
   height: 40%;
   left: 50%;
   top: 50%;
@@ -333,6 +333,9 @@ DISCOVER
   margin-top: 15%;
   padding: 5px;
 }
+.end-modal * {
+  margin-top: 10%;
+}
 
 .end-modal a {
   color: #061944;
@@ -348,7 +351,7 @@ DISCOVER
   border-radius: 10px;
   width: 23%;
   height: 13%;
-  margin: 15px;
+  margin: 10% 8px 0px;
   font-size: 13pt;
   color: #061944;
   transition: 0.5s;
@@ -373,4 +376,10 @@ DISCOVER
     width: 47%;
     height: 45%;
   }
+
+  .end-modal {
+    width: 80%
+  }
+  .tinder--counter {display: none;}
+  
 }
