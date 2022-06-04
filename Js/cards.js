@@ -82,7 +82,9 @@ function initCards() {
   tinderContainer.classList.add("loaded");
   if (newCards.length == 0){
     //Finished popup
-    $(".end-overlay").css({"display":"block","opacity":"0.7"})
+    $(".end-overlay").css({"visibility":"visible","opacity":"0.7"})
+    $(".end-modal").css({"visibility":"visible","opacity":"1"})
+
   }
 }
 
