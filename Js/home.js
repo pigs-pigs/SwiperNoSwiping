@@ -24,7 +24,7 @@ var settings = {
 $.ajax(settings).done(function (response) { data = response });
 
 function initCards(Starter) {
-    for (let index = Starter; index <= Starter + 3; index++) {
+    for (let index = Starter; index <= Starter + 2; index++) {
         var Card = data[index]
         $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card ${index == Starter + 1 && `center-card`}">
             <img ${createImg(Card.Cover)}>
