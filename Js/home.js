@@ -1,5 +1,6 @@
 // Search/Discover/Recommended
-var MiddleCard = 1
+var FirstCard = 0
+var data
 function createImg(ImgData) {
     var pattern = new RegExp('^http')
     if (pattern.test(ImgData)) {
@@ -9,81 +10,55 @@ function createImg(ImgData) {
     }
 }
 
-function initCards() {
-    var settings = {
-        "async": false,
-        "crossDomain": true,
-        "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?max=3&skip=${MiddleCard - 1}&h={"$orderby":{"_created":-1}}`,
-        "method": "GET",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": "60ce0b22e2c96c46a246371f",
-            "cache-control": "no-cache"
-        }
+var settings = {
+    "async": false,
+    "crossDomain": true,
+    "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?max=150&h={"$orderby":{"_created":-1}}`,
+    "method": "GET",
+    "headers": {
+        "content-type": "application/json",
+        "x-apikey": "60ce0b22e2c96c46a246371f",
+        "cache-control": "no-cache"
     }
+}
+$.ajax(settings).done(function (response) { data = response });
 
-    $.ajax(settings).done(function (data) {
-        data.forEach(function (Card, Index) {
-            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card ${Index == 1 && `center-card`}">
-                <img ${createImg(Card.Cover)}>
-              <h3>${Card.Title}</h3>
-                <p>${Card.Description}</p>
-              </div>`)
-        });
-    });
-    $(".discover--card").click(function (e) {
-        var wasClicked = $(e.target)
-        if (wasClicked && wasClicked.data("set")) {
-            window.location.href = "swipe?set=" + wasClicked.data("set")
-        }
-    })
+function initCards(Starter) {
+    for (let index = Starter; index <= Starter + 3; index++) {
+        $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card ${index == Starter + 1 && `center-card`}">
+            <img ${createImg(Card.Cover)}>
+          <h3>${Card.Title}</h3>
+            <p>${Card.Description}</p>
+          </div>`)
+    }
 }
 
-function addCard() {
-    var settings = {
-        "async": false,
-        "crossDomain": true,
-        "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?max=1&skip=${MiddleCard}&h={"$orderby":{"_created":-1}}`,
-        "method": "GET",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": "60ce0b22e2c96c46a246371f",
-            "cache-control": "no-cache"
-        }
+$(".discover-cards").on("click", ".discover--card", function () {
+    if ($(this).data("set")) {
+        window.location.href = "swipe?set=" + $(this).data("set")
     }
+})
 
-    $.ajax(settings).done(function (data) {
-        data.forEach(function (Card, Index) {
-            $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
-                <img ${createImg(Card.Cover)}>
-              <h3>${Card.Title}</h3>
-                <p>${Card.Description}</p>
-              </div>`)
-        });
-    });
-    $(".discover--card").click(function (e) {
-        var wasClicked = $(e.target)
-        if (wasClicked && wasClicked.data("set")) {
-            window.location.href = "swipe?set=" + wasClicked.data("set")
-        }
-    })
-}
-
-initCards()
+initCards(0)
 
 
 function moveCards(direction) {
-    if (direction == "LEFT") {
-        MiddleCard -= 1
+    if (direction == "LEFT" && FirstCard > 0) {
+        FirstCard -= 1
         $(".discover-cards").children()[2].remove()
         $(".discover-cards").children()[1].removeClass("center-card")
         $(".discover-cards").children()[1].addClass("center-card")
-    } else if (direction == "RIGHT") {
-        MiddleCard += 1
+    } else if (direction == "RIGHT" && FirstCard < data.length - 2) {
+        FirstCard += 1
         $(".discover-cards").children()[0].remove()
-        $(".discover-cards").children()[0].removeClass("center-card")
         $(".discover-cards").children()[1].addClass("center-card")
-        addCard()
+        
+        var Card = data[FirstCard + 2]
+        $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
+        <img ${createImg(Card.Cover)}>
+      <h3>${Card.Title}</h3>
+        <p>${Card.Description}</p>
+      </div>`)
     }
 }
 
