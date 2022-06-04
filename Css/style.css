@@ -306,6 +306,8 @@ DISCOVER
   height: 100%;
   left: 0px;
   top: 0px;
+  visibility: hidden;
+  opacity: 0;
   background: #070a11;
   transition: 0.5s;
 }
@@ -322,7 +324,7 @@ DISCOVER
   background: white;
   visibility: hidden;
   opacity: 0;
-    border-radius: 5px;
+  border-radius: 5px;
   transition: 0.5s;
   text-align: center;
 }
