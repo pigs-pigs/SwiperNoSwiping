@@ -25,6 +25,7 @@ $.ajax(settings).done(function (response) { data = response });
 
 function initCards(Starter) {
     for (let index = Starter; index <= Starter + 3; index++) {
+        var Card = data[index]
         $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card ${index == Starter + 1 && `center-card`}">
             <img ${createImg(Card.Cover)}>
           <h3>${Card.Title}</h3>
@@ -46,13 +47,20 @@ function moveCards(direction) {
     if (direction == "LEFT" && FirstCard > 0) {
         FirstCard -= 1
         $(".discover-cards").children()[2].remove()
-        $(".discover-cards").children()[1].removeClass("center-card")
+
+        var Card = data[FirstCard]
+        $(".discover-cards").prepend(`<div data-set="${Card._id}" class="tinder--card discover--card">
+        <img ${createImg(Card.Cover)}>
+      <h3>${Card.Title}</h3>
+        <p>${Card.Description}</p>
+      </div>`)
         $(".discover-cards").children()[1].addClass("center-card")
+
     } else if (direction == "RIGHT" && FirstCard < data.length - 2) {
         FirstCard += 1
         $(".discover-cards").children()[0].remove()
         $(".discover-cards").children()[1].addClass("center-card")
-        
+
         var Card = data[FirstCard + 2]
         $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
         <img ${createImg(Card.Cover)}>
