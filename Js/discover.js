@@ -59,4 +59,5 @@ function initCards(query) {
 
 var queryParams = new URLSearchParams(window.location.search);
 var query = queryParams.get("q");
+$(".search-input").val(query)
 initCards(query)

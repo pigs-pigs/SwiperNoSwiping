@@ -58,7 +58,7 @@ function moveCards(direction) {
         $($(".discover-cards").children()[2]).removeClass("center-card")
         $($(".discover-cards").children()[1]).addClass("center-card")
 
-    } else if (direction == "RIGHT" && FirstCard < data.length - 2) {
+    } else if (direction == "RIGHT" && FirstCard < data.length - 3) {
         FirstCard += 1
         $($(".discover-cards").children()[0]).remove()
         $($(".discover-cards").children()[0]).removeClass("center-card")
