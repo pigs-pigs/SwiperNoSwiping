@@ -46,7 +46,7 @@ initCards(0)
 function moveCards(direction) {
     if (direction == "LEFT" && FirstCard > 0) {
         FirstCard -= 1
-        $(".discover-cards").children()[2].remove()
+        $($(".discover-cards").children()[2]).remove()
 
         var Card = data[FirstCard]
         $(".discover-cards").prepend(`<div data-set="${Card._id}" class="tinder--card discover--card">
@@ -54,12 +54,12 @@ function moveCards(direction) {
       <h3>${Card.Title}</h3>
         <p>${Card.Description}</p>
       </div>`)
-        $(".discover-cards").children()[1].addClass("center-card")
+        $($(".discover-cards").children()[1]).addClass("center-card")
 
     } else if (direction == "RIGHT" && FirstCard < data.length - 2) {
         FirstCard += 1
-        $(".discover-cards").children()[0].remove()
-        $(".discover-cards").children()[1].addClass("center-card")
+        $($(".discover-cards").children()[0]).remove()
+        $($(".discover-cards").children()[1]).addClass("center-card")
 
         var Card = data[FirstCard + 2]
         $(".discover-cards").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
