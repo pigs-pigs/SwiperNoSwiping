@@ -298,6 +298,67 @@ DISCOVER
   transition: 0.2s;
 }
 
+/*Set Finished Modal*/
+.end-overlay {
+  display: none;
+  opacity: 0;
+
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: #070a11;
+  transition: 0.3s;
+}
+
+.end-modal {
+  overflow: scroll;
+  position: fixed;
+  width: 35%;
+  height: 40%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  opacity: 1;
+  border-radius: 5px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.end-modal h1 {
+  margin-top: 15%;
+  padding: 5px;
+}
+
+.end-modal a {
+  color: #061944;
+  text-decoration: none;
+}
+
+.end-modal a:hover {
+  color: blue;
+}
+
+.end-modal button {
+  border: 2px solid #061944;
+  border-radius: 10px;
+  width: 23%;
+  height: 13%;
+  margin: 15px;
+  font-size: 13pt;
+  color: #061944;
+  transition: 0.5s;
+}
+
+.end-modal button:hover {
+  background-color: #061944;
+  color: white;
+
+}
+
 /* Mobile */
 @media screen and (max-width: 720px) {
   .discover-cards {

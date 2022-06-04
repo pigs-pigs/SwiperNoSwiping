@@ -82,6 +82,7 @@ function initCards() {
   tinderContainer.classList.add("loaded");
   if (newCards.length == 0){
     //Finished popup
+    $(".end-overlay").css({"display":"block","opacity":"0.7"})
   }
 }
 
@@ -207,9 +208,7 @@ function updateNum(liked) {
 }
 
 // Swipe and create mobile compatability
-// Set Finished popup
-// Arrows on home page
+// Set Finished popup (look in SweetAlert)
 // Set info page @/sets?id=123 with the cards and percentages and plays maybe?
-// Discover page
 // New cool home page
 // Loading
