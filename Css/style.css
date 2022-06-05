@@ -258,6 +258,15 @@ DISCOVER
   position: relative;
 }
 
+.account--card {
+  margin: 0px 20px 15px 0px;
+  cursor: pointer;
+  width: 45%;
+  height: 65%;
+  user-select: none;
+  position: relative;
+}
+
 
 /*Search Page*/
 

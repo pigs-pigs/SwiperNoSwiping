@@ -12,14 +12,14 @@
 }
 
 .account-frame .background {
-  background-color: white;
+  background-color: paleturquoise;
   width: 100%;
   height: 30%;
   position: absolute;
   top: 0px;
   left: 0px;
   border-radius: 18px 18px 0px 0px;
-  filter: blur(4px);
+  filter: blur(1px);
 }
 
 .account-frame .profile {
@@ -43,4 +43,22 @@
 .account-frame p {
   position: relative;
   top: 43%;
+  left: 25%;
+  width: 50%;
+}
+
+
+.account-frame h3 {
+  position: relative;
+  top: 50%;
+  left: 25%;
+  width: 50%;
+}
+
+
+.account-frame .sets-holder {
+  position: relative;
+  top: 53%;
+  left: 25%;
+  width: 50%;
 }
