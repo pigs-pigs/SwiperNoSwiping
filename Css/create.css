@@ -68,7 +68,7 @@ h1 {
 }
 
 .image-icons {
-  z-index:1;
+  z-index: 1;
   transition: 0.6s;
   cursor: pointer;
   opacity: 1;
@@ -136,9 +136,11 @@ h1 {
 .uploadcare--crop-sizes__item {
   overflow: visible;
 }
+
 .uploadcare--crop-sizes__item:nth-child(1)::after {
   content: "Half Image";
 }
+
 .uploadcare--crop-sizes__item:nth-child(2)::after {
   content: "Full Image";
 }
@@ -272,10 +274,10 @@ h1 {
   transition: 0.5s;
   height: 100vh;
   width: 100vw;
-  poistion: fixed;
+  position: fixed;
   left: 0px;
   top: 0px;
-  background: #1e1e1e;
+  background: #111827;
   z-index: 500;
 }
 
@@ -350,10 +352,10 @@ h1 {
   text-align: center;
 }
 
-/* Mobile */
+/* Mobile TODO:*/
 @media screen and (max-width: 720px) {
-h1 {
-  left: 50%;
-}
-  
+  h1 {
+    left: 50%;
+  }
+
 }
