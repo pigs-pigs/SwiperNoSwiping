@@ -55,7 +55,7 @@ h1 {
 
 .tinder--card img:hover {
   transition: 0.3s;
-  background: hsl(0, 0%, 91%);
+  background: hsl(0, 0%, 20%);
 }
 
 .imagebuttons {

@@ -1,0 +1,22 @@
+.account-frame {
+  background-color: white;
+  border-radius: 18px;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200%;
+}
+
+.account-frame img {
+  background-color: blueviolet;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 18px;
+}
