@@ -5,8 +5,10 @@
   align-items: center;
   width: 100%;
   top: 0px;
-  padding: 16px 24px;
+  padding: 10px 24px;
   position: fixed;
+  z-index: 15;
+  background-color: #111827;
 }
 
 .app-header-left,
