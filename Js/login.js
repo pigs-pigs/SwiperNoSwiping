@@ -48,7 +48,7 @@ const updateUI = async () => {
             const userPromise = await auth0.getUser();
             const userdata = JSON.parse(JSON.stringify(userPromise))
             console.log(userdata)
-            $(".profile-btn span").text(userdata.username)
+            $(".profile-btn span").text(userdata["https://data/username"])
 
             $("#user-options").append(`<div><i class="fa fa-user"></i>  Your profile</div><div><i class="fa fa-sign-out"></i>  Log out</div>`)
             $(".profile-btn").click(function () {
