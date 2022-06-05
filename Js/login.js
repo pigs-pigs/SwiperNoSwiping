@@ -37,6 +37,17 @@ const logout = () => {
 };
 
 
+function getUserInfo() {
+    const userPromise = await auth0.getUser();
+    const userdata = JSON.parse(JSON.stringify(userPromise))
+    var newData = {
+        username = userdata["https://data/username"],
+        userId = userdata.sub.replace('auth0|', ''),
+        profile = userdata.picture
+    }
+    return newData
+}
+
 /**
  * Updates the user interface
  */
@@ -45,14 +56,18 @@ const updateUI = async () => {
         const isAuthenticated = await auth0.isAuthenticated();
 
         if (isAuthenticated) {
-            const userPromise = await auth0.getUser();
-            const userdata = JSON.parse(JSON.stringify(userPromise))
-            console.log(userdata)
-            $(".profile-btn span").text(userdata["https://data/username"])
+           var user = getUserInfo()
+            $(".profile-btn span").text(user.username)
 
-            $("#user-options").append(`<div><i class="fa fa-user"></i>  Your profile</div><div><i class="fa fa-sign-out"></i>  Log out</div>`)
+            $("#user-options").append(`<div class="your-profile"><i class="fa fa-user"></i>  Your profile</div><div class="logout"><i class="fa fa-sign-out"></i>  Log out</div>`)
             $(".profile-btn").click(function () {
                 $("#user-options").fadeToggle()
+            })
+            $("#user-options .your-profile").click(function () {
+                window.location.href = "https://swipernoswiping.netlify.app/profile" //TODO:
+            })
+            $("#user-options .logout").click(function () {
+                logout()
             })
             //show logged in stuff
         } else {
