@@ -93,26 +93,6 @@ const requireAuth = async (fn, targetUrl) => {
 window.onload = async () => {
     await configureClient();
 
-    // If unable to parse the history hash, default to the root URL
-    if (!showContentFromUrl(window.location.pathname)) {
-        showContentFromUrl("/");
-        window.history.replaceState({ url: "/" }, {}, "/");
-    }
-
-    const bodyElement = document.getElementsByTagName("body")[0];
-
-    // Listen out for clicks on any hyperlink that navigates to a #/ URL
-    bodyElement.addEventListener("click", (e) => {
-        if (isRouteLink(e.target)) {
-            const url = e.target.getAttribute("href");
-
-            if (showContentFromUrl(url)) {
-                e.preventDefault();
-                window.history.pushState({ url }, {}, url);
-            }
-        }
-    });
-
     const isAuthenticated = await auth0.isAuthenticated();
 
     if (isAuthenticated) {
