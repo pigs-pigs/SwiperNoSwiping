@@ -20,11 +20,11 @@ $(document).on("click", function (e) {//TODO: unbind these in the future
   }
 
   if (
-    $(".user-options").css("display") !== "none" &&
-    $(e.target).closest(".user-options").length === 0 &&
+    $("#user-options").css("display") !== "none" &&
+    $(e.target).closest("#user-options").length === 0 &&
     $(e.target).closest(".profile-btn").length === 0
   ) {
-    $(".user-options").fadeOut();
+    $("#user-options").fadeOut();
   }
 });
 

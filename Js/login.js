@@ -45,16 +45,14 @@ const updateUI = async () => {
         const isAuthenticated = await auth0.isAuthenticated();
 
         if (isAuthenticated) {
-            const user = await auth0.getUser();
+            const userPromise = await auth0.getUser();
+            const userdata = JSON.parse(JSON.stringify(userPromise))
+            console.log(userdata)
+            $(".profile-btn span").text(userdata.username)
 
-            /*document.getElementById("profile-data").innerText = JSON.stringify(
-              user,
-              null,
-              2
-            );*/
-            $(".user-options").append(`<div><i class="fa fa-user"></i>  Your profile</div><div><i class="fa fa-sign-out"></i>  Log out</div>`)
+            $("#user-options").append(`<div><i class="fa fa-user"></i>  Your profile</div><div><i class="fa fa-sign-out"></i>  Log out</div>`)
             $(".profile-btn").click(function () {
-                $(".user-options").fadeToggle()
+                $("#user-options").fadeToggle()
             })
             //show logged in stuff
         } else {
