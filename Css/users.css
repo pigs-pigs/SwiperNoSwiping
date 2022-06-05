@@ -19,16 +19,18 @@
   top: 0px;
   left: 0px;
   border-radius: 18px 18px 0px 0px;
+  filter: blur(4px);
 }
 
 .account-frame .profile {
   background-color: red;
   z-index: 2;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   top: 33%;
   left: 50%;
-  transform: translateX(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
 }
