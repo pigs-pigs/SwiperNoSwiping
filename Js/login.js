@@ -52,9 +52,15 @@ const updateUI = async () => {
               null,
               2
             );*/
-
+            $(".user-options").append(`<div><i class="fa fa-user"></i>  Your profile</div><div><i class="fa fa-sign-out"></i>  Log out</div>`)
+            $(".profile-btn").click(function () {
+                $(".user-options").fadeToggle()
+            })
             //show logged in stuff
         } else {
+            $(".profile-btn").click(function () {
+                login(window.location.location)
+            })
             //Show logged out stuff
         }
     } catch (err) {
@@ -111,11 +117,6 @@ window.onload = async () => {
         console.log("> Parsing redirect");
         try {
             const result = await auth0.handleRedirectCallback();
-
-            if (result.appState && result.appState.targetUrl) {
-                showContentFromUrl(result.appState.targetUrl);
-            }
-
             console.log("Logged in!");
         } catch (err) {
             console.log("Error parsing redirect:", err);

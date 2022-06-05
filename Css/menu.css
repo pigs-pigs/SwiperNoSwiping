@@ -205,6 +205,21 @@
   font-weight: 700;
 }
 
+.user-options {
+  z-index: 5;
+  background: #1f2937;
+  width: 20%;
+  height: 16%;
+  position: fixed;
+  display: grid;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 8%;
+  right: 2%;
+  border-radius: 3%;
+  box-shadow: 0px 0px 15px #111827;
+}
+
 
 /* Mobile */
 @media screen and (max-width: 720px) {
