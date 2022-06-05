@@ -84,7 +84,7 @@ h1 {
   text-align: center;
   margin-top: 32px;
   font-size: 32px;
-  padding: 0 16px;
+  width: 80%;
 }
 
 .tinder--card .h3-input:focus {
@@ -100,8 +100,6 @@ h1 {
   height: 40%;
   width: 70%;
   margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
 }
 
 .tinder--card .p-input:focus {
@@ -118,7 +116,7 @@ h1 {
   right: 20%;
   transform: translateX(50%);
 
-  height: 80%;
+  height: 77%;
   width: 40%;
   top: 15%;
 }
@@ -350,4 +348,12 @@ h1 {
   position: relative;
   top: 50%;
   text-align: center;
+}
+
+/* Mobile */
+@media screen and (max-width: 720px) {
+h1 {
+  left: 50%;
+}
+  
 }

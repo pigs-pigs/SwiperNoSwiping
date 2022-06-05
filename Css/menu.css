@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
+  width: 100%;
   top: 0px;
   padding: 16px 24px;
   position: fixed;
@@ -206,6 +206,7 @@
 
 /* Mobile */
 @media screen and (max-width: 720px) {
+
   .app-name,
   .profile-btn span {
     display: none;
@@ -220,5 +221,5 @@
   .app-header-right button {
     margin-left: 4px;
   }
-
+  
 }
