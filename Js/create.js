@@ -60,7 +60,7 @@ $(document).on("click", ".uploader-open", function () {
     var dialog = uploadcare.openDialog(null, null, {
         publicKey: "1ca1277bb9380dcaf55f",
         imagesOnly: true,
-        crop: "16:9,5:7,3:4,2:3",//TODO:
+        crop: "16:9,3:4",
         tabs: "file camera url gdrive gphotos"
     });
 
@@ -78,7 +78,7 @@ $(document).on("click", ".uploader-open", function () {
                         $(this).parent().parent().find(".imagebuttons").css("top", "25%");
                         $(this).parent().find(".extend-img").css("top", "280%").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
                     }
-                } else if (cropSize == "5:7") {
+                } else if (cropSize == "3:4") {
                     if ($(this).parent().find(".extend-img").hasClass("fa-angle-double-down")) {
                         $(this).parent().parent().find("img").addClass("full-image").css("height", "100%");
                         $(this).parent().parent().find(".imagebuttons").css("top", "50%");
@@ -347,7 +347,7 @@ $(document).on("click", function (e) {
 //FIXME:
 //1 when color replaces image the "invalid source" icon pops up
 //2 Cover can be tall
-//3 tall sizing may need to be 2:3 instead idk
+//DONE 3 tall sizing may need to be 3:4 instead idk
 //4 Color picker overflow should be scroll
 //5 Mobile opt SUCKS
 //6 Auto pick crop mode based on image sizing if possible

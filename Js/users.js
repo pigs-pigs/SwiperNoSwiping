@@ -1,14 +1,8 @@
-// Search
-var max = "9";
-if ($(window).width() < 720) {
-    max = "10";
-}
-
-function initCards(query) {
+function initCards(Id) {
     var settings = {
         "async": false,
         "crossDomain": true,
-        "url": "https://swipernoswiping-3b4f.restdb.io/rest/cards?max=" + max + "&filter=" + query,
+        "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
         "method": "GET",
         "headers": {
             "content-type": "application/json",
@@ -26,30 +20,15 @@ function initCards(query) {
     }
 
     $.ajax(settings).done(function (data) {
-        var max = 9;
-
-        if (data.length > 0) {
-
-            data.forEach(function (Card, Index) {
-                $(".search-results").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
+        data.forEach(function (Card, Index) {
+            $(".sets-holder").append(`<div data-set="${Card._id}" class="tinder--card account--card">
                     <img ${createImg(Card.Cover)}>
                   <h3>${Card.Title}</h3>
                     <p>${Card.Description}</p>
                   </div>`)
-            });
-            $(".search-results").css("opacity", "1");
-        } else {
-            $(".no-results")
-                .html(
-                    'No results found for "' +
-                    query +
-                    '" <h5 style="font-weight:lighter;">Try another term!</h5>'
-                )
-                .css({ opacity: "1", display: "block" });
-        }
-
+        });
     });
-    $(".discover--card").click(function () {
+    $(".account--card").click(function () {
         var wasClicked = $(this)
         if (wasClicked && wasClicked.data("set")) {
             window.location.href = "https://swipernoswiping.netlify.app/swipe?set=" + wasClicked.data("set")
@@ -57,7 +36,11 @@ function initCards(query) {
     })
 }
 
+
+function initAccount(Id) {
+//set page title to username
+}
 var queryParams = new URLSearchParams(window.location.search);
-var query = queryParams.get("q");
-$(".search-input").val(query)
-initCards(query)
+var uid = queryParams.get("id");
+initAccount(uid)
+initCards(uid)
