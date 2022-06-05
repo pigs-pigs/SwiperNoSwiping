@@ -48,7 +48,7 @@
 }
 
 
-.account-frame h3 {
+.account-frame h2 {
   position: relative;
   top: 50%;
   left: 25%;
@@ -61,4 +61,18 @@
   top: 53%;
   left: 25%;
   width: 50%;
+  height: 39%;
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.account--card {
+  margin: 0px 20px 15px 0px;
+  cursor: pointer;
+  width: 45%;
+  height: 65%;
+  user-select: none;
+  position: relative;
 }
