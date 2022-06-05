@@ -145,16 +145,14 @@ body {
 }
 
 .tinder--card h3 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
+  margin-top: 10%;
+  font-size: 30px;
   pointer-events: none;
 }
 
 .tinder--card p {
   margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
+  font-size: 19px;
   pointer-events: none;
 }
 
@@ -349,7 +347,7 @@ DISCOVER
 .end-modal button {
   border: 2px solid #061944;
   border-radius: 10px;
-  width: 23%;
+  width: 28%;
   height: 13%;
   margin: 10% 8px 0px;
   font-size: 13pt;
@@ -381,5 +379,5 @@ DISCOVER
     width: 80%
   }
   .tinder--counter {display: none;}
-  
+
 }

@@ -210,7 +210,6 @@ function updateNum(liked) {
 }
 
 // Swipe and create mobile compatability
-// Set Finished popup (look in SweetAlert)
 // Set info page @/sets?id=123 with the cards and percentages and plays maybe?
 // New cool home page
 // Loading

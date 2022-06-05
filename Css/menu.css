@@ -17,6 +17,7 @@
 
 .app-header-left {
   flex-grow: 1;
+  width: 70%;
 }
 
 .app-header-right button {
@@ -69,6 +70,7 @@
   flex: 1;
   outline: none;
   height: 100%;
+  width: 90%;
   padding: 0 20px;
   font-size: 16px;
   background-color: #1f2937;

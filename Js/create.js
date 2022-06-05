@@ -355,6 +355,8 @@ $(document).on("click", function (e) {
 //8 Pasting Images
 //9 Revamp the submitted popup with blue bg, semi-transparent & More options
 
+
+
 /* Image Search Stuff
 const settings = {
 	"async": true,
