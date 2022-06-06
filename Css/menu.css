@@ -225,8 +225,11 @@
   width: 100%;
   height: 50%;
 }
+#user-options i {
+  padding-right: 5%;
+}
 
-#user-options:first-child {
+#user-options div:first-child {
   border-bottom: 1px solid white;
 }
 

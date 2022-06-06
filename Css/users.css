@@ -9,6 +9,9 @@
   transform: translateX(-50%);
   width: 85%;
   height: 150%;
+
+  opacity: 0;
+  transition: 0.8;
 }
 
 .account-frame .background {

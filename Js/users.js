@@ -42,5 +42,7 @@ function initAccount(Id) {
 }
 var queryParams = new URLSearchParams(window.location.search);
 var uid = queryParams.get("id");
+//TODO: show loading until these funcs are done -- Make a "Done loading" function for all pages
 initAccount(uid)
 initCards(uid)
+$(".account-frame").css("opacity",1)

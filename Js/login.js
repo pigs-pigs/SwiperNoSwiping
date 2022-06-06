@@ -40,7 +40,7 @@ const logout = () => {
 async function getUserInfo() {
     const userPromise = await auth0.getUser();
     const userdata = JSON.parse(JSON.stringify(userPromise))
-    //TODO: store bios in restDB?
+    //TODO: store bios & banner colors & maybe pfps in restDB?
     var newData = {
         username: userdata["https://data/username"],
         userId: userdata.sub.replace('auth0|', ''),
@@ -59,6 +59,7 @@ const updateUI = async () => {
         if (isAuthenticated) {
             var user = await getUserInfo()
             $(".profile-btn span").text(user.username)
+            $(".profile-btn img").attr("src", user.profile)
 
             $("#user-options").append(`<div class="your-profile"><i class="fa fa-user"></i>  Your profile</div><div class="logout"><i class="fa fa-sign-out"></i>  Log out</div>`)
             $(".profile-btn").click(function () {
@@ -95,20 +96,6 @@ const configureClient = async () => {
     });
 };
 
-/**
- * Checks to see if the user is authenticated. If so, `fn` is executed. Otherwise, the user
- * is prompted to log in
- */
-const requireAuth = async (fn, targetUrl) => {
-    const isAuthenticated = await auth0.isAuthenticated();
-
-    if (isAuthenticated) {
-        return fn();
-    }
-
-    return login(targetUrl);
-};
-
 // Will run when page finishes loading
 window.onload = async () => {
     await configureClient();
@@ -141,3 +128,52 @@ window.onload = async () => {
 
     updateUI();
 };
+
+// Profile Edit Page
+
+if (window.location.pathname == "/profile" || window.location.pathname == "/profile.html") {
+    if (!auth0.isAuthenticated()) {
+        window.location.pathname = "/"
+    }
+    function initCards(Id) {
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
+            "method": "GET",
+            "headers": {
+                "content-type": "application/json",
+                "x-apikey": "60ce0b22e2c96c46a246371f",
+                "cache-control": "no-cache"
+            }
+        }
+        function createImg(ImgData) {
+            var pattern = new RegExp('^http')
+            if (pattern.test(ImgData)) {
+                return `src="${ImgData}" `
+            } else {
+                return `style="background-color: ${ImgData};" `
+            }
+        }
+
+        $.ajax(settings).done(function (data) {
+            data.forEach(function (Card, Index) {
+                $(".sets-holder").append(`<div data-set="${Card._id}" class="tinder--card account--card">
+                        <img ${createImg(Card.Cover)}>
+                      <h3>${Card.Title}</h3>
+                        <p>${Card.Description}</p>
+                      </div>`)
+            });
+        });
+        $(".account--card").click(function () {
+            var wasClicked = $(this)
+            if (wasClicked && wasClicked.data("set")) {
+                window.location.href = "https://swipernoswiping.netlify.app/swipe?set=" + wasClicked.data("set")
+            }
+        })
+    }
+    const user = getUserInfo()
+    initCards(user.userId)
+    $(".account-frame h1").text(user.username)
+    $(".account-frame profile").attr("src", user.profile)
+}
