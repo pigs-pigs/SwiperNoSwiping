@@ -106,77 +106,74 @@ window.onload = async () => {
         console.log("> User is authenticated");
         //window.history.replaceState({}, document.title, window.location.pathname);
         updateUI();
-        return;
-    }
+    } else {
+        console.log("> User not authenticated");
 
-    console.log("> User not authenticated");
+        const query = window.location.search;
+        const shouldParseResult = query.includes("code=") && query.includes("state=");
 
-    const query = window.location.search;
-    const shouldParseResult = query.includes("code=") && query.includes("state=");
-
-    if (shouldParseResult) {
-        console.log("> Parsing redirect");
-        try {
-            const result = await auth0.handleRedirectCallback();
-            console.log("Logged in!");
-        } catch (err) {
-            console.log("Error parsing redirect:", err);
-        }
-
-        window.history.replaceState({}, document.title, "/");
-    }
-
-    updateUI();
-};
-
-// Profile Edit Page
-
-if (window.location.pathname == "/profile" || window.location.pathname == "/profile.html") {
-    if (!auth0.isAuthenticated()) {
-        window.location.pathname = "/"
-    }
-    function initCards(Id) {
-        var settings = {
-            "async": false,
-            "crossDomain": true,
-            "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
-            "method": "GET",
-            "headers": {
-                "content-type": "application/json",
-                "x-apikey": "60ce0b22e2c96c46a246371f",
-                "cache-control": "no-cache"
+        if (shouldParseResult) {
+            console.log("> Parsing redirect");
+            try {
+                const result = await auth0.handleRedirectCallback();
+                console.log("Logged in!");
+            } catch (err) {
+                console.log("Error parsing redirect:", err);
             }
-        }
-        function createImg(ImgData) {
-            var pattern = new RegExp('^http')
-            if (pattern.test(ImgData)) {
-                return `src="${ImgData}" `
-            } else {
-                return `style="background-color: ${ImgData};" `
-            }
+
+            window.history.replaceState({}, document.title, "/");
         }
 
-        $.ajax(settings).done(function (data) {
-            data.forEach(function (Card, Index) {
-                $(".sets-holder").append(`<div data-set="${Card._id}" class="tinder--card account--card">
+        updateUI();
+    }
+    // Profile Edit Page
+    if (window.location.pathname == "/profile" || window.location.pathname == "/profile.html") {
+        if (!isAuthenticated) {
+            window.location.pathname = "/"
+        }
+        function initCards(Id) {
+            var settings = {
+                "async": false,
+                "crossDomain": true,
+                "url": `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
+                "method": "GET",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": "60ce0b22e2c96c46a246371f",
+                    "cache-control": "no-cache"
+                }
+            }
+            function createImg(ImgData) {
+                var pattern = new RegExp('^http')
+                if (pattern.test(ImgData)) {
+                    return `src="${ImgData}" `
+                } else {
+                    return `style="background-color: ${ImgData};" `
+                }
+            }
+
+            $.ajax(settings).done(function (data) {
+                data.forEach(function (Card, Index) {
+                    $(".sets-holder").append(`<div data-set="${Card._id}" class="tinder--card account--card">
                         <img ${createImg(Card.Cover)}>
                       <h3>${Card.Title}</h3>
                         <p>${Card.Description}</p>
                       </div>`)
+                });
             });
-        });
-        $(".account--card").click(function () {
-            var wasClicked = $(this)
-            if (wasClicked && wasClicked.data("set")) {
-                window.location.href = "https://swipernoswiping.netlify.app/swipe?set=" + wasClicked.data("set")
-            }
-        })
-    }
-    const user = getUserInfo()
-    initCards(user.userId)
-    $(".account-frame h1").text(user.username)
-    $(".account-frame profile").attr("src", user.profile)
-    
-    $(".account-frame").css("opacity", "1")
+            $(".account--card").click(function () {
+                var wasClicked = $(this)
+                if (wasClicked && wasClicked.data("set")) {
+                    window.location.href = "https://swipernoswiping.netlify.app/swipe?set=" + wasClicked.data("set")
+                }
+            })
+        }
+        const user = await getUserInfo()
+        initCards(user.userId)
+        $(".account-frame h1").text(user.username)
+        $(".account-frame profile").attr("src", user.profile)
 
-}
+        $(".account-frame").css("opacity", "1")
+
+    }
+};
