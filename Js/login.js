@@ -40,6 +40,7 @@ const logout = () => {
 function getUserInfo() {
     const userPromise = await auth0.getUser();
     const userdata = JSON.parse(JSON.stringify(userPromise))
+    //TODO: store bios in restDB?
     var newData = {
         username = userdata["https://data/username"],
         userId = userdata.sub.replace('auth0|', ''),
@@ -64,7 +65,7 @@ const updateUI = async () => {
                 $("#user-options").fadeToggle()
             })
             $("#user-options .your-profile").click(function () {
-                window.location.href = "https://swipernoswiping.netlify.app/profile" //TODO:
+                window.location.href = "https://swipernoswiping.netlify.app/profile"
             })
             $("#user-options .logout").click(function () {
                 logout()
