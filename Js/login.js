@@ -97,7 +97,7 @@ const configureClient = async () => {
 };
 
 // Will run when page finishes loading
-//window.onload = async () => {
+window.onload = async () => {
     await configureClient();
 
     const isAuthenticated = await auth0.isAuthenticated();
@@ -175,4 +175,4 @@ const configureClient = async () => {
 
         $(".account-frame").css("opacity", "1")
     }
-//};
+};
