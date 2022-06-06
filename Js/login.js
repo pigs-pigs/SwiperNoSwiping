@@ -97,7 +97,7 @@ const configureClient = async () => {
 };
 
 // Will run when page finishes loading
-window.onload = async () => {
+//window.onload = async () => {
     await configureClient();
 
     const isAuthenticated = await auth0.isAuthenticated();
@@ -171,9 +171,8 @@ window.onload = async () => {
         const user = await getUserInfo()
         initCards(user.userId)
         $(".account-frame h1").text(user.username)
-        $(".account-frame profile").attr("src", user.profile)
+        $(".account-frame .profile").attr("src", user.profile)
 
         $(".account-frame").css("opacity", "1")
-
     }
-};
+//};

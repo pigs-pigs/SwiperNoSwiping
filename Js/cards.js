@@ -84,7 +84,6 @@ function initCards() {
     //Finished popup
     $(".end-overlay").css({"visibility":"visible","opacity":"0.7"})
     $(".end-modal").css({"visibility":"visible","opacity":"1"})
-
   }
 }
 
