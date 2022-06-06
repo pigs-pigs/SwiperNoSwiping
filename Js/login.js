@@ -37,14 +37,14 @@ const logout = () => {
 };
 
 
-function getUserInfo() {
-    const userPromise = auth0.getUser();
+async function getUserInfo() {
+    const userPromise = await auth0.getUser();
     const userdata = JSON.parse(JSON.stringify(userPromise))
     //TODO: store bios in restDB?
     var newData = {
-        username : userdata["https://data/username"],
-        userId : userdata.sub.replace('auth0|', ''),
-        profile : userdata.picture
+        username: userdata["https://data/username"],
+        userId: userdata.sub.replace('auth0|', ''),
+        profile: userdata.picture
     }
     return newData
 }
@@ -57,7 +57,7 @@ const updateUI = async () => {
         const isAuthenticated = await auth0.isAuthenticated();
 
         if (isAuthenticated) {
-           var user = getUserInfo()
+            var user = await getUserInfo()
             $(".profile-btn span").text(user.username)
 
             $("#user-options").append(`<div class="your-profile"><i class="fa fa-user"></i>  Your profile</div><div class="logout"><i class="fa fa-sign-out"></i>  Log out</div>`)
