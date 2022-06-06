@@ -104,7 +104,7 @@ window.onload = async () => {
 
     if (isAuthenticated) {
         console.log("> User is authenticated");
-        window.history.replaceState({}, document.title, window.location.pathname);
+        //window.history.replaceState({}, document.title, window.location.pathname);
         updateUI();
         return;
     }
@@ -176,4 +176,7 @@ if (window.location.pathname == "/profile" || window.location.pathname == "/prof
     initCards(user.userId)
     $(".account-frame h1").text(user.username)
     $(".account-frame profile").attr("src", user.profile)
+    
+    $(".account-frame").css("opacity", "1")
+
 }
