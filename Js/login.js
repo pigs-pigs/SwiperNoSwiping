@@ -42,9 +42,9 @@ function getUserInfo() {
     const userdata = JSON.parse(JSON.stringify(userPromise))
     //TODO: store bios in restDB?
     var newData = {
-        username = userdata["https://data/username"],
-        userId = userdata.sub.replace('auth0|', ''),
-        profile = userdata.picture
+        username : userdata["https://data/username"],
+        userId : userdata.sub.replace('auth0|', ''),
+        profile : userdata.picture
     }
     return newData
 }
