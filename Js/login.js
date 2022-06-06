@@ -38,7 +38,7 @@ const logout = () => {
 
 
 function getUserInfo() {
-    const userPromise = await auth0.getUser();
+    const userPromise = auth0.getUser();
     const userdata = JSON.parse(JSON.stringify(userPromise))
     //TODO: store bios in restDB?
     var newData = {
