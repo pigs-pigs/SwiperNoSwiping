@@ -13,6 +13,7 @@ function getCookie(cookieName) {
 }
 if (getCookie("LoggedInUser")) { console.log(getCookie("LoggedInUser"))
   $(".profile-btn span").text(getCookie("LoggedInUser"));
+  console.log($(".profile-btn span").text())
 }
 if (getCookie("LoggedInPfp")) {
   $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
