@@ -75,6 +75,10 @@ function buildNotif() {
 $(".add-btn").click(function () {
   window.location.href = "https://swipernoswiping.netlify.app/create";
 });
+
 setInterval(() => {
   $(".main-loading-overlay").css("opacity", "0");
-}, 1500);
+  setInterval(() => {
+    $(".main-loading-overlay").remove();
+  }, 0.5);
+}, 2000);
