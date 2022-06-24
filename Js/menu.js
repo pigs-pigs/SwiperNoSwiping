@@ -13,17 +13,16 @@ function getCookie(cookieName) {
 }
 if (getCookie("LoggedInUser") && getCookie("LoggedInPfp")) {
   $(".profile-btn span").text(getCookie("LoggedInUser"));
-      $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
-
+  $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
 }
-  //Searching
-  $(".search-input").keydown(function (e) {
-    if (e.keyCode == 13 && $(".search-input").val().trim()) {
-      window.location.href =
-        "https://swipernoswiping.netlify.app/discover?q=" +
-        $(".search-input").val().trim();
-    }
-  });
+//Searching
+$(".search-input").keydown(function (e) {
+  if (e.keyCode == 13 && $(".search-input").val().trim()) {
+    window.location.href =
+      "https://swipernoswiping.netlify.app/discover?q=" +
+      $(".search-input").val().trim();
+  }
+});
 $(".search-wrapper i").click(function () {
   if ($(".search-input").val().trim()) {
     window.location.href =
@@ -76,5 +75,6 @@ function buildNotif() {
 $(".add-btn").click(function () {
   window.location.href = "https://swipernoswiping.netlify.app/create";
 });
-
-$(".main-loading-overlay").css("opacity","0")
+setInterval(() => {
+  $(".main-loading-overlay").css("opacity", "0");
+}, 1500);
