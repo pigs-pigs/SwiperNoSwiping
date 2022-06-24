@@ -1,3 +1,85 @@
+/*Loading*/
+ing-box {
+  background: white;
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -40px;
+  border-radius: 5px;
+  animation: swipe1 3s infinite;
+  opacity: 0.7;
+  text-align: center;
+}
+.loading-box i {
+  position: fixed;
+  font-size: 45px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading-box i.fa-remove {
+  color: #cdd6dd;
+  animation: removeAnim 3s infinite;
+  opacity: 0;
+}
+.loading-box i.fa-heart {
+  color: #fface4;
+  opacity: 0;
+  animation: heartAnim 3s infinite;
+}
+
+@keyframes swipe1 {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: translate(80px, 8px) rotate(7deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: none;
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(-80px, 8px) rotate(-7deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes heartAnim {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes removeAnim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* NavBar */
 .app-header {
   user-select: none;
   display: flex;

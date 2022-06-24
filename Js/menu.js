@@ -77,4 +77,4 @@ $(".add-btn").click(function () {
   window.location.href = "https://swipernoswiping.netlify.app/create";
 });
 
-$(".main-loading-overlay").fadeOut()
+$(".main-loading-overlay").css("opacity","0")
