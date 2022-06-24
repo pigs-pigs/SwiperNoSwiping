@@ -11,7 +11,7 @@ function getCookie(cookieName) {
   console.log("Cookie Not Found!");
   return null;
 }
-if (getCookie("LoggedInUser")) {
+if (getCookie("LoggedInUser")) { console.log(getCookie("LoggedInUser"))
   $(".profile-btn span").text(getCookie("LoggedInUser"));
 }
 if (getCookie("LoggedInPfp")) {
@@ -78,7 +78,6 @@ $(".add-btn").click(function () {
   window.location.href = "https://swipernoswiping.netlify.app/create";
 });
 
-$(".profile-btn span").css({ opacity: "1", background: "transparent" });
 setInterval(() => {
   $(".main-loading-overlay").css("opacity", "0");
   $(".main-loading-overlay .loading-box").css("opacity", "0");

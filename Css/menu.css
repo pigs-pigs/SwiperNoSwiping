@@ -283,13 +283,10 @@
 }
 
 .profile-btn span {
-  transition: 0.1;
   color: #fff;
   font-size: 16px;
   line-height: 24px;
   font-weight: 700;
-  background: #fff;
-  opacity: 0.5;
 }
 
 #user-options {
