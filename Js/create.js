@@ -348,7 +348,7 @@ $(document).on("click", function (e) {
 //1 when color replaces image the "invalid source" icon pops up
 //2 Cover can be tall
 //DONE 3 tall sizing may need to be 3:4 instead idk
-//4 Color picker overflow should be scroll
+//DONE 4 Color picker overflow should be scroll
 //5 Mobile opt SUCKS
 //6 Auto pick crop mode based on image sizing if possible
 //7 Maybe drag and drop onto the card to upload too?

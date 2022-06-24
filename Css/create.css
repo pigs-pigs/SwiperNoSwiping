@@ -221,6 +221,7 @@ h1 {
 #colorpicker {
   visibility: hidden;
   transition: 0.3s;
+  overflow-y: scroll;
   opacity: 0;
   height: 55%;
   width: 27%;

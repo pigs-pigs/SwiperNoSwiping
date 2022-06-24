@@ -1,16 +1,39 @@
-//Searching
-$(".search-input").keydown(function (e) {
-  if (e.keyCode == 13 && $(".search-input").val().trim()) {
-    window.location.href = "https://swipernoswiping.netlify.app/discover?q=" + $(".search-input").val().trim()
+//Fast Load User Info
+function getCookie(cookieName) {
+  var name = cookieName + "=";
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i].trim();
+    if (c.indexOf(name) == 0) {
+      return c.substr(name.length);
+    }
   }
-});
+  console.log("Cookie Not Found!");
+  return null;
+}
+if (getCookie("LoggedInUser") && getCookie("LoggedInPfp")) {
+  $(".profile-btn span").text(getCookie("LoggedInUser"));
+      $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
+
+}
+  //Searching
+  $(".search-input").keydown(function (e) {
+    if (e.keyCode == 13 && $(".search-input").val().trim()) {
+      window.location.href =
+        "https://swipernoswiping.netlify.app/discover?q=" +
+        $(".search-input").val().trim();
+    }
+  });
 $(".search-wrapper i").click(function () {
   if ($(".search-input").val().trim()) {
-    window.location.href = "https://swipernoswiping.netlify.app/discover?q=" + $(".search-input").val().trim()
+    window.location.href =
+      "https://swipernoswiping.netlify.app/discover?q=" +
+      $(".search-input").val().trim();
   }
 });
 
-$(document).on("click", function (e) {//TODO: unbind these in the future
+$(document).on("click", function (e) {
+  //TODO: unbind these in the future
   if (
     $("#notifs-container").css("display") !== "none" &&
     $(e.target).closest("#notifs-container").length === 0 &&
@@ -47,9 +70,9 @@ function buildNotif() {
           1hr ago
         </p>
       </div>
-    </div>`
+    </div>`;
 }
 
 $(".add-btn").click(function () {
-  window.location.href = "https://swipernoswiping.netlify.app/create"
+  window.location.href = "https://swipernoswiping.netlify.app/create";
 });
