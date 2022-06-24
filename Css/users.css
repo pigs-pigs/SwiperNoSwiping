@@ -22,7 +22,6 @@
   top: 0px;
   left: 0px;
   border-radius: 18px 18px 0px 0px;
-  filter: blur(1px);
   transition: 0.3s;
 }
 
