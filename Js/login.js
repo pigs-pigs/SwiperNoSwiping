@@ -17,9 +17,6 @@ const login = async (targetUrl) => {
     }
 
     await auth0.loginWithRedirect(options);
-    var currUser = await getUserInfo();
-    document.cookie = "LoggedInUser=" + currUser.username + ";LoggedInPfp=" + currUser.profile + ";";
-    //TODO: Edit these when profile changed
   } catch (err) {
     console.log("Log in failed", err);
   }
@@ -124,6 +121,10 @@ window.onload = async () => {
       try {
         const result = await auth0.handleRedirectCallback();
         console.log("Logged in!");
+        var currUser = await getUserInfo();
+        document.cookie = "LoggedInUser=" + currUser.username + ";LoggedInPfp=" + currUser.profile + ";";
+        //TODO: Edit these when profile changed
+        console.log("Set cookies!");
       } catch (err) {
         console.log("Error parsing redirect:", err);
       }
