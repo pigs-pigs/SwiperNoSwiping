@@ -50,14 +50,12 @@
   width: 50%;
 }
 
-
 .account-frame h2 {
   position: relative;
   top: 50%;
   left: 25%;
   width: 50%;
 }
-
 
 .account-frame .sets-holder {
   position: relative;
@@ -79,4 +77,80 @@
   user-select: none;
   position: relative;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.account-frame.my-account .background:hover {
+  transition: 0.3s;
+  filter: brightness(80%);
+}
+
+.account-frame.my-account .background i {
+  z-index: 1;
+  transition: 0.6s;
+  cursor: pointer;
+  opacity: 0;
+  font-size: 35px;
+  color: lightgray;
+  transition: 0.6s;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.account-frame.my-account .background:hover i {
+  opacity: 1;
+}
+
+/* Color Picker*/
+#colorpicker {
+  visibility: hidden;
+  transition: 0.3s;
+  overflow-y: scroll;
+  opacity: 0;
+  height: 55%;
+  width: 27%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3px 3px 15px gray;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#colorpicker.picker-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+#colorpicker .colorp {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#colorpicker .colorp .lilcircle {
+  height: 30px;
+  width: 30px;
+  transform: scale(0.7);
+  background-color: #008fee;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+#colorpicker .colorp .lilcircle:hover,
+#colorpicker .colorp .lilcircle.active {
+  transform: scale(1);
+  transition: all 0.5s ease;
 }

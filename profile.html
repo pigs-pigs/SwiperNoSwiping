@@ -17,7 +17,7 @@
   <div class="app-header">
     <div class="app-header-left">
       <a href="https://swipernoswiping.netlify.app"><img class="app-icon"
-          src="https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/logo.png"></img></a>
+          src="logo.png"></img></a>
       <p class="app-name">Profile</p>
       <div class="search-wrapper">
         <input class="search-input" type="text" placeholder="Search">
@@ -32,7 +32,7 @@
         <i class="fa fa-bell"></i>
       </button>
       <button class="profile-btn">
-        <img src="https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/logo.png" />
+        <img src="Placeholderpfp.png" />
         <span>Login</span>
       </button>
     </div>
@@ -41,9 +41,11 @@
   <div id="user-options" style="display:none;"></div>
   <!--End Of Menu-->
 
-  <div class="account-frame">
-    <div class="background"></div>
-    <img src="logo.png" class="profile">
+  <div class="account-frame my-account">
+    <div class="background">
+      <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
+    </div>
+    <img src="Placeholderpfp.png" class="profile">
     <h1>SwiperNoSwiping</h1>
     <p class="bio">Hello there my name is L and i have no L's bc i am very very cool and have infinite money. I have no
       idea what
@@ -51,6 +53,9 @@
     <h2>Sets</h3>
       <div class="sets-holder"></div>
   </div>
+
+  <div id="colorpicker"></div>
+
   <noscript>Your browser does not support JavaScript! Please enable it to use this application!</noscript>
 
 </body>
@@ -59,4 +64,56 @@
 
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
 <script src="Js/login.js"></script>
+<script>
+
+// Color picker
+const colorpicker = $("#colorpicker");
+let googleColors = null;
+var data = null;
+var xhr = new XMLHttpRequest();
+
+xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+        googleColors = JSON.parse(this.responseText);
+
+        //create preview swatches
+        for (var color in googleColors) {
+            for (var subcolor in googleColors[color]) {
+                if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
+                    let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
+                    colorpicker.append(htmlString);
+                }
+            }
+        }
+
+        $(document).on("click", ".lilcircle", function () {
+                $(".lilcircle").removeClass("active");
+                $(this).addClass("active");
+
+                $(".background").css("background-color", $(this).css("background-color"));
+                $(".profile").css("background-color", $(this).css("background-color"));
+        });
+    }
+});
+
+xhr.open(
+    "GET",
+    "https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/Css/colorpicker.json"
+);
+xhr.send(data);
+
+$(".fa-paint-brush").click(function () {
+    colorpicker.toggleClass("picker-open");
+});
+
+$(document).on("click", function (e) {
+    if (
+        colorpicker.hasClass("picker-open") &&
+        $(e.target).closest("#colorpicker").length === 0 &&
+        $(e.target).closest(".fa-paint-brush").length === 0
+    ) {
+        colorpicker.removeClass("picker-open");
+    }
+});
+</script>
 </html>

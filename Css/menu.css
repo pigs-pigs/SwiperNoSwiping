@@ -196,6 +196,7 @@
   object-fit: cover;
   border-radius: 50%;
   margin-right: 4px;
+  background-color: #323643;
 }
 
 .profile-btn span {
