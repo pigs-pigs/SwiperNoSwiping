@@ -224,7 +224,7 @@ h1 {
   overflow-y: scroll;
   opacity: 0;
   height: 55%;
-  width: 27%;
+  width: 35%;
   background-color: rgb(255, 255, 255);
   box-shadow: 3px 3px 15px gray;
   border-radius: 5px;
@@ -234,7 +234,7 @@ h1 {
   justify-content: center;
   padding: 20px;
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
