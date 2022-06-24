@@ -11,8 +11,10 @@ function getCookie(cookieName) {
   console.log("Cookie Not Found!");
   return null;
 }
-if (getCookie("LoggedInUser") && getCookie("LoggedInPfp")) {
+if (getCookie("LoggedInUser")) {
   $(".profile-btn span").text(getCookie("LoggedInUser"));
+}
+if (getCookie("LoggedInPfp")) {
   $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
 }
 //Searching
@@ -76,8 +78,10 @@ $(".add-btn").click(function () {
   window.location.href = "https://swipernoswiping.netlify.app/create";
 });
 
+$(".profile-btn span").css({ opacity: "1", background: "transparent" });
 setInterval(() => {
   $(".main-loading-overlay").css("opacity", "0");
+  $(".main-loading-overlay .loading-box").css("opacity", "0");
   setInterval(() => {
     $(".main-loading-overlay").remove();
   }, 400);
