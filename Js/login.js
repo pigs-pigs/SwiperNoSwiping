@@ -122,7 +122,8 @@ window.onload = async () => {
         const result = await auth0.handleRedirectCallback();
         console.log("Logged in!");
         var currUser = await getUserInfo();
-        document.cookie = "LoggedInUser=" + currUser.username + ";LoggedInPfp=" + currUser.profile + ";";
+        document.cookie = "LoggedInUser=" + currUser.username + ";"
+        document.cookie = "LoggedInPfp=" + currUser.profile + ";";
         //TODO: Edit these when profile changed
         console.log("Set cookies!");
       } catch (err) {
