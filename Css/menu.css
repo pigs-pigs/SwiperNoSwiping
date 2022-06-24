@@ -8,6 +8,7 @@
   padding: 10px 24px;
   position: fixed;
   z-index: 15;
+  height: 8%;
   background-color: #111827;
 }
 
@@ -60,12 +61,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 98%;
   max-width: 480px;
   color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
 }
-
 
 .search-input {
   border: none;
@@ -234,10 +234,17 @@
   border-bottom: 1px solid white;
 }
 
+img {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
 /* Mobile */
 @media screen and (max-width: 720px) {
-
   .app-name,
   .profile-btn span {
     display: none;
@@ -252,5 +259,4 @@
   .app-header-right button {
     margin-left: 4px;
   }
-  
 }
