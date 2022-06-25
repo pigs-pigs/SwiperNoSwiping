@@ -102,8 +102,7 @@
 }
 
 .app-header-left {
-  flex-grow: 1;
-  width: 70%;
+  width: 60%;
 }
 
 .app-header-right button {

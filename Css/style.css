@@ -20,7 +20,6 @@ body {
 }
 
 @keyframes bg {
-
   0%,
   100% {
     background-color: #ffadad;
@@ -117,7 +116,7 @@ body {
   width: 90vw;
   max-width: 400px;
   height: 70vh;
-  background: #FFFFFF;
+  background: #ffffff;
   /*padding-bottom: 40px;*/
   border-radius: 8px;
   overflow: hidden;
@@ -168,7 +167,7 @@ body {
   line-height: 60px;
   width: 60px;
   border: 0;
-  background: #FFFFFF;
+  background: #ffffff;
   display: inline-block;
   margin: 0 8px;
 }
@@ -179,11 +178,11 @@ body {
 }
 
 .fa-heart {
-  color: #FFACE4;
+  color: #fface4;
 }
 
 .fa-remove {
-  color: #CDD6DD;
+  color: #cdd6dd;
 }
 
 .tinder--counter {
@@ -257,8 +256,6 @@ DISCOVER
   user-select: none;
   position: relative;
 }
-
-
 
 /*Search Page*/
 
@@ -359,7 +356,6 @@ DISCOVER
 .end-modal button:hover {
   background-color: #061944;
   color: white;
-
 }
 
 /* Mobile */
@@ -377,8 +373,9 @@ DISCOVER
   }
 
   .end-modal {
-    width: 80%
+    width: 80%;
   }
-  .tinder--counter {display: none;}
-
+  .tinder--counter {
+    display: none;
+  }
 }

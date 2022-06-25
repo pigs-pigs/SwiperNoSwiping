@@ -1,0 +1,500 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: white;
+  font-family: "M PLUS Rounded 1c", "Source Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #36373b;
+  --lightgray: #6f6f6f;
+  --primary: #e94e91;
+  --primaryhover: #c13b75;
+}
+
+#navarea {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  z-index: 10;
+  background: #fff;
+  width: 100%;
+  height: 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+#navarea .app-icon {
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+#navarea .app-name {
+  font-size: 40px;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+button {
+  color: white;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 7px;
+}
+a > i {
+  text-decoration: underline;
+}
+
+/*SECTION 1*/
+.landing1 {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 8%;
+  max-height: 600px;
+  background: var(--primary);
+}
+.landing1 h1 {
+  font-size: 290%;
+  width: 48%;
+  margin-top: 40px;
+  margin-left: 52%;
+  color: white;
+  vertical-align: middle;
+}
+.demo {
+  width: 50%;
+  height: 90%;
+  position: absolute;
+  left: 0;
+  top: 6%;
+  padding-top: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.search-wrap {
+  background: white;
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  border: none;
+  border-radius: 100px;
+  flex: 1;
+  height: 48px;
+  width: 28%;
+  padding: 0 20px;
+}
+.search-input {
+  width: 86%;
+  height: 98%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background-color: #fff;
+  color: var(--primary);
+}
+.search-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  height: 40px;
+  width: 40px;
+  transition: 0.2s;
+}
+.search-btn:hover {
+  background-color: var(--primaryhover);
+}
+
+.login-btn {
+  cursor: pointer;
+  background: white;
+  color: var(--primary);
+  position: absolute;
+  left: 82%;
+  top: 50%;
+  font-size: 20px;
+  height: 48px;
+  width: 88px;
+}
+.login-btn:before {
+  content: "or";
+  color: white;
+  position: absolute;
+  left: -22px;
+    font-size: 15px;
+}
+.discover-link {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  left: 65%;
+  top: calc(53% + 60px);
+}
+
+/*DEMO*/
+.fa-arrow-pointer {
+  pointer-events: none;
+  position: absolute;
+  top: 53%;
+  opacity: 0.8;
+  font-size: 50px;
+  z-index: 3000;
+  filter: blur(0.2px);
+  color: var(--primary);
+  animation: swipeDemo 1.8s infinite 1s;
+}
+@keyframes swipeDemo {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  75% {
+    transform: none;
+    opacity: 0;
+  }
+}
+.tinder--card {
+  user-select: none;
+  display: inline-block;
+  width: 70%;
+  max-width: 400px;
+  height: 95%;
+  background: #ffffff;
+  /*padding-bottom: 40px;*/
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.moving.tinder--card {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.tinder--card img {
+  outline: none;
+  width: 100%;
+  height: 50%;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.tinder--card h3 {
+  margin-top: 10%;
+  font-size: 30px;
+  pointer-events: none;
+}
+
+.tinder--card p {
+  margin-top: 24px;
+  font-size: 19px;
+  pointer-events: none;
+}
+
+.tinder--status {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 20;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tinder--status i {
+  pointer-events: none;
+  font-size: 100px;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.6s ease-in-out;
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+}
+
+.tinder_love .fa-heart {
+  opacity: 1;
+  transform: scale(1);
+  color: #fface4;
+}
+
+.tinder_nope .fa-remove {
+  opacity: 1;
+  transform: scale(1);
+  color: #cdd6dd;
+}
+/* SECTION 2*/
+.landing2 {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: 78%;
+  max-height: 270px;
+  padding-bottom: 20px;
+  background: white;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+}
+
+.landing2 > div {
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 31%;
+  height: 100%;
+}
+.landing2 > div * {
+  margin-top: 10px;
+}
+.landing2 > div > i {
+  margin-top: 18px;
+  font-size: 45px;
+}
+.landing2 > div p {
+  width: 70%;
+  margin-left: 15%;
+  color: var(--lightgray);
+}
+.landing2 > div a {
+  color: var(--primary);
+  transition: 0.2s;
+}
+.landing2 > div a:hover {
+  color: var(--primaryhover);
+}
+
+/* SECTION 3*/
+.landing3 {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 108%;
+  max-height: 650px;
+}
+.landing3 > h2 {
+  font-size: 270%;
+  margin-left: 11%;
+  margin-top: 9%;
+  width: 42%;
+}
+.landing3 > p {
+  font-size: 18px;
+  margin-left: 11%;
+  margin-top: 2%;
+  width: 35%;
+}
+.landing3 button {
+  transition: 0.2s;
+  font-size: 18px;
+  margin-left: 11%;
+  margin-top: 1%;
+  width: 9%;
+  min-width: 120px;
+  min-height: 45px;
+}
+
+.landing3 button:hover {
+  background: var(--primaryhover);
+}
+.landing3 .display-area {
+  border-radius: 10px;
+  width: 40%;
+  height: 80%;
+  max-height: 450px;
+  min-height: 300px;
+  position: absolute;
+  top: 8.5%;
+  padding-bottom: 10px;
+  left: 55%;
+  background: var(--primary);
+  overflow-y: scroll;
+}
+/*USER DISPLAY*/
+.account-frame {
+  z-index: 100;
+  background-color: white;
+  border-radius: 18px;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 169%;
+  
+}
+
+.account-frame .background {
+  background-color: paleturquoise;
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 18px 18px 0px 0px;
+  transition: 0.3s;
+}
+
+.account-frame .profile {
+  background-color: paleturquoise;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.account-frame h1 {
+  position: relative;
+  top: 42%;
+}
+
+.account-frame .bio {
+  position: relative;
+  top: 43%;
+  left: 25%;
+  width: 50%;
+}
+
+.account-frame h2 {
+  position: relative;
+  top: 45%;
+  left: 25%;
+  width: 50%;
+}
+
+.account-frame .sets-holder {
+  position: relative;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 35%;
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-align: center;
+  align-content: center;
+}
+
+.account--card {
+  margin: 0px 20px 15px 0px;
+  cursor: pointer;
+  width: 35%;
+  height: 66%;
+  user-select: none;
+  position: relative;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+.account--card h3 {
+  font-size: 90%;
+  margin-top: 0;
+}
+.account--card p {
+  font-size: 50%;
+  margin-top: 4px;
+}
+
+/* FOOTER SECTION*/
+#footerarea {
+  width: 100%;
+  height: 7%;
+  position: absolute;
+  top: 178%;
+  min-height: 40px;
+  max-height: 50px;
+  border-top: 1px solid rgba(180, 180, 180, 0.5);
+  background: var(--primary);
+  font-size: 12px;
+  color: white;
+  line-height: 10px;
+  padding-top: 7px;
+  padding-bottom: 40px;
+}
+#footerarea img {
+    position: absolute;
+  left: 10px;
+top: 50%;
+  transform: translateY(-50%);
+  height: 33px;
+  width: 33px;
+}
+#footerarea p {
+  position: absolute;
+  left: 49px; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+#footerarea a {
+  transition: 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+#footerarea a:hover {
+  text-decoration: underline;
+}
+
+#footerarea #socials {
+ position: absolute;
+  left: 91%;
+  width: 9%;
+  text-align: center;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+#footerarea #socials i {
+  text-decoration: none;
+}
+
+/*MOBILE*/
+@media only screen and (max-device-width: 640px) {
+  .login-btn:before {
+   content: "";
+  }
+  #navarea {
+    height: 6%;
+  }
+  .landing1 {
+    top: 6%;
+  }
+  #footerarea{
+    padding-bottom: 80px;
+  }
+}

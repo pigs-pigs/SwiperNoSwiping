@@ -1,62 +1,288 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - Swiper No Swiping!</title>
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="Css/menu.css" />
-  <link rel="stylesheet" href="Css/style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="Css/landing.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Swiper</title>
 </head>
-
 <body>
-  <div class="main-loading-overlay" style="transition: 0.3s; position: fixed;top: 8%;width: 100%;left: 0;background-color: #111827;height: 92%;z-index: 1000; opacity: 1;">
-    <div class="loading-box">
-    <i class="fa fa-remove"></i>
-    <i class="fa fa-heart"></i>
-  </div></div>
-    <!--Menu-->
-  <div class="app-header">
-    <div class="app-header-left">
-      <a href="https://swipernoswiping.netlify.app"><img class="app-icon" src="logo.png"></img></a>
-      <p class="app-name">Home</p>
-      <div class="search-wrapper">
-        <input class="search-input" type="text" placeholder="Search">
-        <i class="fa fa-search"></i>
+<div id="navarea">
+    <img class="app-icon" src="logo.png" />
+    <p class="app-name">Swiper</p>
+  </div>
+  
+  <div class="landing1">
+    <div class="demo">
+      <i class="fa-solid fa-arrow-pointer"></i>
+      <div class="tinder--status">
+        <i class="fa fa-remove"></i>
+        <i class="fa fa-heart"></i>
+      </div>
+  
+    </div>
+    <h1><span id="pagetitle"></span><span style="border-right: 2px solid white;" id="typewriter"></span></h1>
+  
+    <div class="search-wrap">
+      <input type="text" placeholder="Search for a set!" class="search-input">
+      <button class="search-btn"><i class="fa fa-search"></i></button>
+      </input>
+    </div>
+    <a href="#footerarea"><button class="login-btn">Login</button></a>
+  </div>
+  <a class="discover-link" href="#"><i class="fa fa-compass"></i> Discover Sets</a>
+  
+  <div class="landing2">
+    <div>
+      <i class="fa-solid fa-palette"></i>
+      <h2>Create</h2>
+      <p>Create sets to gather opinions, compare answers, and share with the world</p>
+      <a href="#">Start Creating <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div>
+      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+      <h2>Swipe</h2>
+      <p>Swipe through unique sets of cards and compare your answers to those of others</p>
+      <a href="#">Start Swiping <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div>
+      <i class="fa-solid fa-share"></i>
+      <h2>Share</h2>
+      <p>Share your sets or sets you find and compare answers with friends</p>
+      <a href="#">Start Sharing <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+  
+  <div class="landing3">
+    <h2>Join the community!</h2>
+    <p>Logging in is not required to swipe through sets, but if you want to start creating your own sets accounts are completely free and only require an email and password! Create and customize as much as you want!</p>
+    <a href="#"><button>Get Started</button></a>
+    <div class="display-area">
+      <div class="account-frame">
+        <div class="background">
+        </div>
+        <img src="https://i.imgur.com/ulBxbKt.png" class="profile">
+        <h1>John Dough</h1>
+        <p class="bio">I love cookies! Try out my sets below to decide what cookies you love!</p>
+        <h2>Sets</h3>
+          <div class="sets-holder">
+            <div class="tinder--card account--card">
+              <img style="background-color: #FFCA3A;">
+              <h3>Cookies</h3>
+              <p>See what cookies you love!</p>
+            </div>
+            <div class="tinder--card account--card">
+              <img style="background-color: #1982C4;">
+              <h3>What's Better Than Cookies?</h3>
+              <p>Decide which foods are better than cookies!</p>
+            </div>
+          </div>
       </div>
     </div>
-    <div class="app-header-right">
-      <button class="add-btn" title="Create Set">
-        <i class="fa fa-plus"></i>
-      </button>
-      <button class="notification-btn">
-        <i class="fa fa-bell"></i>
-      </button>
-      <button class="profile-btn">
-        <img src="PlaceholderPFP.png" />
-        <span>Login</span>
-      </button>
+  </div>
+  <div id="footerarea">
+    <img src="logo.png" />
+    <p><a href="#">Terms of Service</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp; &#169; 2022 Swiper</p>
+    <div id="socials">
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  
     </div>
   </div>
-  <div id="notifs-container" style="display:none;"></div>
-  <div id="user-options" style="display:none;"></div>
 
-  <!--End Of Menu-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script>
+    //Positioning
+function lineUpBoxes(){
+  $(".landing2").css("top",$(".landing1").height() + parseInt($(".landing1").css("top"),10))
+   $(".landing3").css("top",$(".landing2").height() + parseInt($(".landing2").css("top"),10))
+   $("#footerarea").css("top",$(".landing3").height() + parseInt($(".landing3").css("top"),10))
+}
+lineUpBoxes()
+$(window).resize(lineUpBoxes)
 
-  <i class="fa fa-angle-left"></i>
-  <i class="fa fa-angle-right"></i>
+const words = ["asks", "votes", "slides", "creates", "hearts", "swipes"];
+const typeSpan = $("#typewriter");
+var ind = 0;
+function typer() {
+  setTimeout(function () {
+    var txt = words[ind];
+    var i = 0;
+    var inreverse = false;
 
-  <div class="discover-cards">
-  </div>
+    function typeWriter() {
+      if (!inreverse && i < txt.length) {
+        typeSpan.text(typeSpan.text() + txt.charAt(i));
+        i++;
+        setTimeout(typeWriter, 90);
+      } else if (i == txt.length) {
+        inreverse = true;
+        i--;
+        setTimeout(typeWriter, 2000);
+      } else if (inreverse && i < txt.length && i >= 0) {
+        typeSpan.text(typeSpan.text().substr(0, i));
+        i--;
+        setTimeout(typeWriter, 90);
+      }
+    }
+    typeWriter();
+    ind++;
+    if (ind == words.length) {
+      ind = 0;
+    }
+    typer();
+  }, 3500);
+}
 
-  <noscript>Your browser does not support JavaScript! Please enable it to use this application!</noscript>
+typer();
+
+const initTxt = "Where the world";
+var initIndex = 0;
+function initTyper() {
+  if (initIndex <= initTxt.length) {
+    $("#pagetitle").text(initTxt.substr(0, initIndex));
+    initIndex++;
+    setTimeout(initTyper, 100);
+  } else {
+    $("#pagetitle").html($("#pagetitle").html() + "&nbsp");
+  }
+}
+initTyper();
+
+function createImg(ImgData) {
+  var pattern = new RegExp("^http");
+  if (pattern.test(ImgData)) {
+    return `src="${ImgData}" `;
+  } else {
+    return `style="background-color: ${ImgData};" `;
+  }
+}
+//Use official created sets or a default set idk
+var CardsList = [
+  { Cover: "#FF595E", Title: "Welcome to Swiper!", Description: "Swipe to the right to like a card. Swiping to the left dislikes the card. Try it out with this examle set!" },
+  { Cover: "#FFCA3A", Title: "Do you like this color?", Description: "Like it or dislike it!" },
+  { Cover: "#8AC926", Title: "Do you like turtles?", Description: "Green makes me think of turtles!" },
+   { Cover: "#1982C4", Title: "Pools or beaches?", Description: "Like for pools & Dislike for beaches" },
+  { Cover: "#6A4C93", Title: "Start Swiping!", Description: "Go search for a set or discover sets to keep swiping! Scroll down for more information!<br><br><span style='font-size: 80%;'>(This card does not move!)</span>" }
+];
+
+CardsList.forEach(function (Card, Index) {
+  $(".demo").append(
+    `<div class="tinder--card">
+      <img ` +
+      createImg(Card.Cover) +
+      `>
+      <h3>` +
+      Card.Title +
+      `</h3>
+      <p>` +
+      Card.Description +
+      `${
+        (Index == 0 &&
+          "<br><span style='font-size: 70%;'>(Swipe to begin!)</span>") ||
+        ""
+      }</p>
+    </div>`
+  );
+});
+
+//MAKE CARDS INTERACTIVE
+var tinderContainer = document.querySelector(".demo");
+var allCards = document.querySelectorAll(".demo .tinder--card");
+
+function initCards() {
+  var newCards = document.querySelectorAll(".demo .tinder--card:not(.removed)");
+
+  newCards.forEach(function (card, index) {
+    card.style.zIndex = allCards.length - index;
+    card.style.transform =
+      "scale(" + (20 - index) / 20 + ") translateY(-" + 30 * index + "px)";
+    card.style.opacity = (10 - index) / 10;
+  });
+  tinderContainer.classList.add("loaded");
+  if (newCards.length == 0) {
+    //RESTART
+  }
+}
+
+initCards();
+
+allCards.forEach(function (el) {
+  if ($(el).find("h3").text() == "Start Swiping!") {
+    return
+  }
+  var hammertime = new Hammer(el);
+
+  hammertime.on("pan", function (event) {
+    if ($(".fa-hand-o-up")) {
+      $(".fa-hand-o-up").remove();
+    }
+    el.classList.add("moving");
+  });
+
+  hammertime.on("pan", function (event) {
+    if (event.deltaX === 0) return;
+    if (event.center.x === 0 && event.center.y === 0) return;
+
+    tinderContainer.classList.toggle("tinder_love", event.deltaX > 0);
+    tinderContainer.classList.toggle("tinder_nope", event.deltaX < 0);
+
+    var xMulti = event.deltaX * 0.03;
+    var yMulti = event.deltaY / 80;
+    var rotate = xMulti * yMulti;
+
+    event.target.style.transform =
+      "translate(" +
+      event.deltaX +
+      "px, " +
+      event.deltaY +
+      "px) rotate(" +
+      rotate +
+      "deg)";
+  });
+
+  hammertime.on("panend", function (event) {
+    el.classList.remove("moving");
+    tinderContainer.classList.remove("tinder_love");
+    tinderContainer.classList.remove("tinder_nope");
+    var moveOutWidth = document.body.clientWidth;
+    var keep = Math.abs(event.deltaX) < 70 || Math.abs(event.velocityX) < 0.3;
+
+    event.target.classList.toggle("removed", !keep);
+
+    if (keep) {
+      event.target.style.transform = "";
+    } else {
+      var endX = Math.max(
+        Math.abs(event.velocityX) * moveOutWidth,
+        moveOutWidth
+      );
+      var toX = event.deltaX > 0 ? endX : -endX;
+      var endY = Math.abs(event.velocityY) * moveOutWidth;
+      var toY = event.deltaY > 0 ? endY : -endY;
+      var xMulti = event.deltaX * 0.03;
+      var yMulti = event.deltaY / 80;
+      var rotate = xMulti * yMulti;
+
+      event.target.style.transform =
+        "translate(" +
+        toX +
+        "px, " +
+        (toY + event.deltaY) +
+        "px) rotate(" +
+        rotate +
+        "deg)";
+
+      initCards();
+      setTimeout(function () {
+        el.remove();
+      }, 900);
+    }
+  });
+});
+  </script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="Js/menu.js"></script>
-<script src="Js/home.js"></script>
-
-<script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
-<script src="Js/login.js"></script>
 </html>

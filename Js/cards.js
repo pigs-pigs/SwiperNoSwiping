@@ -123,7 +123,7 @@ allCards.forEach(function (el) {
     tinderContainer.classList.remove("tinder_nope");
 
     var moveOutWidth = document.body.clientWidth;
-    var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+    var keep = Math.abs(event.deltaX) < 70 || Math.abs(event.velocityX) < 0.3;
 
     event.target.classList.toggle("removed", !keep);
 

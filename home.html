@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - Swiper No Swiping!</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="Css/menu.css" />
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+
+<body>
+  <div class="main-loading-overlay" style="transition: 0.3s; position: fixed;top: 8%;width: 100%;left: 0;background-color: #111827;height: 92%;z-index: 1000; opacity: 1;">
+    <div class="loading-box">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div></div>
+    <!--Menu-->
+  <div class="app-header">
+    <div class="app-header-left">
+      <a href="https://swipernoswiping.netlify.app"><img class="app-icon" src="logo.png"></img></a>
+      <p class="app-name">Home</p>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="Search">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+    <div class="app-header-right">
+      <button class="add-btn" title="Create Set">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button class="notification-btn">
+        <i class="fa fa-bell"></i>
+      </button>
+      <button class="profile-btn">
+        <img src="PlaceholderPFP.png" />
+        <span>Login</span>
+      </button>
+    </div>
+  </div>
+  <div id="notifs-container" style="display:none;"></div>
+  <div id="user-options" style="display:none;"></div>
+
+  <!--End Of Menu-->
+
+  <i class="fa fa-angle-left"></i>
+  <i class="fa fa-angle-right"></i>
+
+  <div class="discover-cards">
+  </div>
+
+  <noscript>Your browser does not support JavaScript! Please enable it to use this application!</noscript>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="Js/menu.js"></script>
+<script src="Js/home.js"></script>
+
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
+<script src="Js/login.js"></script>
+</html>
