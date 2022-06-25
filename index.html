@@ -307,14 +307,10 @@ allCards.forEach(function (el) {
 //Click buttons
 const login = async () => {
   try {
-    var targetUrl = window.location.origin + "/home"
     const options = {
-      redirect_uri: window.location.origin,
+      redirect_uri: window.location.origin + "/home",
+      appState : window.location.origin + "/home"
     };
-
-    if (targetUrl) {
-      options.appState = { targetUrl };
-    }
 
     await auth0.loginWithRedirect(options);
   } catch (err) {
