@@ -98,14 +98,22 @@
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
   <script>
+    let autho
+    async function setupAuth() {
+     auth0 = await createAuth0Client({
+        domain: "swipernoswiping.us.auth0.com",
+        client_id: "vE6tlH4tCrynnE4FF8LW0p7DNvD3xeI4",
+     })
+    }
     async function checkAuth(){
+      await setupAuth()
         const isAuthenticated = await auth0.isAuthenticated();
         if (isAuthenticated){
             window.location.pathname = "/home"
         }
     }
     checkAuth()
-    
+
     //Positioning
 function lineUpBoxes(){
   $(".landing2").css("top",$(".landing1").height() + parseInt($(".landing1").css("top"),10))
