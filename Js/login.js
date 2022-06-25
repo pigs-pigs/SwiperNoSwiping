@@ -9,7 +9,7 @@ const login = async (targetUrl) => {
     console.log("Logging in", targetUrl);
 
     const options = {
-      redirect_uri: window.location.href,
+      redirect_uri: window.location.origin + "/home",
     };
 
     if (targetUrl) {

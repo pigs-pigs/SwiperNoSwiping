@@ -1,10 +1,10 @@
 # Redirects
 
 /index.html        /
-/home              /
 /404.html          /404
 
 # Remove the suffixes
 /discover.html    /discover
 /create.html     /create
 /swipe.html     /swipe
+/home.html     /home
