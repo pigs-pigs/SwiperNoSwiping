@@ -86,7 +86,7 @@
   </div>
   <div id="footerarea">
     <img src="logo.png" />
-    <p><a href="#">Terms of Service</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp; &#169; 2022 Swiper</p>
+    <p><a href="#">Terms</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp; &#169; 2022 Swiper</p>
     <div id="socials">
       <a href="#"><i class="fa-brands fa-twitter"></i></a>
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -305,10 +305,9 @@ allCards.forEach(function (el) {
 
 
 //Click buttons
-const login = async (targetUrl) => {
+const login = async () => {
   try {
-    console.log("Logging in", targetUrl);
-
+    var targetUrl = window.location.origin + "/home"
     const options = {
       redirect_uri: window.location.origin,
     };
