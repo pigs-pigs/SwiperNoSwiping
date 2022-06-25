@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="Css/landing.css">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
@@ -102,6 +104,7 @@
             window.location.pathname = "/home"
         }
     }
+    checkAuth()
     
     //Positioning
 function lineUpBoxes(){
@@ -311,7 +314,7 @@ const login = async (targetUrl) => {
     console.log("Log in failed", err);
   }
 };
-$(".login-btn").clikc(login)
+$(".login-btn").click(login)
   </script>
 </body>
 </html>
