@@ -482,24 +482,6 @@ a > i {
   text-decoration: none;
 }
 
-/*MOBILE*/
-@media only screen and (max-device-width: 640px) {
-  .login-btn:before {
-    content: "";
-  }
-  #navarea {
-    height: 6%;
-  }
-  .landing1 {
-    top: 6%;
-  }
-  .legal-header {
-    top: 6%;
-  }
-  #footerarea {
-    padding-bottom: 80px;
-  }
-}
 
 /*Legal Pages*/
 
@@ -523,4 +505,23 @@ a > i {
 }
 .legal-p {
   color: #6f6f6f;
+}
+
+/*MOBILE*/
+@media only screen and (max-device-width: 640px) {
+  .login-btn:before {
+    content: "";
+  }
+  #navarea {
+    height: 6%;
+  }
+  .landing1 {
+    top: 6%;
+  }
+  .legal-header {
+    top: 6%;
+  }
+  #footerarea {
+    padding-bottom: 80px;
+  }
 }
