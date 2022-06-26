@@ -210,5 +210,5 @@ function updateNum(liked) {
 
 // Swipe and create mobile compatability
 // Set info page with stats
-
+//make top left icon go to /home
 // New cool home page with discover stuff

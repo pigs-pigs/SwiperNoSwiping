@@ -31,9 +31,9 @@ const logout = () => {
     auth0.logout({
       returnTo: window.location.origin,
     });
-    document.cookie = "LoggedInUser=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;"
-    document.cookie = "LoggedInPfp=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;"
-
+    document.cookie =
+      "LoggedInUser=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "LoggedInPfp=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
   } catch (err) {
     console.log("Log out failed", err);
   }
@@ -46,8 +46,28 @@ async function getUserInfo() {
   var newData = {
     username: userdata["https://data/username"],
     userId: userdata.sub.replace("auth0|", ""),
-    profile: userdata.picture,
+    profile: "",
   };
+
+  var settings = {
+    async: false,
+    crossDomain: true,
+    url: `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"userid":"${newData.userId}"}`,
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "x-apikey": "60ce0b22e2c96c46a246371f",
+      "cache-control": "no-cache",
+    },
+  };
+  $.ajax(settings).done(function (data) {
+    console.log(data);
+    newData.color = data.color;
+    newData.profile = data.profile;
+    newData.bio = data.bio;
+  });
+
+  console.log(newData);
   return newData;
 }
 
@@ -122,7 +142,7 @@ window.onload = async () => {
         const result = await auth0.handleRedirectCallback();
         console.log("Logged in!");
         var currUser = await getUserInfo();
-        document.cookie = "LoggedInUser=" + currUser.username + ";"
+        document.cookie = "LoggedInUser=" + currUser.username + ";";
         document.cookie = "LoggedInPfp=" + currUser.profile + ";";
         //TODO: Edit these when profile changed
         console.log("Set cookies!");
