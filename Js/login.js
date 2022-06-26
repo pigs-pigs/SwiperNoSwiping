@@ -46,7 +46,6 @@ async function getUserInfo() {
   var newData = {
     username: userdata["https://data/username"],
     userId: userdata.sub.replace("auth0|", ""),
-    profile: "",
   };
 
   var settings = {
@@ -61,7 +60,12 @@ async function getUserInfo() {
     },
   };
   $.ajax(settings).done(function (data) {
-    console.log(data);
+    if (!data[0]) {
+      console.error("Data not in database (UserData)");
+      return null;
+    }
+    data = data[0];
+    console.log(data[0]);
     newData.color = data.color;
     newData.profile = data.profile;
     newData.bio = data.bio;

@@ -20,13 +20,6 @@ function sendSetData(data) {
   return setId;
 }
 
-console.log(getUserInfo());
-async function hello() {
-  var ee = await getUserInfo();
-  console.log(ee);
-}
-hello();
-
 // Image Uploading
 function hideUploadButtons(Card) {
   Card.find(".image-icons").css("opacity", "0");
