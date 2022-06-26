@@ -85,7 +85,7 @@ const updateUI = async () => {
     if (isAuthenticated) {
       var user = await getUserInfo();
       $(".profile-btn span").text(user.username);
-      $(".profile-btn img").attr("src", user.profile);
+      $(".profile-btn img").attr("src", user.profile).css("background-color",user.color);
 
       $("#user-options").append(
         `<div class="your-profile"><i class="fa fa-user"></i>  Your profile</div><div class="logout"><i class="fa fa-sign-out"></i>  Log out</div>`
@@ -165,7 +165,7 @@ window.onload = async () => {
     window.location.pathname == "/profile.html"
   ) {
     if (!isAuthenticated) {
-      window.location.pathname = "/";
+      window.location.pathname = "/home";
     }
     function initCards(Id) {
       var settings = {
@@ -211,7 +211,10 @@ window.onload = async () => {
     const user = await getUserInfo();
     initCards(user.userId);
     $(".account-frame h1").text(user.username);
-    $(".account-frame .profile").attr("src", user.profile);
+    $(".account-frame .profile")
+      .attr("src", user.profile)
+      .css("background-color", user.color);
+    $(".account-frame .background").css("background-color", user.color);
 
     $(".account-frame").css("opacity", "1");
   }
