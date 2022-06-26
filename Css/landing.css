@@ -141,7 +141,7 @@ a > i {
   color: white;
   position: absolute;
   left: -22px;
-    font-size: 15px;
+  font-size: 15px;
 }
 .discover-link {
   cursor: pointer;
@@ -352,7 +352,6 @@ a > i {
   transform: translateX(-50%);
   width: 85%;
   height: 169%;
-  
 }
 
 .account-frame .background {
@@ -446,16 +445,16 @@ a > i {
   padding-bottom: 40px;
 }
 #footerarea img {
-    position: absolute;
+  position: absolute;
   left: 10px;
-top: 50%;
+  top: 50%;
   transform: translateY(-50%);
   height: 33px;
   width: 33px;
 }
 #footerarea p {
   position: absolute;
-  left: 49px; 
+  left: 49px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -469,7 +468,7 @@ top: 50%;
 }
 
 #footerarea #socials {
- position: absolute;
+  position: absolute;
   left: 91%;
   width: 9%;
   text-align: center;
@@ -486,7 +485,7 @@ top: 50%;
 /*MOBILE*/
 @media only screen and (max-device-width: 640px) {
   .login-btn:before {
-   content: "";
+    content: "";
   }
   #navarea {
     height: 6%;
@@ -494,7 +493,34 @@ top: 50%;
   .landing1 {
     top: 6%;
   }
-  #footerarea{
+  .legal-header {
+    top: 6%;
+  }
+  #footerarea {
     padding-bottom: 80px;
   }
+}
+
+/*Legal Pages*/
+
+.legal-header {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  height: 100px;
+  background-color: var(--primary);
+}
+
+.legal-header h1 {
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  color: white;
+  font-size: 290%;
+}
+.legal-h2 {
+  color: #36373b;
+}
+.legal-p {
+  color: #6f6f6f;
 }

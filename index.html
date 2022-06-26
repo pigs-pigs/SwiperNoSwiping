@@ -33,8 +33,8 @@
       </input>
     </div>
     <button class="login-btn">Login</button>
+    <a class="discover-link" href="/home"><i class="fa fa-compass"></i> Discover Sets</a>
   </div>
-  <a class="discover-link" href="/home"><i class="fa fa-compass"></i> Discover Sets</a>
   
   <div class="landing2">
     <div>
@@ -86,7 +86,7 @@
   </div>
   <div id="footerarea">
     <img src="logo.png" />
-    <p><a href="#">Terms</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp; &#169; 2022 Swiper</p>
+    <p><a href="/documents/terms">Terms</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp; &#169; 2022 Swiper</p>
     <div id="socials">
       <a href="#"><i class="fa-brands fa-twitter"></i></a>
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -236,8 +236,8 @@ allCards.forEach(function (el) {
   var hammertime = new Hammer(el);
 
   hammertime.on("pan", function (event) {
-    if ($(".fa-hand-o-up")) {
-      $(".fa-hand-o-up").remove();
+    if ($(".fa-arrow-pointer")) {
+      $(".fa-arrow-pointer").remove();
     }
     el.classList.add("moving");
   });
@@ -318,6 +318,21 @@ const login = async () => {
   }
 };
 $(".login-btn").click(login)
+
+$(".search-input").keydown(function (e) {
+  if (e.keyCode == 13 && $(".search-input").val().trim()) {
+    window.location.href =
+      "https://swipernoswiping.netlify.app/discover?q=" +
+      $(".search-input").val().trim();
+  }
+});
+$(".search-btn").click(function () {
+  if ($(".search-input").val().trim()) {
+    window.location.href =
+      "https://swipernoswiping.netlify.app/discover?q=" +
+      $(".search-input").val().trim();
+  }
+});
   </script>
 </body>
 </html>
