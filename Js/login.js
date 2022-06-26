@@ -52,7 +52,7 @@ async function getUserInfo() {
   var settings = {
     async: false,
     crossDomain: true,
-    url: `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"userid":"${newData.userId}"}`,
+    url: `https://swipernoswiping-3b4f.restdb.io/rest/userdata?q={"userid":"${newData.userId}"}`,
     method: "GET",
     headers: {
       "content-type": "application/json",
