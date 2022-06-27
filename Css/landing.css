@@ -504,7 +504,7 @@ a > i {
   margin-top: 3%;
   color: #36373b;
 }
-.legal-h2:first-child {
+.legal-h2.firstheader {
   margin-top: calc(8% + 120px);
 }
 .legal-p {
@@ -525,6 +525,9 @@ a > i {
   }
   .legal-header {
     top: 6%;
+  }
+  .legal-h2.firstheader {
+    margin-top: calc(6% + 120px);
   }
   #footerarea {
     padding-bottom: 80px;
