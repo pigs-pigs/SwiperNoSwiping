@@ -482,7 +482,6 @@ a > i {
   text-decoration: none;
 }
 
-
 /*Legal Pages*/
 
 .legal-header {
@@ -501,9 +500,15 @@ a > i {
   font-size: 290%;
 }
 .legal-h2 {
+  margin-left: 3%;
+  margin-top: 3%;
   color: #36373b;
 }
+.legal-h2:first-child {
+  margin-top: calc(8% + 120px);
+}
 .legal-p {
+  margin-left: 4%;
   color: #6f6f6f;
 }
 
