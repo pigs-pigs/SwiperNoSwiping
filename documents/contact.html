@@ -78,14 +78,18 @@
           $("input[type=text]").css("border-color", "red");
           return;
         }
+        if ($("textarea").val().length < 10) {
+          $("textarea").css("border-color", "red");
+          return;
+        }
         if (!emailRegexp.test($("input[type=email]").val())) {
           $("input[type=email]").css("border-color", "red");
           return;
         }
         Email.send({
-          SecureToken: "26877a5f-2d7d-454f-bfeb-f8432c740a4e",
+          SecureToken: "d8e8b299-2ae6-4a53-b092-25cf3abc68ec",
           To: "send2swiper@gmail.com",
-          From: "contact@swiper.com",
+          From: "send2swiper@gmail.com",
           Subject: "This is the subject",
           Body: "And this is the body",
         }).then((message) => alert(message));
