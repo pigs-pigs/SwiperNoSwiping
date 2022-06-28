@@ -107,8 +107,8 @@
             ],
           }),
         }).done(function (res) {
-          console.log(res);
-          alert("Message Sent!")
+          $("#contact").fadeOut();
+          $(".container").append("<h1>Message Sent!</h1>");
         });
       });
     </script>

@@ -522,9 +522,16 @@ a > i {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.container h1 {
+  width: 100%;
+  text-align: center;
+  color: var(--primary);
+  padding: 20px;
+}
 
 #contact {
   background: #f9f9f9;
+  padding: 20px;
 }
 
 #contact h3 {
