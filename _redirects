@@ -1,6 +1,7 @@
 # Redirects
 
 /index.html        /
+/index             /
 /404.html          /404
 
 # Remove the suffixes
