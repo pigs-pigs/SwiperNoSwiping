@@ -500,16 +500,17 @@ a > i {
   font-size: 290%;
 }
 .legal-h2 {
-  margin-left: 3%;
-  margin-top: 3%;
+  margin-left: 5%;
+  margin-top: 2%;
   color: #36373b;
 }
 .legal-h2.firstheader {
-  margin-top: calc(8% + 120px);
+  margin-top: calc(8% + 105px);
 }
 .legal-p {
-  margin-left: 4%;
+  margin-left: 6%;
   color: #6f6f6f;
+  width: 60%;
 }
 
 /*MOBILE*/
@@ -528,6 +529,7 @@ a > i {
   }
   .legal-h2.firstheader {
     margin-top: calc(6% + 120px);
+    padding-top: 5%;
   }
   #footerarea {
     padding-bottom: 80px;
