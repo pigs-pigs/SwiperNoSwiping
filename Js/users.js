@@ -1,6 +1,6 @@
 function initCards(Id) {
   var settings = {
-    async: false,
+    async: true,
     crossDomain: true,
     url: `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
     method: "GET",
@@ -42,6 +42,7 @@ function initCards(Id) {
 
 function initAccount(userData) {
   //set page title to username
+
   $(".account-frame h1").text(userData.username);
   $(".account-frame .bio").text(userData.bio);
   $(".account-frame .profile")
@@ -71,7 +72,9 @@ if (
   let user;
   if (getCookie("currentUser")) {
     user = JSON.parse(getCookie("currentUser"));
-  } else window.location.pathname = "/home";
+  } else {
+    window.location.pathname = "/home";
+  }
   initCards(user.userId);
   initAccount(user);
 } else {
@@ -92,15 +95,13 @@ if (
       "cache-control": "no-cache",
     },
   };
-  let userdata;
   $.ajax(settings).done(function (data) {
     if (!data[0]) {
       window.location.pathname = "/404";
       return null;
     }
-    userdata = data[0];
+    document.title = data[0].username + " - Swiper";
+    initAccount(data[0]);
+    initCards(uid);
   });
-
-  initAccount(userdata);
-  initCards(uid);
 }

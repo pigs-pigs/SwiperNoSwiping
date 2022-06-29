@@ -13,12 +13,14 @@
 </head>
 
 <body style="overflow-y: scroll;">
-  <div class="main-loading-overlay" style="transition: 0.3s; position: fixed;top: 8%;width: 100%;left: 0;background-color: #111827;height: 92%;z-index: 1000; opacity: 1;">
+  <div class="main-loading-overlay"
+    style="transition: 0.3s; position: fixed;top: 8%;width: 100%;left: 0;background-color: #111827;height: 92%;z-index: 1000; opacity: 1;">
     <div class="loading-box">
-    <i class="fa fa-remove"></i>
-    <i class="fa fa-heart"></i>
-  </div></div>
-    <!--Menu-->
+      <i class="fa fa-remove"></i>
+      <i class="fa fa-heart"></i>
+    </div>
+  </div>
+  <!--Menu-->
   <div class="app-header">
     <div class="app-header-left">
       <a href="home"><img class="app-icon" src="logo.png"></img></a>
@@ -65,59 +67,49 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="Js/menu.js"></script>
+<script src="Js/users.js"></script>
 
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
 <script src="Js/login.js"></script>
 <script>
 
-// Color picker
-const colorpicker = $("#colorpicker");
-let googleColors = null;
-var data = null;
-var xhr = new XMLHttpRequest();
+  // Color picker
+  const colorpicker = $("#colorpicker");
 
-xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-        googleColors = JSON.parse(this.responseText);
-
-        //create preview swatches
-        for (var color in googleColors) {
-            for (var subcolor in googleColors[color]) {
-                if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
-                    let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
-                    colorpicker.append(htmlString);
-                }
-            }
+  $.getJSON("/Css/colorpicker.json", function (googleColors) {
+    //create preview swatches
+    for (var color in googleColors) {
+      for (var subcolor in googleColors[color]) {
+        if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
+          let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
+          colorpicker.append(htmlString);
         }
-
-        $(document).on("click", ".lilcircle", function () {
-                $(".lilcircle").removeClass("active");
-                $(this).addClass("active");
-
-                $(".background").css("background-color", $(this).css("background-color"));
-                $(".profile").css("background-color", $(this).css("background-color"));
-        });
+      }
     }
-});
 
-xhr.open(
-    "GET",
-    "https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/Css/colorpicker.json"
-);
-xhr.send(data);
+    $(document).on("click", ".lilcircle", function () {
+      $(".lilcircle").removeClass("active");
+      $(this).addClass("active");
 
-$(".fa-paint-brush").click(function () {
+      $(".background").css("background-color", $(this).css("background-color"));
+      $(".profile").css("background-color", $(this).css("background-color"));
+    });
+  })
+
+
+  $(".fa-paint-brush").click(function () {
     colorpicker.toggleClass("picker-open");
-});
+  });
 
-$(document).on("click", function (e) {
+  $(document).on("click", function (e) {
     if (
-        colorpicker.hasClass("picker-open") &&
-        $(e.target).closest("#colorpicker").length === 0 &&
-        $(e.target).closest(".fa-paint-brush").length === 0
+      colorpicker.hasClass("picker-open") &&
+      $(e.target).closest("#colorpicker").length === 0 &&
+      $(e.target).closest(".fa-paint-brush").length === 0
     ) {
-        colorpicker.removeClass("picker-open");
+      colorpicker.removeClass("picker-open");
     }
-});
+  });
 </script>
+
 </html>
