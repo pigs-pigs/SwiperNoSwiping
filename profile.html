@@ -75,6 +75,7 @@
 
   // Color picker
   const colorpicker = $("#colorpicker");
+  function prevent(e) { e.preventDefault() }
 
   $.getJSON("/Css/colorpicker.json", function (googleColors) {
     //create preview swatches
@@ -93,9 +94,13 @@
 
       $(".background").css("background-color", $(this).css("background-color"));
       $(".profile").css("background-color", $(this).css("background-color"));
+      window.addEventListener("beforeunload", prevent)
     });
   })
 
+  function saveChanges(changes) {
+    window.removeEventListener("beforeunload", prevent)
+  }
 
   $(".fa-paint-brush").click(function () {
     colorpicker.toggleClass("picker-open");

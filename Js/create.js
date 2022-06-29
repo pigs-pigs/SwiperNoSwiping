@@ -336,49 +336,35 @@ $("#submit-btn").click(function () {
 // Color picker
 const colorpicker = $("#colorpicker");
 var currentlySelecting = null;
-let googleColors = null;
-var data = null;
-var xhr = new XMLHttpRequest();
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === 4) {
-    googleColors = JSON.parse(this.responseText);
-
-    //create preview swatches
-    for (var color in googleColors) {
-      for (var subcolor in googleColors[color]) {
-        if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
-          let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
-          colorpicker.append(htmlString);
-        }
+$.getJSON("/Css/colorpicker.json", function (googleColors) {
+  //create preview swatches
+  for (var color in googleColors) {
+    for (var subcolor in googleColors[color]) {
+      if (subcolor == "400" || subcolor == "500" || subcolor == "600") {
+        let htmlString = `<div class="colorp"><div class="lilcircle" style="background-color: ${googleColors[color][subcolor]};" data-color="${googleColors[color][subcolor]}"></div></div>`;
+        colorpicker.append(htmlString);
       }
     }
-
-    $(document).on("click", ".lilcircle", function () {
-      if (currentlySelecting) {
-        $(".lilcircle").removeClass("active");
-        $(this).addClass("active");
-
-        currentlySelecting
-          .find("img")
-          .css("background-color", $(this).css("background-color"));
-        if (currentlySelecting.find("img").attr("src")) {
-          currentlySelecting.find("img").removeAttr("src");
-        }
-        hideUploadButtons(currentlySelecting);
-      }
-    });
-
-    //trigger click on an element
-    $(".lilcircle")[0].click();
   }
-});
 
-xhr.open(
-  "GET",
-  "https://raw.githubusercontent.com/pigs-pigs/SwiperNoSwiping/main/Css/colorpicker.json"
-);
-xhr.send(data);
+  $(document).on("click", ".lilcircle", function () {
+    if (currentlySelecting) {
+      $(".lilcircle").removeClass("active");
+      $(this).addClass("active");
+
+      currentlySelecting
+        .find("img")
+        .css("background-color", $(this).css("background-color"));
+      if (currentlySelecting.find("img").attr("src")) {
+        currentlySelecting.find("img").removeAttr("src");
+      }
+      hideUploadButtons(currentlySelecting);
+    }
+  });
+
+  //trigger click on an element
+  $(".lilcircle")[0].click();
+});
 
 $(document).on("click", ".fa-paint-brush", function () {
   currentlySelecting = $(this).parent().parent();

@@ -3,6 +3,7 @@ function getCookie(cookieName) { var name = cookieName + "="; var ca = document.
 if (getCookie("currentUser")) {
   var userData = JSON.parse(getCookie("currentUser"))
   $(".profile-btn span").text(userData.username);
+  $(".profile-btn img").attr("src", userData.profile).css("background",userData.color)
 }
 //Searching
 $(".search-input").keydown(function (e) {
