@@ -16,42 +16,6 @@ body {
   background: #111827;
   overflow: hidden;
   font-family: sans-serif;
-  /*animation: bg 30s infinite; */
-}
-
-@keyframes bg {
-  0%,
-  100% {
-    background-color: #ffadad;
-  }
-
-  12.5% {
-    background-color: #ffd6a5;
-  }
-
-  25% {
-    background-color: #fdffb6;
-  }
-
-  37.5% {
-    background-color: #caffbf;
-  }
-
-  50% {
-    background-color: #9bf6ff;
-  }
-
-  62.5% {
-    background-color: #a0c4ff;
-  }
-
-  75% {
-    background-color: #bdb2ff;
-  }
-
-  87.5% {
-    background-color: #ffc6ff;
-  }
 }
 
 .tinder {
@@ -345,9 +309,9 @@ DISCOVER
 .end-modal button {
   border: 2px solid #061944;
   border-radius: 10px;
-  width: 28%;
-  height: 13%;
-  margin: 10% 8px 0px;
+  width: 30%;
+  height: 14%;
+  margin: 15% 2px 0px;
   font-size: 13pt;
   color: #061944;
   transition: 0.5s;
@@ -373,7 +337,7 @@ DISCOVER
   }
 
   .end-modal {
-    width: 80%;
+    width: 90%;
   }
   .tinder--counter {
     display: none;

@@ -77,7 +77,6 @@ h1 {
   color: lightgray;
 }
 
-
 .tinder--card .h3-input {
   outline: none;
   border: none;
@@ -152,27 +151,27 @@ h1 {
   top: 92%;
 
   font-size: 20px;
-  color: lightgray;
   opacity: 0.8;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 30vw;
+  max-width: 25vw;
   min-width: 20vh;
   height: 5%;
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  will-change: transform;
-  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+  transition: 0.3;
   user-select: none;
-  color: #666;
+  cursor: pointer;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
 #add-card:hover {
   opacity: 1;
+  color: #666;
+  background: #fff;
 }
 
 #submit-btn {
@@ -180,29 +179,28 @@ h1 {
   left: 20%;
   transform: translateX(-50%);
   top: 92%;
-
   font-size: 20px;
-  color: lightgray;
   opacity: 0.8;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 30vw;
+  max-width: 25vw;
   min-width: 20vh;
   height: 5%;
-  background: #06c258;
-  border-radius: 8px;
-  overflow: hidden;
-  will-change: transform;
-  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+  transition: 0.3;
   user-select: none;
-  color: #000;
+  cursor: pointer;
+  border: 2px solid #06c258;
+  color: #06c258;
 }
 
 #submit-btn:hover {
   opacity: 1;
+  background: #06c258;
+  color: #fff;
 }
 
 #set-info {
@@ -358,5 +356,4 @@ h1 {
   h1 {
     left: 50%;
   }
-
 }
