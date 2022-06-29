@@ -32,8 +32,7 @@ const logout = () => {
       returnTo: window.location.origin,
     });
     document.cookie =
-      "LoggedInUser=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    document.cookie = "LoggedInPfp=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+      "currentUser=null;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
   } catch (err) {
     console.log("Log out failed", err);
   }
@@ -146,76 +145,14 @@ window.onload = async () => {
         const result = await auth0.handleRedirectCallback();
         console.log("Logged in!");
         var currUser = await getUserInfo();
-        document.cookie = "LoggedInUser=" + currUser.username + ";";
-        document.cookie = "LoggedInPfp=" + currUser.profile + ";";
+        document.cookie = "currentUser=" + JSON.stringify(currUser) + ";";
         //TODO: Edit these when profile changed
-        console.log("Set cookies!");
       } catch (err) {
         console.log("Error parsing redirect:", err);
       }
-
       window.history.replaceState({}, document.title, "/");
     }
 
     updateUI();
-  }
-  // Profile Edit Page
-  if (
-    window.location.pathname == "/profile" ||
-    window.location.pathname == "/profile.html"
-  ) {
-    if (!isAuthenticated) {
-      window.location.pathname = "/home";
-    }
-    function initCards(Id) {
-      var settings = {
-        async: false,
-        crossDomain: true,
-        url: `https://swipernoswiping-3b4f.restdb.io/rest/cards?q={"CreatorId":"${Id}"}`,
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          "x-apikey": "60ce0b22e2c96c46a246371f",
-          "cache-control": "no-cache",
-        },
-      };
-      function createImg(ImgData) {
-        var pattern = new RegExp("^http");
-        if (pattern.test(ImgData)) {
-          return `src="${ImgData}" `;
-        } else {
-          return `style="background-color: ${ImgData};" `;
-        }
-      }
-
-      $.ajax(settings).done(function (data) {
-        data.forEach(function (Card, Index) {
-          $(
-            ".sets-holder"
-          ).append(`<div data-set="${Card._id}" class="tinder--card account--card">
-                        <img ${createImg(Card.Cover)}>
-                      <h3>${Card.Title}</h3>
-                        <p>${Card.Description}</p>
-                      </div>`);
-        });
-      });
-      $(".account--card").click(function () {
-        var wasClicked = $(this);
-        if (wasClicked && wasClicked.data("set")) {
-          window.location.href =
-            "https://swipernoswiping.netlify.app/swipe?set=" +
-            wasClicked.data("set");
-        }
-      });
-    }
-    const user = await getUserInfo();
-    initCards(user.userId);
-    $(".account-frame h1").text(user.username);
-    $(".account-frame .profile")
-      .attr("src", user.profile)
-      .css("background-color", user.color);
-    $(".account-frame .background").css("background-color", user.color);
-
-    $(".account-frame").css("opacity", "1");
   }
 };

@@ -1,22 +1,8 @@
 //Fast Load User Info
-function getCookie(cookieName) {
-  var name = cookieName + "=";
-  var ca = document.cookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i].trim();
-    if (c.indexOf(name) == 0) {
-      return c.substr(name.length);
-    }
-  }
-  console.log("Cookie Not Found!");
-  return null;
-}
-if (getCookie("LoggedInUser")) { console.log(getCookie("LoggedInUser"))
-  $(".profile-btn span").text(getCookie("LoggedInUser"));
-  console.log($(".profile-btn span").text())
-}
-if (getCookie("LoggedInPfp")) {
-  $(".profile-btn img").attr("src", getCookie("LoggedInPfp"));
+function getCookie(cookieName) { var name = cookieName + "="; var ca = document.cookie.split(";"); for (var i = 0; i < ca.length; i++) { var c = ca[i].trim(); if (c.indexOf(name) == 0) { return c.substr(name.length);}} console.log("Cookie Not Found!");return null; }
+if (getCookie("currentUser")) {
+  var userData = JSON.parse(getCookie("currentUser"))
+  $(".profile-btn span").text(userData.username);
 }
 //Searching
 $(".search-input").keydown(function (e) {
