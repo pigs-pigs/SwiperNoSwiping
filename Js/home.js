@@ -20,11 +20,11 @@ var settings = {
   },
 };
 $.ajax(settings).done(function (response) {
-  $.each(response, function (Card) {
-    $(".discover-sets").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
-        <img ${createImg(Card.Cover)}>
-      <h3>${Card.Title}</h3>
-        <p>${Card.Description}</p>
+  $.each(response, function (Index, Set) {
+    $(".discover-sets").append(`<div data-set="${Set._id}" class="tinder--card discover--card">
+        <img ${createImg(Set.Cover)}>
+      <h3>${Set.Title}</h3>
+        <p>${Set.Description}</p>
       </div>`);
   });
 });
