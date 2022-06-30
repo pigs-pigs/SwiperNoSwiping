@@ -9,7 +9,7 @@ function createImg(ImgData) {
 }
 
 var settings = {
-  async: false,
+  async: true,
   crossDomain: true,
   url: `https://swipernoswiping-3b4f.restdb.io/rest/cards?max=8&h={"$orderby":{"_created":-1}}`, //Make this be recomended/tag filtered
   method: "GET",
@@ -21,9 +21,7 @@ var settings = {
 };
 $.ajax(settings).done(function (response) {
   $.each(response, function (Card) {
-    $(
-      ".discover-cards"
-    ).append(`<div data-set="${Card._id}" class="tinder--card discover--card ${index == Starter + 1 && `center-card`}">
+    $(".discover-sets").append(`<div data-set="${Card._id}" class="tinder--card discover--card">
         <img ${createImg(Card.Cover)}>
       <h3>${Card.Title}</h3>
         <p>${Card.Description}</p>
