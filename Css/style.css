@@ -14,7 +14,8 @@ body {
 body {
   display: flex;
   background: #111827;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   font-family: sans-serif;
 }
 
@@ -108,16 +109,22 @@ body {
 }
 
 .tinder--card h3 {
-  margin-top: 10%;
+  padding: 3px;
+  margin-top: 5%;
   font-size: 30px;
   pointer-events: none;
 }
 
 .tinder--card p {
-  margin-top: 24px;
-  font-size: 19px;
+  margin-top: 18px;
+  padding: 3px;
+  font-weight: 300;
   pointer-events: none;
 }
+.tinder--card:hover {
+  transform: scale(1.08);
+}
+
 
 .tinder--buttons {
   z-index: 50;
@@ -173,54 +180,82 @@ body {
 }
 
 /*
-DISCOVER
+DISCOVER / HOME
 */
-
-.center-card {
-  z-index: 3;
-  box-shadow: 0px 0px 7px #111827;
-  transform: scale(1.25);
-}
-
-.discover-cards {
-  position: fixed;
-  width: 70%;
-  height: 80%;
-  right: 15%;
-  top: 10%;
+#home-container {
+  color: #fff;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 92%;
+  height: 100%;
+  position: absolute;
+  top: 10%;
+  left: 4%;
+  gap: 5%;
+}
+
+.tags-container {
+  width: 105%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1px;
+  gap: 33px;
+}
+.tag {
+  user-select: none;
+  position: relative;
+  height: 90px;
+  width: 90px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.tag:hover {
+  transform: scale(1.15);
+}
+.tag i {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  font-size: 60px;
+  position: absolute;
+  transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 1;
-}
-
-.fa-angle-right {
-  font-size: 60px;
-  color: #fff;
-  position: fixed;
   top: 50%;
-  right: 9%;
-  transform: translateY(-50%);
+  left: 50%;
 }
-
-.fa-angle-left {
-  font-size: 60px;
-  color: #fff;
-  position: fixed;
-  top: 50%;
-  left: 9%;
-  transform: translateY(-50%);
+.tag p {
+  width: 100%;
+  text-align: center;
+  margin-top: 104%;
+  word-break: break-all;
+}
+.sect-title {
+  margin-top: 8%;
+}
+.discover-sets {
+  color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  text-align: center;
+  gap: 1%;
 }
 
 .discover--card {
-  margin: auto;
   cursor: pointer;
-  width: 30%;
-  height: 65%;
+  width: 23%;
+  height: 49%;
+  margin-bottom: 1%;
+  min-height: 293px;
   user-select: none;
   position: relative;
 }
-
 /*Search Page*/
 
 .search-results {
@@ -238,10 +273,6 @@ DISCOVER
 
 .search-results .tinder--card {
   margin: 1%;
-}
-
-.search-results .tinder--card:hover {
-  transform: scale(1.08);
 }
 
 .no-results {
@@ -321,6 +352,59 @@ DISCOVER
   background-color: #061944;
   color: white;
 }
+/* FOOTER SECTION*/
+#footerarea {
+  width: 108%;
+  left: -4%;
+  position: relative;
+  min-height: 40px;
+  max-height: 50px;
+  box-shadow: 0 0 8px rgba(0, 0, 19, 0.3);
+  z-index: 10;
+  background: #111827;
+  font-size: 12px;
+  color: white;
+  line-height: 10px;
+  padding-top: 7px;
+  padding-bottom: 40px;
+}
+#footerarea img {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 33px;
+  width: 33px;
+}
+#footerarea p {
+  position: absolute;
+  left: 49px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#footerarea a {
+  transition: 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+#footerarea a:hover {
+  text-decoration: underline;
+}
+
+#footerarea #socials {
+  position: absolute;
+  left: 91%;
+  width: 9%;
+  text-align: center;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+#footerarea #socials i {
+  text-decoration: none;
+}
 
 /* Mobile */
 @media screen and (max-width: 720px) {
@@ -341,5 +425,27 @@ DISCOVER
   }
   .tinder--counter {
     display: none;
+  }
+  .tags-container {
+    justify-content: center;
+  }
+  .tag {
+    width: 80px;
+    height: 80px;
+  }
+  .tag i {
+    font-size: 50px;
+  }
+  #home-container .tinder--card {
+    width: 100%;
+  }
+  #footerarea {
+    position: fixed;
+    bottom: 0;
+  }
+  #footerarea #socials {
+    width: 14%;
+    left: 76%;
+    letter-spacing: unset;
   }
 }
