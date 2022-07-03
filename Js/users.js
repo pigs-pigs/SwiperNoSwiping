@@ -68,7 +68,9 @@ if (
     console.log("Cookie Not Found!");
     return null;
   }
-
+  //
+  console.log("User page got: ", $.getCurrentUser());
+  //
   let user;
   if (getCookie("currentUser")) {
     user = JSON.parse(getCookie("currentUser"));

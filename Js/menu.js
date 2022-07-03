@@ -1,18 +1,23 @@
 //Fast Load User Info
-function getCookie(cookieName) {
-  var name = cookieName + "=";
-  var ca = document.cookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i].trim();
-    if (c.indexOf(name) == 0) {
-      return c.substr(name.length);
+$.getCurrentUser = function () {
+  function getCookie() {
+    var name = "currentUser=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name) == 0) {
+        return c.substr(name.length);
+      }
     }
   }
-  console.log("Cookie Not Found!");
-  return null;
-}
-if (getCookie("currentUser")) {
-  var userData = JSON.parse(getCookie("currentUser"));
+  if (getCookie("currentUser")) {
+    var userData = JSON.parse(getCookie("currentUser"));
+    return userData
+  } else return null;
+};
+
+if ($.getCurrentUser()) {
+  var userData = $.getCurrentUser();
   $(".profile-btn span").text(userData.username);
   $(".profile-btn img")
     .attr("src", userData.profile)
