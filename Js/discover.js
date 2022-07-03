@@ -25,7 +25,7 @@ function initCards(query) {
     if (pattern.test(ImgData)) {
       return `src="${ImgData}" `;
     } else {
-      return `style="background-color: ${ImgData};" `;
+      return `style="background-color: ${ImgData};" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif"`;
     }
   }
 

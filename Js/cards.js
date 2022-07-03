@@ -23,20 +23,15 @@ var settings = {
   }
 }
 
-
-function createImg(ImgData) {
+function createImg(ImgData,FullPage) {
   var pattern = new RegExp('^http')
   if (pattern.test(ImgData)) {
-    return `src="${ImgData}" `
+    return `src="${ImgData}" ` + FullPage && `style="height:100%;"`
   } else {
-    return `style="background-color: ${ImgData};" `
+    return `style="background-color: ${ImgData}; ${FullPage && `height:100%;`}" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif"`
   }
 }
-function isFullPage(Full) {
-  if (Full) {
-    return ` style="height:100%" `
-  }
-}
+
 
 $.ajax(settings).done(function (data) {
   if (!data || data.length == 0) {
@@ -58,7 +53,7 @@ $.ajax(settings).done(function (data) {
 
 CardsList.forEach(function (Card, Index) {
   $(".tinder--cards").append(`<div class="tinder--card">
-      <img ` + createImg(Card.Image) + isFullPage(Card.FullPage) + `>
+      <img ` + createImg(Card.Image,Card.FullPage) + `>
       <h3>`+ Card.Heading + `</h3>
       <p>`+ Card.Description + `</p>
     </div>`)
