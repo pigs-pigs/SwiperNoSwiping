@@ -56,36 +56,21 @@ if (
   window.location.pathname == "/profile" ||
   window.location.pathname == "/profile.html"
 ) {
-  function getCookie(cookieName) {
-    var name = cookieName + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i].trim();
-      if (c.indexOf(name) == 0) {
-        return c.substr(name.length);
-      }
-    }
-    console.log("Cookie Not Found!");
-    return null;
-  }
-  //
-  console.log("User page got: ", $.getCurrentUser());
-  //
-  let user;
-  if (getCookie("currentUser")) {
-    user = JSON.parse(getCookie("currentUser"));
-  } else {
+  const user = $.getCurrentUser();
+  if (!user) {
     window.location.pathname = "/home";
   }
   initCards(user.userId);
   initAccount(user);
+
+  //Userrs Page
 } else {
   var queryParams = new URLSearchParams(window.location.search);
   var uid = queryParams.get("id");
   if (!uid) {
     window.location.pathname = "/404";
   }
-  //get user
+  //get user sets
   var settings = {
     async: false,
     crossDomain: true,

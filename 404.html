@@ -1,144 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Not Found - Swiper No Swiping!</title>
-    <link rel="icon" type="image/png" href="logo.png" />
-    <link rel="manifest" href="manifest.json" />
 
-    <style>
-      html,
-      body {
-        height: 100%;
-        overflow: hidden;
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found - Swiper No Swiping!</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="manifest" href="manifest.json" />
 
-      .error-page {
-        background: white;
-        user-select: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      }
+  <style>
+    * {
+      text-decoration: none;
+    }
 
-      .error-page h1 {
-        font-size: 30vh;
-        font-weight: bold;
-        position: relative;
-        margin: -8vh 0 0;
-        padding: 0;
-      }
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
 
-      .error-page h1:after {
-        content: attr(data-h1);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        color: transparent;
-        /* webkit only for graceful degradation to IE */
-        background: -webkit-repeating-linear-gradient(
-          -45deg,
+    .error-page {
+      background: white;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .error-page h1 {
+      font-size: 35vh;
+      font-weight: bold;
+      position: relative;
+      margin: -8vh 0 0;
+      padding: 0;
+    }
+
+    .error-page h1:after {
+      content: attr(data-h1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      color: transparent;
+      /* webkit only for graceful degradation to IE */
+      background: -webkit-repeating-linear-gradient(-45deg,
           #71b7e6,
           #69a6ce,
           #b98acc,
           #ee8176,
           #b98acc,
           #69a6ce,
-          #9b59b6
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
-        animation: animateTextBackground 10s ease-in-out infinite;
+          #9b59b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+      animation: animateTextBackground 10s ease-in-out infinite;
+    }
+
+    .error-page h1+p {
+      color: #d6d6d6;
+      font-size: 8vh;
+      font-weight: bold;
+      line-height: 10vh;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .error-page h1+p:after {
+      content: attr(data-p);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      color: transparent;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+    }
+
+    @keyframes animateTextBackground {
+      0% {
+        background-position: 0 0;
       }
 
-      .error-page h1 + p {
-        color: #d6d6d6;
-        font-size: 8vh;
-        font-weight: bold;
-        line-height: 10vh;
-        max-width: 600px;
-        position: relative;
+      25% {
+        background-position: 100% 0;
       }
 
-      .error-page h1 + p:after {
-        content: attr(data-p);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        color: transparent;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
+      50% {
+        background-position: 100% 100%;
       }
 
-      @keyframes animateTextBackground {
-        0% {
-          background-position: 0 0;
-        }
-
-        25% {
-          background-position: 100% 0;
-        }
-
-        50% {
-          background-position: 100% 100%;
-        }
-
-        75% {
-          background-position: 0 100%;
-        }
-
-        100% {
-          background-position: 0 0;
-        }
+      75% {
+        background-position: 0 100%;
       }
 
-      @media (max-width: 767px) {
-        .error-page h1 {
-          font-size: 32vw;
-        }
-
-        .error-page h1 + p {
-          font-size: 8vw;
-          line-height: 10vw;
-          max-width: 70vw;
-        }
+      100% {
+        background-position: 0 0;
       }
+    }
 
-      .error-page a {
-        font-size: 5vh;
-        font-weight: bold;
-        line-height: 24px;
-        padding: 15px 50px;
-        text-decoration: none;
-        transition: 0.25s all ease-in-out;
-      }
+    #sign {
+      color: rgba(100, 100, 100, 0.6);
+      font-size: 90%;
+      font-weight: 200;
+    }
+  </style>
+</head>
 
-      .error-page a:hover {
-        cursor: pointer;
-        font-size: 6vh;
-        text-decoration: none;
-        transition: 0.25s all ease-in-out;
-      }
-    </style>
-  </head>
-
-  <body>
+<body>
+  <a href="/home">
     <div class="error-page">
       <div>
         <h1 data-h1="404">404</h1>
-        <p data-p="NOT FOUND">NOT FOUND</p>
-        <a href="index">Go Back</a>
+        <p data-p="PAGE NOT FOUND">PAGE NOT FOUND</p>
+        <p id="sign">Click anywhere to go home</p>
       </div>
     </div>
-  </body>
+  </a>
+</body>
+
 </html>
