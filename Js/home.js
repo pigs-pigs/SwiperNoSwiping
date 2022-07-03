@@ -21,7 +21,9 @@ var settings = {
 };
 $.ajax(settings).done(function (response) {
   $.each(response, function (Index, Set) {
-    $(".discover-sets").append(`<div data-set="${Set._id}" class="tinder--card discover--card">
+    $(
+      ".discover-sets"
+    ).append(`<div data-set="${Set._id}" class="tinder--card discover--card">
         <img ${createImg(Set.Cover)}>
       <h3>${Set.Title}</h3>
         <p>${Set.Description}</p>
@@ -51,16 +53,21 @@ const Tags = {
 // Default Tag setup
 $.each(Tags, function (Name, Data) {
   $(".tags-container").append(`
-     <div class="tag" style="background:${Data.Color};">
+     <div class="tag" data-tagcolor="${Data.Color}" data-tagname="${Name}" style="background:${Data.Color};">
         <i class="fa fa-${Data.Icon}"></i>
         <p>${Name}</p>
       </div>
     `);
 });
 
-$(".tags-container").append(`
-     <div class="tag add-tag">
-        <i class="fa fa-plus"></i>
-        <p>Add Tags</p>
-      </div>
-    `);
+$(".tags-container").click(".tag:not(.add-tag)", function () {
+  $(".tags-container .tag:not(.add-tag)").css({"background": "gray","transform":"none"});
+  $(this).css({"background": $(this).data("tagcolor"),"transform":"scale(1.15)"});
+});
+//what abt a remove tag filter button? maybe a little x next to the Tags text or the tiny icon if i add that next to sets title
+
+$(`<div class="tag add-tag"><i class="fa fa-plus"></i><p>Add Tags</p></div>`)
+  .appendTo(".tags-container")
+  .click(function () {
+    //do add stuff here
+  });
