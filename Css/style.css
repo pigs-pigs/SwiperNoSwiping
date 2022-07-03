@@ -121,10 +121,10 @@ body {
   font-weight: 300;
   pointer-events: none;
 }
-.tinder--card:hover {
-  transform: scale(1.08);
+.home-container .tinder--card:hover,
+.search-results .tinder--card:hover {
+  transform: scale(1.06);
 }
-
 
 .tinder--buttons {
   z-index: 50;

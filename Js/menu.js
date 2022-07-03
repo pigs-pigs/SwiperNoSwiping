@@ -1,9 +1,22 @@
 //Fast Load User Info
-function getCookie(cookieName) { var name = cookieName + "="; var ca = document.cookie.split(";"); for (var i = 0; i < ca.length; i++) { var c = ca[i].trim(); if (c.indexOf(name) == 0) { return c.substr(name.length);}} console.log("Cookie Not Found!");return null; }
+function getCookie(cookieName) {
+  var name = cookieName + "=";
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i].trim();
+    if (c.indexOf(name) == 0) {
+      return c.substr(name.length);
+    }
+  }
+  console.log("Cookie Not Found!");
+  return null;
+}
 if (getCookie("currentUser")) {
-  var userData = JSON.parse(getCookie("currentUser"))
+  var userData = JSON.parse(getCookie("currentUser"));
   $(".profile-btn span").text(userData.username);
-  $(".profile-btn img").attr("src", userData.profile).css("background",userData.color)
+  $(".profile-btn img")
+    .attr("src", userData.profile)
+    .css("background", userData.color);
 }
 //Searching
 $(".search-input").keydown(function (e) {
@@ -46,7 +59,7 @@ $(".notification-btn").click(function () {
 
 function buildNotif() {
   `<div class="message-box">
-      <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile image">
+      <img src="" alt="profile image">
       <div class="message-content">
         <div class="message-header">
           <div class="name">Swiper</div>
@@ -61,10 +74,6 @@ function buildNotif() {
       </div>
     </div>`;
 }
-
-$(".add-btn").click(function () {
-  window.location.href = "https://swipernoswiping.netlify.app/create";
-});
 
 setInterval(() => {
   $(".main-loading-overlay").css("opacity", "0");
