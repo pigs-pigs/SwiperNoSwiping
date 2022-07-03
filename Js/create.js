@@ -1,3 +1,134 @@
+//Navigate
+var page = 1;
+
+$("#back-btn").click(function () {
+  if (page == 2) {
+    page--;
+    $(".page-2").fadeOut("fast", function () {
+      $("#next-btn").html(
+        `Next <i style="padding-left: 5%;" class=" fa fa-arrow-right"></i>`
+      );
+      $(".page-1").fadeIn();
+    });
+    $("#back-btn").fadeOut();
+  }
+});
+
+$("#next-btn").click(function () {
+  console.log(page);
+  if (page == 1 && !checkCardEmpty($("#set-info .tinder--card"))) {
+    page++;
+    $(".page-1").fadeOut("normal", function () {
+      $(".page-2").fadeIn();
+    });
+    $("#back-btn").fadeIn();
+    $(this).html(
+      `Submit <i style="padding-left: 5%;" class=" fa fa-check"></i>`
+    );
+  } else if (page == 2) {
+    var somethingEmpty = false;
+    $("#create-container")
+      .children()
+      .each(function () {
+        var card = $(this);
+        if (card.hasClass("tinder--card")) {
+          var cardEmpty = checkCardEmpty(card);
+          somethingEmpty = somethingEmpty || cardEmpty;
+        }
+      });
+    if (somethingEmpty) {
+      return;
+    }
+    //Final chance alert then submit
+    var setLink = prepareSubmit();
+    page++;
+    $(this).html("Test It");
+    $(".page-2").fadeOut("normal", function () {
+      $(".page-3").fadeIn();
+    });
+  } else if (page == 3) {
+    window.location.href = setLink;
+  }
+});
+
+//Tags
+const Tags = {
+  //make sure to remove trending, hot and new on request!!
+  Celebs: { Color: "goldenrod", Icon: "clapperboard" },
+  Food: { Color: "#732410", Icon: "utensils" },
+  Colors: { Color: "#1C97DA", Icon: "palette" },
+  Men: { Color: "#0B14C9", Icon: "person" },
+  Women: { Color: "#770AC9", Icon: "person-dress" },
+  Songs: { Color: "#D5157B", Icon: "music" },
+};
+
+const ul = $(".tags-content ul");
+const input = $(".tags-content input");
+let maxTags = 5;
+let tags = [];
+
+function countTags() {
+  $("#tags-left").text(maxTags - tags.length);
+}
+
+function createTag() {
+  ul.find("li").remove();
+  tags
+    .slice()
+    .reverse()
+    .forEach((tag) => {
+      ul.prepend(
+        `<li>${tag} <i class="fa fa-remove" onclick="remove(this, '${tag}')"></i></li>`
+      );
+    });
+  countTags();
+}
+
+function remove(element, tag) {
+  tags.splice(tags.indexOf(tag), 1);
+  $(element).parent().remove();
+  countTags();
+}
+
+let trigEvent = $.Event("keyup");
+trigEvent.keyCode = "13";
+$("#autocomplete").click(".complete-item", function (e) {
+  input.val($(e.target).text());
+
+  input.trigger(trigEvent);
+});
+
+input.keyup(function (e) {
+  if (e.keyCode == 13 || e.keyCode == 32) {
+    let tag = e.target.value.replace(/\s+/g, "");
+    if (tag.length > 2 && !tags.includes(tag)) {
+      if (tags.length < maxTags) {
+        tags.push(tag.toLowerCase());
+        $("#autocomplete").children().remove();
+        createTag();
+      }
+    }
+    e.target.value = "";
+  } else {
+    $("#autocomplete").children().remove();
+    if (input.val().length < 1) {
+      return;
+    }
+    $.each(Tags, function (Key, Data) {
+      if (
+        Key.toLowerCase().includes(input.val().toLowerCase()) &&
+        tags.indexOf(Key.toLowerCase()) == -1
+      ) {
+        $("#autocomplete").append(
+          ` <div class="complete-item"><i style="background:${Data.Color};" class="fa fa-${Data.Icon}"></i><p>${Key}</p></div>`
+        );
+      }
+    });
+  }
+});
+
+// Creation
+
 function sendSetData(data) {
   var settings = {
     async: false,
@@ -152,78 +283,9 @@ $(document).on("click", ".extend-img", function () {
   }
 });
 
-// Description Input
-function limitTextareaLine(e) {
-  const newLine = /\r*\n/g;
-  const value = e.target.value;
-  const newLines = (value.match(newLine) || []).length;
-
-  const lines = value.split(newLine);
-
-  //enter
-  if (e.keyCode === 13 && lines.length >= e.target.rows) {
-    e.preventDefault();
-    return;
-  }
-
-  const lineNo =
-    value.substr(0, e.target.selectionStart).split(newLine).length - 1;
-
-  //backspace
-  if (
-    e.keyCode === 8 &&
-    ~value.charAt(e.target.selectionStart - 1).search(newLine)
-  ) {
-    if (lines[lineNo].length + lines[lineNo - 1].length <= e.target.cols)
-      return;
-
-    e.preventDefault();
-    return;
-  }
-
-  //del
-  if (
-    e.keyCode === 46 &&
-    ~value.charAt(e.target.selectionStart).search(newLine)
-  ) {
-    if (lines[lineNo].length + lines[lineNo + 1].length <= e.target.cols)
-      return;
-
-    e.preventDefault();
-    return;
-  }
-
-  if (e.key.length > 1) return;
-
-  if (value.length < e.target.cols) return;
-
-  if (lines[lineNo].length > e.target.cols - 1) {
-    if (lines.length < e.target.rows) {
-      const col = (e.target.selectionStart - newLines) / lines.length;
-      let p1 = value.substr(0, e.target.selectionStart);
-      if (col === e.target.cols) {
-        p1 += "\r\n" + String.fromCharCode(e.keyCode);
-      } else {
-        p1 += String.fromCharCode(e.keyCode) + "\r\n";
-      }
-
-      e.target.value = p1 + value.substr(e.target.selectionStart, value.length);
-      e.target.selectionStart = p1.length - 1;
-      e.target.selectionEnd = p1.length - 1;
-    }
-
-    e.preventDefault();
-    return;
-  }
-}
-document
-  .querySelector("textarea")
-  .addEventListener("keydown", limitTextareaLine);
-
 // Adding Cards
-
 const newCard = `<div class="tinder--card">
-    <i style=" right: 1%;" class="image-icons delete-card fa fa-close"></i>
+    <i style="padding:4px; right: 1%;" class="image-icons delete-card fa fa-close"></i>
       <img>
       <p class="imagebuttons">
         <i style="left: 30%; transform: translateX(-50%);" class="image-icons uploader-open fa fa-upload"></i>
@@ -236,6 +298,23 @@ const newCard = `<div class="tinder--card">
     </div>`;
 
 $("#add-card").click(function () {
+  if ($(this).hasClass("add-card-disabled")) {
+    if ($("#create-container").children().length >= 50) {
+      return;
+    } else {
+      $("#add-card")
+        .css({ "border-color": "#fff", color: "#fff" })
+        .html(`<i style="padding-right: 2%;" class=" fa fa-plus"></i> Add Card`)
+        .removeClass("add-card-disabled");
+    }
+  }
+  if ($("#create-container").children().length >= 50) {
+    $("#add-card")
+      .css({ "border-color": "#ff5050", color: "#ff5050" })
+      .text("Max Cards")
+      .addClass("add-card-disabled");
+    return;
+  }
   $("#create-container").append(newCard);
   $("#create-container").animate(
     { scrollTop: $("#create-container").get(0).scrollHeight },
@@ -244,7 +323,13 @@ $("#add-card").click(function () {
 });
 
 $(document).on("click", ".delete-card", function () {
-  $(this).parent().remove();
+  $(this)
+    .parent()
+    .css("transition", "unset")
+    .animate({ opacity: "0" }, "slow", function () {
+      console.log("HI");
+      $(this).remove();
+    });
 });
 
 function imageOrColor(el) {
@@ -256,11 +341,7 @@ function imageOrColor(el) {
 }
 
 function checkCardEmpty(card) {
-  console.log(card, imageOrColor(card.find("img")));
   var somethingEmpty = false;
-  console.log(
-    !card.find(".h3-input").val() && !card.find("img").hasClass("full-image")
-  );
   if (
     !card.find(".h3-input").val() &&
     !card.find("img").hasClass("full-image")
@@ -281,26 +362,11 @@ function checkCardEmpty(card) {
 }
 
 // Submitting
-$("#submit-btn").click(function () {
-  var somethingEmpty = false;
-  var setInfo = $("#set-info .tinder--card");
-  var cardSet = $("#create-container");
-
-  var setEmpty = checkCardEmpty(setInfo);
-  somethingEmpty = somethingEmpty || setEmpty;
-
-  cardSet.children().each(function () {
-    var card = $(this);
-    if (card.hasClass("tinder--card")) {
-      var cardEmpty = checkCardEmpty(card);
-      somethingEmpty = somethingEmpty || cardEmpty;
-    }
-  });
-
-  // If continue
-  if (!somethingEmpty) {
-    var cardsData = [];
-    cardSet.children().each(function () {
+function prepareSubmit() {
+  var cardsData = [];
+  $("#create-container")
+    .children()
+    .each(function () {
       var card = $(this);
       if (card.hasClass("tinder--card")) {
         cardsData.push({
@@ -311,27 +377,60 @@ $("#submit-btn").click(function () {
         });
       }
     });
+  const setInfo = $("#set-info");
+  var data = {
+    Title: setInfo.find(".h3-input").val(),
+    Description: setInfo.find(".p-input").val() || " ",
+    Tags: JSON.stringify(tags),
+    CreatorId: "fixme",
+    Cover: imageOrColor(setInfo.find("img")),
+    Cards: JSON.stringify(cardsData),
+  };
+  //SEND INFO
+  var setId = sendSetData(data);
+  // Show Completed Page
+  $("#submitted-popup h2").text("Set Created!");
 
-    var data = {
-      Title: setInfo.find(".h3-input").val(),
-      Description: setInfo.find(".p-input").val() || " ",
-      CreatorId: auth0,
-      Cover: imageOrColor(setInfo.find("img")),
-      Cards: JSON.stringify(cardsData),
-    };
-    //SEND INFO
-    var setId = sendSetData(data);
-    // Show Completed Page
-    $(".submitted-overlay").addClass("active");
-    var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
-    $("#link a").attr("href", linkToSet).text(linkToSet);
-    $("#link i").click(function () {
-      navigator.clipboard.writeText(linkToSet).then(function () {
-        $("#submitted-popup p").css("opacity", "1");
-      });
-    });
+  if (setInfo.find("img").attr("src")) {
+    $("#submitted-popup img").attr("src", setInfo.find("img").attr("src"));
+  } else if (
+    setInfo.find("img").css("background-color") != "rgb(128, 128, 128)"
+  ) {
+    $("#submitted-popup img").css(
+      "background-color",
+      setInfo.find("img").css("background-color")
+    );
   }
-});
+
+  var linkToSet = "https://swipernoswiping.netlify.app/swipe?set=" + setId;
+  $("#link a").attr("href", linkToSet).text(linkToSet);
+  $("#link i").click(function () {
+    navigator.clipboard.writeText(linkToSet).then(function () {
+      $("#submitted-popup #copied-text").css("opacity", "1");
+    });
+  });
+
+  //Share Options
+  $("#share-options .fa-twitter")
+    .parent()
+    .attr("href", "https://twitter.com/intent/tweet?url=" + linkToSet);
+  $("#share-options .fa-facebook-f")
+    .parent()
+    .attr("href", "https://www.facebook.com/sharer.php?u=" + linkToSet);
+  $("#share-options .fa-envelope")
+    .parent()
+    .attr("href", "mailto:?subject=" + data.Title + "&body=" + linkToSet);
+  $("#share-options .fa-reddit-alien")
+    .parent()
+    .attr("href", "https://reddit.com/submit?url=" + linkToSet);
+  $("#share-options .fa-pinterest-p")
+    .parent()
+    .attr(
+      "href",
+      "https://www.pinterest.com/pin/create/button?url=" + linkToSet
+    );
+  return linkToSet;
+}
 
 // Color picker
 const colorpicker = $("#colorpicker");
@@ -380,31 +479,3 @@ $(document).on("click", function (e) {
     colorpicker.removeClass("picker-open");
   }
 });
-
-//FIXME:
-//1 when color replaces image the "invalid source" icon pops up
-//2 Cover can be tall
-//DONE 3 tall sizing may need to be 3:4 instead idk
-//DONE 4 Color picker overflow should be scroll
-//5 Mobile opt SUCKS
-//6 Auto pick crop mode based on image sizing if possible
-//7 Maybe drag and drop onto the card to upload too?
-//8 Pasting Images
-//9 Revamp the submitted popup with blue bg, semi-transparent & More options
-
-/* Image Search Stuff
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://bing-image-search1.p.rapidapi.com/images/search?q=men&count=25",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
-		"X-RapidAPI-Key": "7e7cf41139msh4b82cc4bff6d616p18ba28jsn3bd9ff7a8a62"
-	}
-};
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
-*/

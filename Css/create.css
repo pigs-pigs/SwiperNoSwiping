@@ -16,6 +16,7 @@ body {
   display: flex;
   background: #111827;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -23,6 +24,8 @@ h1 {
   color: white;
   position: fixed;
   top: 9%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /*Cards*/
@@ -30,15 +33,15 @@ h1 {
 .tinder--card {
   display: inline-block;
   width: 100%;
-  height: 64vh;
-  max-width: 30vw;
-  min-width: 20vh;
+  height: 65vh;
+  max-width: 31vw;
+  min-width: 23vh;
   min-height: 60vh;
   background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
   will-change: transform;
-  transition: all 0.3s ease-in-out;
+  transition: 0.3s;
   user-select: none;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -51,6 +54,7 @@ h1 {
   width: 100%;
   height: 50%;
   max-width: 100%;
+  border-radius: 8px 8px 0px 0px;
 }
 
 .tinder--card img:hover {
@@ -80,6 +84,7 @@ h1 {
 .tinder--card .h3-input {
   outline: none;
   border: none;
+  border-radius: 5px;
   text-align: center;
   margin-top: 32px;
   font-size: 32px;
@@ -94,10 +99,11 @@ h1 {
   resize: none;
   font-family: sans-serif;
   border: none;
+  border-radius: 5px;
   outline: none;
   text-align: center;
-  height: 40%;
   width: 70%;
+  font-size: 100%;
   margin-top: 24px;
 }
 
@@ -112,8 +118,8 @@ h1 {
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
-  right: 20%;
-  transform: translateX(50%);
+  left: 50%;
+  transform: translateX(-50%);
 
   height: 77%;
   width: 40%;
@@ -146,13 +152,12 @@ h1 {
 
 #add-card {
   position: absolute;
-  right: 20%;
-  transform: translateX(50%);
+  left: 50%;
+  transform: translateX(-50%);
   top: 92%;
-
+  padding-top: 7px;
   font-size: 20px;
   opacity: 0.8;
-  display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -173,33 +178,54 @@ h1 {
   color: #666;
   background: #fff;
 }
+#add-card.add-card-disabled:hover {
+  opacity: 1;
+  color: #fff !important;
+  background: #ff5050;
+}
 
-#submit-btn {
-  position: absolute;
-  left: 20%;
-  transform: translateX(-50%);
-  top: 92%;
+#next-btn,
+#back-btn {
+  position: fixed;
+  top: 10%;
   font-size: 20px;
   opacity: 0.8;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 25vw;
-  min-width: 20vh;
-  height: 5%;
-  border-radius: 12px;
+  width: 18%;
+  max-width: 180px;
+  min-width: 90px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  border-radius: 20px;
   transition: 0.2s;
   user-select: none;
   cursor: pointer;
-  border: 2px solid #06c258;
-  color: #06c258;
 }
 
-#submit-btn:hover {
+#back-btn {
+  left: 2%;
+  border: 2px solid #d6da31;
+  color: #d6da31;
+}
+
+#next-btn {
+  right: 2%;
+  color: #06c258;
+  border: 2px solid #06c258;
+}
+
+#next-btn:hover {
   opacity: 1;
+  color: #fff;
   background: #06c258;
+}
+#back-btn:hover {
+  opacity: 1;
+  background: #d6da31;
   color: #fff;
 }
 
@@ -211,8 +237,105 @@ h1 {
   width: 40%;
   height: 60%;
   top: 15%;
-  left: 20%;
+  left: 50%;
   transform: translateX(-50%);
+}
+#set-info .tinder--card {
+  overflow: unset;
+  height: 70vh;
+}
+/*Tags Selector*/
+
+.tags-content {
+  width: 90%;
+  margin-top: 6px;
+  border-radius: 5px;
+  position: absolute;
+  left: 5%;
+}
+.tags-content ul {
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3px;
+  margin: 12px 0;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+}
+.tags-content ul li {
+  color: #333;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: #f2f2f2;
+  padding: 5px 8px 5px 10px;
+  border: 1px solid #e3e1e1;
+}
+.tags-content p {
+  font-weight: 300;
+  color: #757575;
+}
+.tags-content ul li i {
+  text-align: center;
+  height: 20px;
+  width: 20px;
+  color: #808080;
+  margin-left: 8px;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #dfdfdf;
+  justify-content: center;
+}
+.tags-content ul input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+#autocomplete {
+  position: relative;
+  top: -13px;
+  display: flex;
+  left: 0px;
+  width: 100%;
+  height: 225px;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.complete-item {
+  user-select: none;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  padding: 5px 3%;
+  width: 100%;
+  height: 45px;
+  padding: 6px;
+  border: 1px solid rgba(100, 100, 100, 0.5);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.complete-item:hover {
+  background: #ececec;
+}
+.complete-item i {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  background: red;
+  border-radius: 100px;
+  padding: 7px;
+  width: 35px;
+  height: 35px;
+}
+
+.complete-item p {
+  margin-left: 3%;
+  font-size: 22px;
 }
 
 /* Color Picker*/
@@ -266,94 +389,111 @@ h1 {
   transition: all 0.5s ease;
 }
 
-/*Submitted Popup*/
-.submitted-overlay {
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background: #111827;
-  z-index: 500;
-}
-
-.submitted-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
 #submitted-popup {
   transition: 0.3s;
   height: 50%;
-  width: 50%;
+  width: 40%;
   background-color: rgb(255, 255, 255);
-  box-shadow: 3px 3px 30px gray;
-  border-radius: 5px;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
   align-items: center;
   justify-content: center;
-  padding: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+#submitted-popup img {
+  width: 100%;
+  height: 35%;
+  background: hsl(0, 0%, 50%);
+  max-width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
 #submitted-popup h2 {
   user-select: none;
   font-size: 30px;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 7px;
+  position: relative;
+  text-align: center;
 }
 
 #submitted-popup #link {
-  border: 2px solid gray;
-  border-radius: 6px;
-  padding: 5px;
+  border: 1px solid gray;
+  margin-top: 18px;
+  border-radius: 5px;
+  padding: 10px;
   height: 10%;
-  width: 45%;
-  position: absolute;
-  top: 40%;
+  width: 80%;
+  position: relative;
   left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  transform: translateX(-50%);
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-}
-
-#link a {
-  vertical-align: middle;
-  color: blue;
-  text-decoration: none;
 }
 
 #link .fa-copy {
   cursor: pointer;
   color: gray;
   position: sticky;
-  right: -3%;
-  vertical-align: middle;
+  right: -10px;
   background: white;
-  padding: 2%;
+  padding: 5px;
 }
 
-#submitted-popup p {
+#submitted-popup #copied-text {
   transition: 0.3s;
   opacity: 0;
-  color: limegreen;
-  text-shadow: 1px 1px 8px #d2f8d2;
+  color: #0dcf0d;
   position: relative;
-  top: 50%;
+  margin-top: 7px;
   text-align: center;
+}
+
+#submitted-popup #share-options {
+  margin-top: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7%;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#submitted-popup #share-options i {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 26px;
+  padding: 6px;
+  color: white;
+  background: black;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#submitted-popup #share-options i:hover {
+  filter: brightness(0.92);
+}
+.page-2,
+.page-3 {
+  display: none;
 }
 
 /* Mobile TODO:*/
 @media screen and (max-width: 720px) {
-  h1 {
-    left: 50%;
+  #set-info,
+  #create-container {
+    width: 100%;
+  }
+  .tinder--card {
+    max-width: 80vw;
+  }
+  #submitted-popup {
+    width: 90%;
   }
 }

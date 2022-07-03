@@ -45,57 +45,94 @@
   <div id="user-options" style="display:none;"></div>
   <!--End Of Menu-->
 
-  <h1 style="left: 20%;   transform: translateX(-50%);
-">Set Info</h1>
-  <h1 style="right: 20%;   transform: translateX(50%);
-">Cards</h1>
-
-  <div id="create-container">
-    <div class="tinder--card">
-      <img>
-      <p class="imagebuttons">
-        <i style="left: 30%;" class="image-icons uploader-open fa fa-upload"></i>
-        <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
-        <i style="top: 280%; left: 50%; transform: translateX(-50%);"
-          class="image-icons extend-img fa fa-angle-double-down"></i>
-      <p>
-        <input maxlength=24 class="h3-input" type="text" placeholder="Title"></input>
-        <textarea class="p-input" type="text" placeholder="Card Description" rows=4 cols="30"></textarea>
-        </img>
+<!-- insert under menu  only-->
+<div class="app-header">
+  <div class="app-header-left">
+    <img class="app-icon" src="logo.png"></img>
+    <p class="app-name">Home</p>
+    <div class="search-wrapper">
+      <input class="search-input" type="text" placeholder="Search">
+      <i class="fa fa-search"></i>
     </div>
   </div>
-  <div id="add-card"> <i style="padding-right: 2%;" class=" fa fa-plus"></i> Add Card</div>
-
-  <!--Set Info Part-->
-  <div id="set-info">
-    <div class="tinder--card">
-      <img>
-      <p class="imagebuttons">
-        <i style="left: 30%; transform: translateX(-50%);" class="image-icons uploader-open fa fa-upload"></i>
-        <i style="left: 70%; transform: translateX(-50%);" class="image-icons fa fa-paint-brush"></i>
-      <p>
-        <input maxlength=24 class="h3-input" type="text" placeholder="Set Title"></input>
-        <textarea class="p-input" type="text" placeholder="Set Description" rows=4 cols="30"></textarea>
-        </img>
-    </div>
+  <div class="app-header-right">
+    <button class="add-btn" title="Create Set">
+      <i class="fa fa-plus"></i>
+    </button>
+    <button class="notification-btn">
+      <i class="fa fa-bell"></i>
+    </button>
+    <button class="profile-btn">
+      <img src="PlaceholderPFP.png" />
+      <span>Login</span>
+    </button>
   </div>
-  <div id="submit-btn"> <i style="padding-right: 2%;" class=" fa fa-check"></i> Submit Set</div>
+</div>
+<div id="notifs-container" style="display:none;"></div>
+<div id="user-options" style="display:none;"></div>
 
-  <!--Color Picker-->
-  <div id="colorpicker"></div>
-  <!--Complete Popup-->
-  <div class="submitted-overlay">
-    <div id="submitted-popup">
-      <h2>Set Created!</h2>
-      <div id="link">
-        <a
-          href="#">Oops! Something went wrong!</a>
-        <i class="fa fa-copy" id="copy-link"></i>
+<!--End Of Menu-->
+<div id="next-btn">Next <i style="padding-left: 5%;" class=" fa fa-arrow-right"></i></div>
+<div id="back-btn" style="display: none;"> <i style="padding-right: 5%;" class=" fa fa-arrow-left"></i>Back</div>
+
+<h1 class="page-2">Cards</h1>
+
+<div class="page-2" id="create-container">
+  <div class="tinder--card">
+    <img>
+    <p class="imagebuttons">
+      <i style="left: 30%;" class="image-icons uploader-open fa fa-upload"></i>
+      <i style="left: 60%;" class="image-icons fa fa-paint-brush"></i>
+      <i style="top: 280%; left: 50%; transform: translateX(-50%);" class="image-icons extend-img fa fa-angle-double-down"></i>
+    </p>
+    <input maxlength="22" class="h3-input" type="text" placeholder="Title"></input>
+    <textarea class="p-input" type="text" placeholder="Card Description" rows="3" cols="30" maxlength="100"></textarea>
+  </div>
+</div>
+<div class="page-2" id="add-card"> <i style="padding-right: 2%;" class=" fa fa-plus"></i> Add Card</div>
+
+<!--Set Info Part-->
+<h1 class="page-1">Set Info</h1>
+<div class="page-1" id="set-info">
+  <div class="tinder--card">
+    <img>
+    <p class="imagebuttons">
+      <i style="left: 30%; transform: translateX(-50%);" class="image-icons uploader-open fa fa-upload"></i>
+      <i style="left: 70%; transform: translateX(-50%);" class="image-icons fa fa-paint-brush"></i>
+    </p>
+    <input maxlength="24" class="h3-input" type="text" placeholder="Set Title"></input>
+    <textarea class="p-input" type="text" placeholder="Set Description" rows="3" cols="30" maxlength="100"></textarea>
+    <div class="tags-content">
+      <p>Press enter or space after each tag (<span id="tags-left">5</span>)</p>
+      <ul><input type="text" spellcheck="false"></ul>
+      <div id="autocomplete">
 
       </div>
-      <p>Coppied To Clipboard!</p>
     </div>
+    </img>
   </div>
+</div>
+
+<!--Color Picker-->
+<div id="colorpicker"></div>
+<!--Page 3 Popup-->
+<div id="submitted-popup" class="page-3">
+  <img>
+  <h2>Submitting...</h2>
+  <div id="link">
+    <a href="#">https://swipernoswiping.netlify.app/swipe?set=ERROR</a>
+    <i class="fa fa-copy" id="copy-link"></i>
+
+  </div>
+  <p id="copied-text">Coppied To Clipboard!</p>
+  <div id="share-options">
+    <a href="" target="_blank"><i class="fa-brands fa-twitter" style="background: #00acee;"></i></a>
+    <a href="" target="_blank"><i class="fa-brands fa-facebook-f" style="background: #3c5898;"></i></a>
+    <a href="" target="_blank"><i class="fa fa-envelope" style="background: gray;"></i></a>
+    <a href="" target="_blank"><i class="fa-brands fa-reddit-alien" style="background: #FF5700;"></i></a>
+    <a href="" target="_blank"><i class="fa-brands fa-pinterest-p" style="background: #E60023;"></i></a>
+  </div>
+</div>
   <noscript>Your browser does not support JavaScript! Please enable it to use this application!</noscript>
 
 </body>
