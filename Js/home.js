@@ -60,7 +60,7 @@ $.each(Tags, function (Name, Data) {
     `);
 });
 
-$(".tags-container").click(".tag:not(.add-tag)", function () {
+$(".tags-container").on("click",".tag:not(.add-tag)", function () {
   $(".tags-container .tag:not(.add-tag)").css({"background": "gray","transform":"none"});
   $(this).css({"background": $(this).data("tagcolor"),"transform":"scale(1.15)"});
 });
