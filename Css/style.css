@@ -121,7 +121,7 @@ body {
   font-weight: 300;
   pointer-events: none;
 }
-.home-container .tinder--card:hover,
+#home-container .tinder--card:hover,
 .search-results .tinder--card:hover {
   transform: scale(1.06);
 }

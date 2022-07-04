@@ -51,6 +51,10 @@ $("#next-btn").click(function () {
   }
 });
 
+window.onbeforeunload = function() {
+  return "Your set will not be saved."
+}
+
 //Tags
 const Tags = {
   //make sure to remove trending, hot and new on request!!
@@ -388,9 +392,13 @@ function prepareSubmit() {
   };
   //SEND INFO
   var setId = sendSetData(data);
+  if(!setId){
+    alert("Something went wrong submitting the set.")
+    return
+  }
   // Show Completed Page
   $("#submitted-popup h2").text("Set Created!");
-
+  window.onbeforeunload = null
   if (setInfo.find("img").attr("src")) {
     $("#submitted-popup img").attr("src", setInfo.find("img").attr("src"));
   } else if (

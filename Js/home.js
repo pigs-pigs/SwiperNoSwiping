@@ -65,7 +65,7 @@ $(".tags-container").on("click",".tag:not(.add-tag)", function () {
   $(this).css({"background": $(this).data("tagcolor"),"transform":"scale(1.15)"});
 });
 //what abt a remove tag filter button? maybe a little x next to the Tags text or the tiny icon if i add that next to sets title
-
+//gotta cache home cards btw way too much activity
 $(`<div class="tag add-tag"><i class="fa fa-plus"></i><p>Add Tags</p></div>`)
   .appendTo(".tags-container")
   .click(function () {
